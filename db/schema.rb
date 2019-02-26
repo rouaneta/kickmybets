@@ -18,8 +18,6 @@ ActiveRecord::Schema.define(version: 2019_02_25_161432) do
   create_table "bets", force: :cascade do |t|
     t.string "resource_type"
     t.bigint "resource_id"
-    t.datetime "start_time"
-    t.datetime "end_time"
     t.integer "amount"
     t.integer "choice"
     t.float "odds"
@@ -34,15 +32,15 @@ ActiveRecord::Schema.define(version: 2019_02_25_161432) do
   create_table "contests", force: :cascade do |t|
     t.string "title"
     t.text "description"
-    t.string "status"
-    t.bigint "user_id"
+    t.string "status", default: "opened"
+    t.integer "creator_id"
     t.integer "coins_init"
-    t.string "type"
+    t.string "category"
     t.integer "players_nb"
     t.string "code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_contests_on_user_id"
+    t.index ["creator_id"], name: "index_contests_on_creator_id"
   end
 
   create_table "events", force: :cascade do |t|
@@ -53,6 +51,9 @@ ActiveRecord::Schema.define(version: 2019_02_25_161432) do
     t.string "choice_two"
     t.integer "choice_win"
     t.bigint "contest_id"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.string "status", default: "coming"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["contest_id"], name: "index_events_on_contest_id"
@@ -65,7 +66,10 @@ ActiveRecord::Schema.define(version: 2019_02_25_161432) do
     t.integer "score_p_one"
     t.integer "score_p_two"
     t.integer "winner"
-    t.integer "phase"
+    t.integer "phase", default: 1
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.string "status", default: "coming"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["player_one_id"], name: "index_games_on_player_one_id"
@@ -85,7 +89,7 @@ ActiveRecord::Schema.define(version: 2019_02_25_161432) do
   create_table "players", force: :cascade do |t|
     t.bigint "contest_id"
     t.string "name"
-    t.string "status"
+    t.string "status", default: "phase_1"
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -109,7 +113,7 @@ ActiveRecord::Schema.define(version: 2019_02_25_161432) do
   end
 
   add_foreign_key "bets", "participations"
-  add_foreign_key "contests", "users"
+  add_foreign_key "contests", "users", column: "creator_id"
   add_foreign_key "events", "contests"
   add_foreign_key "events", "users"
   add_foreign_key "games", "players", column: "player_one_id"

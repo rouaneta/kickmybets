@@ -6,7 +6,10 @@ class CreateGames < ActiveRecord::Migration[5.2]
       t.integer :score_p_one
       t.integer :score_p_two
       t.integer :winner
-      t.integer :phase
+      t.integer :phase, default: 1
+      t.timestamp :start_time
+      t.timestamp :end_time
+      t.string :status, default: "coming"
 
       t.timestamps
     end
