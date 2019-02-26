@@ -9,5 +9,5 @@ class User < ApplicationRecord
   has_many :bets, through: :participations
 
   validates :nickname, uniqueness: true, presence: true
-  
+
 end
