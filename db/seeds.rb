@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.destroy_all
+put "Users destroy"
 
 puts "Creating Users"
 users_attributes = []

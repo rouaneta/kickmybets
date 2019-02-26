@@ -1,5 +1,20 @@
 <h1>Contests#new</h1>
-<p>Find me in app/views/contests/new.html.erb</p>
 <%= link_to "back to dashboard", dashboard_path %>
-<%= simple_form_for @contest do%>
-<% end %>
+
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+  generate code !
+</button>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">invitation code</h4>
+      </div>
+      <div class="modal-body">
+        <label for="truc"><%= @contest.code %></label>
+      </div>
+    </div>
+  </div>
+</div>
