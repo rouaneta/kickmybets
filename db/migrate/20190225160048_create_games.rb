@@ -5,7 +5,7 @@ class CreateGames < ActiveRecord::Migration[5.2]
       t.references :player_two, foreign_key: {to_table: :players}
       t.integer :score_p_one
       t.integer :score_p_two
-      t.integer :winner
+      t.integer :choice_win
       t.integer :phase, default: 1
       t.timestamp :start_time
       t.timestamp :end_time

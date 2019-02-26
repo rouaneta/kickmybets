@@ -65,7 +65,7 @@ ActiveRecord::Schema.define(version: 2019_02_25_161432) do
     t.bigint "player_two_id"
     t.integer "score_p_one"
     t.integer "score_p_two"
-    t.integer "winner"
+    t.integer "choice_win"
     t.integer "phase", default: 1
     t.datetime "start_time"
     t.datetime "end_time"
