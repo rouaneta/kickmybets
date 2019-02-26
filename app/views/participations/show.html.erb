@@ -1,2 +1,52 @@
 <h1>Participations#show</h1>
 <p>Find me in app/views/participations/show.html.erb</p>
+
+
+<h1> <%= @participation.contest.title %> </h1>
+<h1> <%= @participation.user.nickname %> </h1>
+
+<% @events.order(start_time: :desc).each do |event| %>
+<div class=container>
+  <%= event.title %>
+  <%= event.description %>
+
+  <%= event.choice_one %>
+  <%= event.choice_two %>
+  <%= event.choice_win %>
+  <%= event.end_time %>
+  <%= Time.now %>
+  <%= simple_form_for [ @participation, event ] do |f| %>
+    <%= f.input :choice_win,
+                required: true,
+                autofocus: true,
+                as: :radio_buttons,
+                collection: [1, 2] %>
+    <%= f.button :submit, "Choose the winner" %>
+    <% end %>
+</div>
+<% end %>
+
+<div class="form-inputs">
+  <%= simple_form_for [ @participation, @event ] do |f| %>
+    <%= f.input :title,
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "title" }%>
+    <%= f.input :description,
+                required: true,
+                input_html: { autocomplete: "description" } %>
+    <%= f.input :choice_one,
+                required: true,
+                input_html: { autocomplete: "choice one" } %>
+    <%= f.input :choice_two,
+                required: true,
+                input_html: { autocomplete: "choice two" } %>
+    <%= f.input :start_time,
+                required: true %>
+    <%= f.input :end_time,
+                required: true %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Create event" %>
+  <% end %>

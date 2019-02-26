@@ -10,7 +10,7 @@ class Contest < ApplicationRecord
   has_many :bets_on_games_as_p_one, through: :games_as_p_one, source: :bets
   has_many :bets_on_games_as_p_two, through: :games_as_p_one, source: :bets
   has_many :bets, through: :participations
-  
+
   validates :category, inclusion: {in: %w(cup league)}, presence: true
   validates :status, inclusion: {in: %w(opened closed finished)}
   validates :title, presence: true
