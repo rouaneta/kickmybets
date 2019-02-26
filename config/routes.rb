@@ -3,8 +3,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   
-  resources :contests, only: [:show, :new, :create] do
-  end
+  resources :contests, only: [:show, :new, :create]
   
   resources :participations, only: [:show] do
     resources :events, only: [:create]
