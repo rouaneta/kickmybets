@@ -5,7 +5,7 @@ class ContestsController < ApplicationController
 
   def new
     @contest = Contest.new
-    @code = '12345678'
+    @code = code_invit
   end
 
   def create
@@ -26,5 +26,11 @@ class ContestsController < ApplicationController
 
   def contest_params
     params.require(:contest).permit(:category, :title, :description, :code, :creator_id, :players_nb, :coins_init, players_attributes: [:name])
+  end
+
+  def code_invit
+    code = ""
+    8.times { code += [rand(48..57).chr, rand(97..122).chr, rand(65..90).chr].sample.to_s }
+    return code
   end
 end
