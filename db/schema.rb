@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_25_161432) do
+ActiveRecord::Schema.define(version: 2019_02_26_150408) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,12 +66,13 @@ ActiveRecord::Schema.define(version: 2019_02_25_161432) do
     t.integer "score_p_one"
     t.integer "score_p_two"
     t.integer "choice_win"
-    t.integer "phase", default: 1
     t.datetime "start_time"
     t.datetime "end_time"
     t.string "status", default: "coming"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "game_code"
+    t.integer "phase"
     t.index ["player_one_id"], name: "index_games_on_player_one_id"
     t.index ["player_two_id"], name: "index_games_on_player_two_id"
   end
