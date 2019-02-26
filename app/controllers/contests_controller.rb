@@ -1,16 +1,17 @@
 class ContestsController < ApplicationController
   def show
+    @contest = Contest.find(params[:id])
   end
 
   def new
     @contest = Contest.new
-    @contest.code = code_invit
+    @code = code_invit
   end
 
   def create
-    @contest = Contest.new(contest_params)
-    @contest.code = code_invit
-    if @contest.save
+    @contest = Contest.create!(contest_params)
+    if @contest
+      generate_games(@contest)
       redirect_to contest_path(@contest)
     else
       render :new
@@ -18,8 +19,13 @@ class ContestsController < ApplicationController
   end
 
   private
-  def contest_params
 
+  def generate_games(contest)
+    # TODO, generate games, we already have @contest.players
+  end
+
+  def contest_params
+    params.require(:contest).permit(:category, :title, :description, :code, :creator_id, :players_nb, :coins_init, players_attributes: [:name])
   end
 
   def code_invit

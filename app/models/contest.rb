@@ -2,6 +2,7 @@ class Contest < ApplicationRecord
   belongs_to :creator, class_name: "User"
 
   has_many :players, dependent: :destroy
+  accepts_nested_attributes_for :players
   has_many :events, dependent: :destroy
   has_many :participations, dependent: :destroy
   has_many :games_as_p_one, through: :players
