@@ -7,7 +7,7 @@
   <%= f.input :description %>
   <%#= f.input :creator_id, as: :hidden, input_HTML: {value: current_user.id} %>
   <%= f.hidden_field :creator_id, value: current_user.id %>
-  <%= f.hidden_field :code, value: 'abcdefgh' %>
+  <%= f.hidden_field :code, value: @code %>
   <%= f.input :players_nb, collection: [2, 4, 8, 16, 32, 64], id: 'players-nb' %>
 
   <div id="players-fields">
