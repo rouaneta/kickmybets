@@ -4,12 +4,11 @@ class ContestsController < ApplicationController
 
   def new
     @contest = Contest.new
-    @contest.code = code_invit
+    @code = code_invit
   end
 
   def create
     @contest = Contest.new(contest_params)
-    @contest.code = code_invit
     if @contest.save
       redirect_to contest_path(@contest)
     else
