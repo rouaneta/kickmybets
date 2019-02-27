@@ -2,12 +2,12 @@ const playerNb = document.querySelector('#contest_players_nb');
 const playersDiv = document.querySelector('#players-fields');
 
 const playersGenerator = () => {
-  if ((typeof playerNb != 'undefined') && (typeof playersDiv != 'undefined')) {
-    console.log('OK3');
+  if (playerNb && playersDiv) {
+    console.log(playerNb);
     const addFields = (event) => {
       playersDiv.innerHTML = '';
       for (let i = 0; i < parseInt(playerNb.value, 10); i++) {
-        playersDiv.insertAdjacentHTML('beforeend', '<input type="text" name="contest[players_attributes][][name]">');
+        playersDiv.insertAdjacentHTML('beforeend', '<input type="text" name="contest[players_attributes][][name]" required>');
       };
     };
 

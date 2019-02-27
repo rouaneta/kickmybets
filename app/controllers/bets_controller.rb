@@ -2,8 +2,8 @@ class BetsController < ApplicationController
   def create
     @bet = Bet.new(bet_params)
     @bet.participation = Participation.find(params[:participation_id])
-    @bet.save!
-    redirect_to root_path
+    @bet.save
+    redirect_to participation_path(@bet.participation)
   end
 
   private

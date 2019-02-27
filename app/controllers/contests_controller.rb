@@ -8,8 +8,9 @@ class ContestsController < ApplicationController
   end
 
   def create
-    @contest = Contest.create!(contest_params)
-    if @contest
+    @contest = Contest.new(contest_params)
+    if @contest.valid?
+      @contest = Contest.create!(contest_params)
       @contest.update(code: code_invit)
       generate_games(@contest)
       redirect_to contest_path(@contest)
