@@ -45,27 +45,43 @@
   </div>
 </div>
 
------
+<br><br><br><br><br><br>
 
-<% @participation.contest.games.each do |game| %>
-  <p>player_one: <%= game.player_one.name %></p>
+<% @participation.contest.games.each_with_index do |game, index| %>
 
-  <%= render 'shared/bet_form', locals: {
-    value: 1,
-    resource_type: 'Game',
-    resource_id: game.id
-  } %>
+  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#bet-button-p1-<%= index %>" aria-expanded="false" aria-controls="bet-button-p1-<%= index %>">
+    <%= game.player_one.name %>
+  </button>
 
-  <br>
-
-  <p>player_two: <%= game.player_two.name %></p>
-
-  <%= render 'shared/bet_form', locals: {
-    value: 2,
-    resource_type: 'Game',
-    resource_id: game.id
-  } %>
+  <div class="collapse" id="bet-button-p1-<%= index %>">
+    <div class="well">
+      <%= render 'shared/bet_form', locals: {
+        value: 1,
+        resource_type: 'Game',
+        resource_id: game.id
+      } %>
+    </div>
+  </div>
 
   <hr>
+
+  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#bet-button-p2-<%= index %>" aria-expanded="false" aria-controls="bet-button-p2-<%= index %>">
+    <%= game.player_two.name %>
+  </button>
+
+  <div class="collapse" id="bet-button-p2-<%= index %>">
+    <div class="well">
+      <%= render 'shared/bet_form', locals: {
+        value: 2,
+        resource_type: 'Game',
+        resource_id: game.id
+      } %>
+    </div>
+  </div>
+
+  <hr>
+  <hr>
+  <hr>
+
 <% end %>
 
