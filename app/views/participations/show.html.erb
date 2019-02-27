@@ -34,39 +34,12 @@
         <h4 class="modal-title" id="myModalLabel">Add event</h4>
       </div>
       <div class="modal-body">
-        <div class="form-group">
-          <%= simple_form_for [ @participation, @event ] do |f| %>
-            <%= f.error_notification %>
-            <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-            <div class="form-group">
-              <%= f.input :title,
-                          autofocus: true,
-                          input_html: { autocomplete: "title" },
-                          class: "form-control" %>
-              <%= f.input :description,
-                          input_html: { autocomplete: "description" },
-                          class: "form-control" %>
-              <%= f.input :choice_one,
-                          input_html: { autocomplete: "choice one" },
-                          class: "form-control" %>
-              <%= f.input :choice_two,
-                          input_html: { autocomplete: "choice two" },
-                          class: "form-control" %>
-              <div class="form-inline">
-                <%= f.input :start_time,
-                            minute_step: 15,
-                            class: "d-flex flex-row justify-content-between align-items-center" %>
-              </div>
-              <div class="form-inline">
-                <%= f.input :end_time,
-                            minute_step: 15,
-                            class: "d-flex flex-row justify-content-between align-items-center" %>
-               </div>
-          </div>
-          <div class="form-actions">
-            <%= f.button :submit, "Create event", class: "btn btn-primary mb-2" %>
-            <% end %>
-          </div>
+        <div class="form-group" id="form-container-event">
+
+
+        <%= render 'events/form', participation: @participation, event: @event %>
+
+
         </div>
       </div>
 

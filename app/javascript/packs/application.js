@@ -1,2 +1,2 @@
 import "bootstrap";
-import playersGenerator from './players-generator';
+// import playersGenerator from './players-generator';

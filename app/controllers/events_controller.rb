@@ -1,11 +1,13 @@
 class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
-    @event.contest = Participation.find(params[:participation_id]).contest
+    @participation = Participation.find(params[:participation_id])
+    @event.contest = @participation.contest
     @event.user = current_user
     if @event.save
-      redirect_to participation_path(Participation.find(params[:participation_id]))
+      render :create_success
     else
+      render :create_error
     end
   end
 
