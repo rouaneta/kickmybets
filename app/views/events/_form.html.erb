@@ -1,0 +1,26 @@
+<%= simple_form_for [ participation, event ], remote: true do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+    <%= f.input :title,
+                autofocus: true,
+                input_html: { autocomplete: "title" },
+                input_html: {id: "searchInput"} %>
+    <%= f.input :description,
+                input_html: { autocomplete: "description" },
+                input_html: {id: "searchInput"} %>
+    <%= f.input :choice_one,
+                input_html: { autocomplete: "choice one" },
+                input_html: {id: "searchInput"} %>
+    <%= f.input :choice_two,
+                input_html: { autocomplete: "choice two" },
+                input_html: {id: "searchInput"} %>
+    <%= f.input :start_time,
+                minute_step: 15,
+                input_html: {id: "searchInput"} %>
+    <%= f.input :end_time,
+                minute_step: 15,
+                input_html: {id: "searchInput"} %>
+<div class="form-actions">
+  <%= f.button :submit, "Create event", class: "btn btn-primary mb-2" %>
+  <% end %>
+</div>

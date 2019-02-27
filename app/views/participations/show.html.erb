@@ -1,5 +1,52 @@
 <h1><%= @participation.contest.title %></h1>
 
+<h2><%= @participation.user.nickname %></h2>
+
+<div class=container>
+  <% @events.order(start_time: :desc).each do |event| %>
+    <%= event.title %>
+    <%= event.description %>
+    <%= event.choice_one %>
+    <%= event.choice_two %>
+    <%= event.choice_win %>
+    <%= event.start_time %>
+    <%= event.end_time %>
+    <br>
+  <% end %>
+</div>
+
+
+
+ <div class="show-button-modal">
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+      Create event
+    </button>
+ </div>
+
+    <!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Add event</h4>
+      </div>
+      <div class="modal-body">
+        <div class="form-group" id="form-container-event">
+
+
+        <%= render 'events/form', participation: @participation, event: @event %>
+
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+-----
+
 <% @participation.contest.games.each do |game| %>
   <p>player_one: <%= game.player_one.name %></p>
 
@@ -21,3 +68,4 @@
 
   <hr>
 <% end %>
+
