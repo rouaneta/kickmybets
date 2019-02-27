@@ -1,4 +1,6 @@
-<h1>Contests#show</h1>
-<p>Find me in app/views/contests/show.html.erb</p>
-<%= @contest.title %>
+<h1><%= @contest.title %></h1>
+
+<p><%= @contest.description %></p>
+
+<%= link_to "I want to gamble on this contest", participation_path(@participation, user: @user, contest: @contest), method: :post %>
 <%#= link_to "Gambler view", participation_path(@contest.my_participation) %>
