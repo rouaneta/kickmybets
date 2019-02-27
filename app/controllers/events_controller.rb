@@ -29,6 +29,5 @@ class EventsController < ApplicationController
   def event_params
     params.require(:event).permit(:title, :description, :choice_one, :choice_two, :choice_win, :start_time, :end_time)
   end
-
 end
 
