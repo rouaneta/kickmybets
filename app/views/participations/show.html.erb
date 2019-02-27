@@ -16,7 +16,12 @@
 ----------
 <div class="container">
   <% @bets.each do |bet| %>
-    <%= bet.choice %> - <%= bet.amount %>
+    <p>You bet  <%= bet.amount %> on
+      <% if bet.choice == 1 %>
+        <%= bet.resource.choice_one %>
+      <% else %>
+        <%= bet.resource.choice_two %>
+      <% end %> </p>
   <% end %>
 </div>
 
