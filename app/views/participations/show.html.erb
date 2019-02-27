@@ -15,25 +15,30 @@
   <% end %>
 </div>
 
-<% @events.each do |event| %>
-  <p> 1 - <%= event.choice_one %></p>
+<% @events.each_with_index do |event, index| %>
 
-  <%= render 'shared/bet_form', locals: {
-    value: 1,
-    resource_type: 'Event',
-    resource_id: event.id
-  } %>
-
-  <p> 2 - <%= event.choice_two %></p>
-    <%= render 'shared/bet_form', locals: {
-    value: 1,
-    resource_type: 'Event',
-    resource_id: event.id
-  } %>
+  <% if event.betable?(current_user) %>
+    <% disabled = '' %>
+  <% else %>
+    <% disabled = 'disabled' %>
   <% end %>
 
+  <%= render 'shared/bet_button', locals: {
+    index: index,
+    value: 1,
+    resource: event,
+    disabled: disabled
+  } %>
 
------
+  <%= render 'shared/bet_button', locals: {
+    index: index,
+    value: 2,
+    resource: event,
+    disabled: disabled
+  } %>
+
+<% end %>
+
 
  <div class="show-button-modal">
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
@@ -67,35 +72,25 @@
 
 <% @participation.contest.games.each_with_index do |game, index| %>
 
-  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#bet-button-p1-<%= index %>" aria-expanded="false" aria-controls="bet-button-p1-<%= index %>">
-    <%= game.player_one.name %>
-  </button>
+  <% if game.betable?(current_user) %>
+    <% disabled = '' %>
+  <% else %>
+    <% disabled = 'disabled' %>
+  <% end %>
 
-  <div class="collapse" id="bet-button-p1-<%= index %>">
-    <div class="well">
-      <%= render 'shared/bet_form', locals: {
-        value: 1,
-        resource_type: 'Game',
-        resource_id: game.id
-      } %>
-    </div>
-  </div>
+  <%= render 'shared/bet_button', locals: {
+    index: index,
+    value: 1,
+    resource: game,
+    disabled: disabled
+  } %>
 
-  <hr>
-
-  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#bet-button-p2-<%= index %>" aria-expanded="false" aria-controls="bet-button-p2-<%= index %>">
-    <%= game.player_two.name %>
-  </button>
-
-  <div class="collapse" id="bet-button-p2-<%= index %>">
-    <div class="well">
-      <%= render 'shared/bet_form', locals: {
-        value: 2,
-        resource_type: 'Game',
-        resource_id: game.id
-      } %>
-    </div>
-  </div>
+  <%= render 'shared/bet_button', locals: {
+    index: index,
+    value: 2,
+    resource: game,
+    disabled: disabled
+  } %>
 
   <hr>
   <hr>
