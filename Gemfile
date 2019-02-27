@@ -10,6 +10,7 @@ gem 'rails', '5.2.2'
 gem 'redis'
 
 gem 'autoprefixer-rails'
+gem 'awesome_print'
 gem 'bootstrap-sass', '~> 3.4'
 gem 'font-awesome-sass', '~> 5.5.0'
 gem 'sassc-rails'
