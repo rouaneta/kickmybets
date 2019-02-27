@@ -5,6 +5,7 @@ class PagesController < ApplicationController
   end
 
   def dashboard
-    
+    @user = current_user
+    @participation = Participation.new
   end
 end
