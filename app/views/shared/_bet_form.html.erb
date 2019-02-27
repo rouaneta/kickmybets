@@ -1,0 +1,7 @@
+<%= simple_form_for [@participation, @bet] do |f| %>
+  <%= f.input :amount %>
+  <%= f.hidden_field :choice, value: locals[:value] %>
+  <%= f.hidden_field :resource_type, value: locals[:resource_type] %>
+  <%= f.hidden_field :resource_id, value: locals[:resource_id] %>
+  <%= f.submit %>
+<% end %>

@@ -1,22 +1,23 @@
 <h1><%= @participation.contest.title %></h1>
 
 <% @participation.contest.games.each do |game| %>
-  <button>player_one: <%= game.player_one.name %></button>
-  <%= simple_form_for [@participation, @bet] do |f| %>
-    <%= f.input :amount %>
-    <%= f.hidden_field :choice, value: 1 %>
-    <%= f.hidden_field :resource_type, value: 'Game' %>
-    <%= f.hidden_field :resource_id, value: game.id %>
-    <%= f.submit %>
-  <% end %>
+  <p>player_one: <%= game.player_one.name %></p>
+
+  <%= render 'shared/bet_form', locals: {
+    value: 1,
+    resource_type: 'Game',
+    resource_id: game.id
+  } %>
+
   <br>
-  <button>player_two: <%= game.player_two.name %></button>
-  <%= simple_form_for [@participation, @bet] do |f| %>
-    <%= f.input :amount %>
-    <%= f.hidden_field :choice, value: 2 %>
-    <%= f.hidden_field :resource_type, value: 'Game' %>
-    <%= f.hidden_field :resource_id, value: game.id %>
-    <%= f.submit %>
-  <% end %>
+
+  <p>player_two: <%= game.player_two.name %></p>
+
+  <%= render 'shared/bet_form', locals: {
+    value: 2,
+    resource_type: 'Game',
+    resource_id: game.id
+  } %>
+
   <hr>
 <% end %>
