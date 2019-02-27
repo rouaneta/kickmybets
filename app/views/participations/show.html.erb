@@ -16,7 +16,12 @@
 ----------
 <div class="container">
   <% @bets.each do |bet| %>
-    <%= bet.choice %> - <%= bet.amount %>
+    <p>You bet  <%= bet.amount %> on
+      <% if bet.choice == 1 %>
+        <%= bet.resource.choice_one %>
+      <% else %>
+        <%= bet.resource.choice_two %>
+      <% end %> </p>
   <% end %>
 </div>
 
@@ -52,26 +57,8 @@
  </div>
 
     <!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Add event</h4>
-      </div>
-      <div class="modal-body">
-        <div class="form-group" id="form-container-event">
+ <%= render 'events/form_events', participation: @participation, event: @event %>
 
-
-        <%= render 'events/form_events', participation: @participation, event: @event %>
-
-
-        </div>
-      </div>
-
-    </div>
-  </div>
-</div>
 
 <br><br><br><br><br><br>
 
