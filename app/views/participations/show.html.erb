@@ -1,9 +1,7 @@
-<h1>Participations#show</h1>
-<p>Find me in app/views/participations/show.html.erb</p>
+<h1><%= @participation.contest.title %></h1>
 
+<h2><%= @participation.user.nickname %></h2>
 
-<h1> <%= @participation.contest.title %> </h1>
-<h1> <%= @participation.user.nickname %> </h1>
 <div class=container>
   <% @events.order(start_time: :desc).each do |event| %>
     <%= event.title %>
@@ -47,8 +45,27 @@
   </div>
 </div>
 
+-----
 
+<% @participation.contest.games.each do |game| %>
+  <p>player_one: <%= game.player_one.name %></p>
 
+  <%= render 'shared/bet_form', locals: {
+    value: 1,
+    resource_type: 'Game',
+    resource_id: game.id
+  } %>
 
+  <br>
 
+  <p>player_two: <%= game.player_two.name %></p>
+
+  <%= render 'shared/bet_form', locals: {
+    value: 2,
+    resource_type: 'Game',
+    resource_id: game.id
+  } %>
+
+  <hr>
+<% end %>
 
