@@ -6,7 +6,6 @@ class EventsController < ApplicationController
     if @event.save
       redirect_to participation_path(Participation.find(params[:participation_id]))
     else
-      redirect_to participation_path(Participation.find(params[:participation_id]))
     end
   end
 
