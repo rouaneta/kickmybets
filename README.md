@@ -15,3 +15,13 @@ Status is either:
 - coming
 - ongoing
 - finished
+
+## Bet_form partial view
+To create a bet form (both Game and Event), we should render the shared/bet_form partial view as:
+```html
+  <%= render 'shared/bet_form', locals: {
+    value: 1, # or value: 2
+    resource_type: 'Game', # or 'Event'
+    resource_id: game.id # or 'event.id'
+  } %>
+```
