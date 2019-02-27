@@ -5,17 +5,11 @@
   <%= f.input :category, as: :radio_buttons, collection: ['cup', 'league'] %>
   <%= f.input :title, placeholder: 'Tournoi de la mort' %>
   <%= f.input :description %>
-  <%#= f.input :creator_id, as: :hidden, input_HTML: {value: current_user.id} %>
   <%= f.hidden_field :creator_id, value: current_user.id %>
-  <%= f.hidden_field :code, value: @code %>
   <%= f.input :players_nb, collection: [2, 4, 8, 16, 32, 64], id: 'players-nb' %>
 
-  <div id="players-fields">
+  <div id="players-fields"></div>
 
-  </div>
-  <!-- <input type="text" name="contest[players_attributes][][name]">
-  <input type="text" name="contest[players_attributes][][name]">
-   --><%# .js will generate n fields to enter players name %>
   <%= f.input :coins_init %>
   <%= f.submit %>
 <% end %>
