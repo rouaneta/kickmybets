@@ -65,7 +65,7 @@ ActiveRecord::Schema.define(version: 2019_02_26_150408) do
     t.bigint "player_two_id"
     t.integer "score_p_one"
     t.integer "score_p_two"
-    t.integer "choice_win"
+    t.integer "winner"
     t.datetime "start_time"
     t.datetime "end_time"
     t.string "status", default: "coming"
