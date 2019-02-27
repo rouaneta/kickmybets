@@ -4,18 +4,36 @@
 
 <div class=container>
   <% @events.order(start_time: :desc).each do |event| %>
-    <%= event.title %>
-    <%= event.description %>
-    <%= event.choice_one %>
-    <%= event.choice_two %>
-    <%= event.choice_win %>
-    <%= event.start_time %>
-    <%= event.end_time %>
+    <%= event.title %> -
+    <%= event.description %> -
+    <%= event.choice_one %> -
+    <%= event.choice_two %> -
+    <%= event.choice_win %> -
+    <%= event.start_time %> -
+    <%= event.end_time %> -
     <br>
   <% end %>
 </div>
 
+<% @events.each do |event| %>
+  <p> 1 - <%= event.choice_one %></p>
 
+  <%= render 'shared/bet_form', locals: {
+    value: 1,
+    resource_type: 'Event',
+    resource_id: event.id
+  } %>
+
+  <p> 2 - <%= event.choice_two %></p>
+    <%= render 'shared/bet_form', locals: {
+    value: 1,
+    resource_type: 'Event',
+    resource_id: event.id
+  } %>
+  <% end %>
+
+
+-----
 
  <div class="show-button-modal">
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
@@ -35,7 +53,7 @@
         <div class="form-group" id="form-container-event">
 
 
-        <%= render 'events/form', participation: @participation, event: @event %>
+        <%= render 'events/form_events', participation: @participation, event: @event %>
 
 
         </div>
