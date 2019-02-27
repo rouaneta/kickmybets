@@ -1,2 +1,23 @@
-<h1>Participations#show</h1>
-<p>Find me in app/views/participations/show.html.erb</p>
+<h1><%= @participation.contest.title %></h1>
+
+<% @participation.contest.games.each do |game| %>
+  <p>player_one: <%= game.player_one.name %></p>
+
+  <%= render 'shared/bet_form', locals: {
+    value: 1,
+    resource_type: 'Game',
+    resource_id: game.id
+  } %>
+
+  <br>
+
+  <p>player_two: <%= game.player_two.name %></p>
+
+  <%= render 'shared/bet_form', locals: {
+    value: 2,
+    resource_type: 'Game',
+    resource_id: game.id
+  } %>
+
+  <hr>
+<% end %>
