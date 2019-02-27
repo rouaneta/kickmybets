@@ -21,11 +21,17 @@ class ContestsController < ApplicationController
   private
 
   def generate_games(contest)
-    contest.players.shuffle.each_slice(2).to_a.each do |game_players|
+    phase = Math.log2(contest.players_nb).to_i
+    match_nb_total = contest.players_nb - 1
+    match_nb_phase = contest.players_nb / 2
+    contest.players.shuffle.each_slice(2).to_a.each_with_index do |game_players, index|
+      num = match_nb_total - match_nb_phase + 1 + index
       Game.create!(
         player_one: game_players[0],
         player_two: game_players[1],
-        phase: Math.log2(contest.players_nb)
+        phase: phase,
+        game_code: num.to_s(2),
+        name: "P1/#{2 ** (phase - 1)}_#{index + 1}"
       )
     end
   end
