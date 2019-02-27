@@ -23,8 +23,7 @@ class ContestsController < ApplicationController
   def generate_games(contest)
     # TODO, generate games, we already have @contest.players
     contest.players.shuffle.each_slice(2).to_a.each do |game_players|
-      p '---------------HEY'
-      p Game.create!(
+      Game.create!(
         player_one: game_players[0],
         player_two: game_players[1]
       )
