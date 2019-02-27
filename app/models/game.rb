@@ -12,6 +12,14 @@ class Game < ApplicationRecord
     true
   end
 
+  def choice_one
+    player_one.name
+  end
+
+  def choice_two
+    player_two.name
+  end
+
   private
 
   def check_player_ids
