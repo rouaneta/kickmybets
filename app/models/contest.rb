@@ -2,6 +2,7 @@ class Contest < ApplicationRecord
   belongs_to :creator, class_name: "User"
 
   has_many :players, dependent: :destroy
+  accepts_nested_attributes_for :players
   has_many :events, dependent: :destroy
   has_many :participations, dependent: :destroy
   has_many :games_as_p_one, through: :players
@@ -11,8 +12,8 @@ class Contest < ApplicationRecord
   has_many :bets_on_games_as_p_two, through: :games_as_p_one, source: :bets
   has_many :bets, through: :participations
 
-  validates :category, inclusion: {in: %w(cup league)}, presence: true
-  validates :status, inclusion: {in: %w(opened closed finished)}
+  validates :category, inclusion: { in: %w(cup league) }, presence: true
+  validates :status, inclusion: { in: %w(opened closed finished) }
   validates :title, presence: true
   validates :coins_init, presence: true
   validates :code, presence: true, uniqueness: true
