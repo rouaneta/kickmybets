@@ -35,6 +35,12 @@
     <% disabled = 'disabled' %>
   <% end %>
 
+  <% bet1 = Bet.new(resource: event, choice: 1) %>
+  <% bet2 = Bet.new(resource: event, choice: 2) %>
+
+  <%= render 'shared/bet_button', participation: @participation, bet: bet1, disabled: disabled, index: index %>
+  <%= render 'shared/bet_button', participation: @participation, bet: bet2, disabled: disabled, index: index %>
+
   <%#= render 'shared/bet_button', locals: {
     index: index,
     value: 1,
@@ -64,7 +70,7 @@
 
 <br><br><br><br><br><br>
 
-<% @participation.contest.games.each_with_index do |game, index| %>
+<% @participation.contest.games.reject{ |game| game.status == 'pending' }.each_with_index do |game, index| %>
 
   <% if game.betable?(current_user) %>
     <% disabled = '' %>

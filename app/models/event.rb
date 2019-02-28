@@ -14,6 +14,14 @@ class Event < ApplicationRecord
     true
   end
 
+  def choice1
+    choice_one
+  end
+
+  def choice2
+    choice_two
+  end
+
   private
 
   def check_choices
