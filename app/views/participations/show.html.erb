@@ -8,8 +8,8 @@
     <%= event.description %> /
     <%= event.choice_one %> /
     <%= event.choice_two %> /
-    <%= event.start_time.strftime("%b %d, %Y - %H:%M") %> /
-    <%= event.end_time.strftime("%b %d, %Y - %H:%M") %>
+    <%= event.start_time.strftime("%b %d, %Y - %H:%M") if event.start_time %> /
+    <%= event.end_time.strftime("%b %d, %Y - %H:%M") if event.end_time %>
     <br>
   <% end %>
 </div>

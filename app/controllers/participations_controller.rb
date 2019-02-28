@@ -9,7 +9,7 @@ class ParticipationsController < ApplicationController
 
   def create
     if params[:code]
-      create_by_code
+      create_by_code(params[:code])
     else
       @participation = Participation.new(participation_params)
       if @participation.save
@@ -25,9 +25,9 @@ class ParticipationsController < ApplicationController
   def participation_params
     params.require(:participation).permit(:user_id, :contest_id)
   end
-      
-  def create_by_code
-    @contest = Contest.find_by(code: params[:code])
+
+  def create_by_code(code)
+    @contest = Contest.find_by(code: code)
     if @contest
       Participation.create!(contest: @contest, user: current_user)
       render :create_success
