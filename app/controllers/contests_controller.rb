@@ -68,8 +68,7 @@ class ContestsController < ApplicationController
     games = contest.games.where(phase: phase).group_by { |e| e.game_code[0..phase - 2] }
     games.to_a.each do |game|
       next_game = contest.games.where(phase: phase - 1).where(game_code: game[0]).first
-      if next_game.status != "pending"
-      elsif closed?(game[1])
+      if (closed?(game[1])) && next_game.status == "pending"
         next_game.player_one_id = game[1][0].player_winner_id
         next_game.player_two_id = game[1][1].player_winner_id
         next_game.status = "coming"
