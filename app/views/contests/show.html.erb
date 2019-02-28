@@ -1,7 +1,11 @@
-<h1>Contests#show</h1>
-<p>Find me in app/views/contests/show.html.erb</p>
-<%= @contest.title %>
-<p>code : <%= @contest.code %> </p>
-<p>createur : <%= @contest.creator.nickname %> </p>
+<h1><%= @contest.title %></h1>
 
-<%#= link_to "Gambler view", participation_path(@contest.my_participation) %>
+<p><%= @contest.description %></p>
+
+<%= simple_form_for @participation do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+  <%= f.hidden_field :user_id, value: @user.id %>
+  <%= f.hidden_field :contest_id, value: @contest.id %>
+  <%= f.button :submit, value: 'Bet on this contest' %>
+<% end %>

@@ -8,13 +8,32 @@ class ParticipationsController < ApplicationController
   end
 
   def create
-    @contest = Contest.find_by(code: params[:code])
+    if params[:code]
+      create_by_code(params[:code])
+    else
+      @participation = Participation.new(participation_params)
+      if @participation.save
+        redirect_to participation_path(@participation)
+      else
+        redirect_to contest_path(@participation.contest)
+      end
+    end
+  end
+
+  private
+
+  def participation_params
+    params.require(:participation).permit(:user_id, :contest_id)
+  end
+
+  def create_by_code(code)
+    @contest = Contest.find_by(code: code)
     if @contest
       Participation.create!(contest: @contest, user: current_user)
       render :create_success
     else
       render :create_error
     end
-    # redirect_to root_path
   end
+
 end
