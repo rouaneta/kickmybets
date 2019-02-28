@@ -1,0 +1,16 @@
+<!-- modal button -->
+    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#mailModal">
+      send mail invitation
+    </button>
+
+
+<!-- modal  -->
+<div class="modal fade" id="mailModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header" id="invitation-modal">
+        <%= render 'invitation_mail', contest: contest %>
+      </div>
+    </div>
+  </div>
+</div>

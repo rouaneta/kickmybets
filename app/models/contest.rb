@@ -26,5 +26,4 @@ class Contest < ApplicationRecord
   def bets_on_games
     (bets_on_games_as_p_one.all + bets_on_games_as_p_two.all).uniq
   end
-
 end

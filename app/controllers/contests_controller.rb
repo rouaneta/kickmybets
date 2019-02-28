@@ -21,6 +21,13 @@ class ContestsController < ApplicationController
     end
   end
 
+  def invite
+    user = User.find_by(email: params[:email])
+    contest = Contest.find(params[:id])
+    InvitationMailer.invitation(user, contest).deliver_now!
+    head :ok
+  end
+
   private
 
   def generate_games(contest)
