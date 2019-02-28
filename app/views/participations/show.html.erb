@@ -1,2 +1,92 @@
-<h1>Participations#show</h1>
-<p>Find me in app/views/participations/show.html.erb</p>
+<h1><%= @participation.contest.title %></h1>
+
+<h2><%= @participation.user.nickname %></h2>
+
+<div class=container>
+  <% @events.order(start_time: :desc).each do |event| %>
+    <%= event.title %> /
+    <%= event.description %> /
+    <%= event.choice_one %> /
+    <%= event.choice_two %> /
+    <%= event.start_time.strftime("%b %d, %Y - %H:%M") %> /
+    <%= event.end_time.strftime("%b %d, %Y - %H:%M") %>
+    <br>
+  <% end %>
+</div>
+----------
+<div class="container">
+  <% @bets.each do |bet| %>
+    <p>You bet  <%= bet.amount %> on
+      <% if bet.choice == 1 %>
+        <%= bet.resource.choice_one %>
+      <% else %>
+        <%= bet.resource.choice_two %>
+      <% end %> </p>
+  <% end %>
+</div>
+
+<% @events.each_with_index do |event, index| %>
+
+  <% if event.betable?(current_user) %>
+    <% disabled = '' %>
+  <% else %>
+    <% disabled = 'disabled' %>
+  <% end %>
+
+  <%= render 'shared/bet_button', locals: {
+    index: index,
+    value: 1,
+    resource: event,
+    disabled: disabled
+  } %>
+
+  <%= render 'shared/bet_button', locals: {
+    index: index,
+    value: 2,
+    resource: event,
+    disabled: disabled
+  } %>
+
+<% end %>
+
+
+ <div class="show-button-modal">
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+      Create event
+    </button>
+ </div>
+
+    <!-- Modal -->
+ <%= render 'events/form_events', participation: @participation, event: @event %>
+
+
+<br><br><br><br><br><br>
+
+<% @participation.contest.games.each_with_index do |game, index| %>
+
+  <% if game.betable?(current_user) %>
+    <% disabled = '' %>
+  <% else %>
+    <% disabled = 'disabled' %>
+  <% end %>
+
+  <%= render 'shared/bet_button', locals: {
+    index: index,
+    value: 1,
+    resource: game,
+    disabled: disabled
+  } %>
+
+  <%= render 'shared/bet_button', locals: {
+    index: index,
+    value: 2,
+    resource: game,
+    disabled: disabled
+  } %>
+
+  <hr>
+  <hr>
+  <hr>
+
+<% end %>
+

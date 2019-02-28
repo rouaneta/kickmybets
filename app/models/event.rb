@@ -7,6 +7,13 @@ class Event < ApplicationRecord
   validates :status, inclusion: { in: %w(coming ongoing finished) }
   validate :check_choices, on: :create
 
+  def betable?(user)
+    bets.each do |bet|
+      return false if bet.participation.user_id == user.id
+    end
+    true
+  end
+
   private
 
   def check_choices

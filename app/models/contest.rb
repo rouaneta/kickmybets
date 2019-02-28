@@ -16,7 +16,8 @@ class Contest < ApplicationRecord
   validates :status, inclusion: { in: %w(opened closed finished) }
   validates :title, presence: true
   validates :coins_init, presence: true
-  validates :code, presence: true, uniqueness: true
+  validates :code, uniqueness: true
+  validates :players_nb, presence: true
 
   def games
     (games_as_p_one.all + games_as_p_two.all).uniq

@@ -5,12 +5,13 @@ class ContestsController < ApplicationController
 
   def new
     @contest = Contest.new
-    @code = code_invit
   end
 
   def create
-    @contest = Contest.create!(contest_params)
-    if @contest
+    @contest = Contest.new(contest_params)
+    if @contest.valid?
+      @contest = Contest.create!(contest_params)
+      @contest.update(code: code_invit)
       generate_games(@contest)
       redirect_to contest_path(@contest)
     else
@@ -21,11 +22,24 @@ class ContestsController < ApplicationController
   private
 
   def generate_games(contest)
-    # TODO, generate games, we already have @contest.players
+    phase = Math.log2(contest.players_nb).to_i
+    match_nb_total = contest.players_nb - 1
+    match_nb_phase = contest.players_nb / 2
+    contest.players.shuffle.each_slice(2).to_a.each_with_index do |game_players, index|
+      num = match_nb_total - match_nb_phase + 1 + index
+      Game.create!(
+        player_one: game_players[0],
+        player_two: game_players[1],
+        phase: phase,
+        game_code: num.to_s(2),
+        name: "P1/#{2 ** (phase - 1)}_#{index + 1}"
+      )
+    end
   end
 
   def contest_params
-    params.require(:contest).permit(:category, :title, :description, :code, :creator_id, :players_nb, :coins_init, players_attributes: [:name])
+    params.require(:contest).permit(:category, :title, :description, :creator_id,
+                                    :players_nb, :coins_init, players_attributes: [:name])
   end
 
   def code_invit

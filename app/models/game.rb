@@ -5,8 +5,23 @@ class Game < ApplicationRecord
   validates :status, inclusion: { in: %w(coming ongoing finished) }
   validate :check_player_ids, on: :create
 
+  def betable?(user)
+    bets.each do |bet|
+      return false if bet.participation.user_id == user.id
+    end
+    true
+  end
+
+  def choice_one
+    player_one.name
+  end
+
+  def choice_two
+    player_two.name
+  end
+
   private
-  
+
   def check_player_ids
     errors.add(:player_two_id, "players must be different") if player_one_id == player_two_id
   end
