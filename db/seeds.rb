@@ -73,12 +73,12 @@ puts "Creating Bets"
 bet1 = Bet.create!(
   resource: event,
   participation: participation,
-  amount: 4,
+  betcoins: 4,
   choice: 1
   )
 bet2 = Bet.create!(
- resource: game1,
- participation: participation,
-  amount: 5,
+  resource: game1,
+  participation: participation,
+  betcoins: 5,
  choice: 2
 )
