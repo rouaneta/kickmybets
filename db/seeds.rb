@@ -80,5 +80,5 @@ bet2 = Bet.create!(
   resource: game1,
   participation: participation,
   betcoins: 5,
- choice: 2
+  choice: 2
 )
