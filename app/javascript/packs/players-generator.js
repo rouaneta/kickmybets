@@ -3,7 +3,6 @@ const playersDiv = document.querySelector('#players-fields');
 
 const playersGenerator = () => {
   if (playerNb && playersDiv) {
-    console.log(playerNb);
     const addFields = (event) => {
       playersDiv.innerHTML = '';
       for (let i = 0; i < parseInt(playerNb.value, 10); i++) {
