@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_27_151318) do
+ActiveRecord::Schema.define(version: 2019_02_28_133620) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -68,14 +68,18 @@ ActiveRecord::Schema.define(version: 2019_02_27_151318) do
     t.integer "choice_win"
     t.datetime "start_time"
     t.datetime "end_time"
-    t.string "status", default: "coming"
+    t.string "status", default: "pending"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "game_code"
     t.integer "phase"
     t.string "name"
+    t.integer "player_winner_id"
+    t.bigint "contest_id"
+    t.index ["contest_id"], name: "index_games_on_contest_id"
     t.index ["player_one_id"], name: "index_games_on_player_one_id"
     t.index ["player_two_id"], name: "index_games_on_player_two_id"
+    t.index ["player_winner_id"], name: "index_games_on_player_winner_id"
   end
 
   create_table "participations", force: :cascade do |t|
@@ -120,6 +124,7 @@ ActiveRecord::Schema.define(version: 2019_02_27_151318) do
   add_foreign_key "events", "users"
   add_foreign_key "games", "players", column: "player_one_id"
   add_foreign_key "games", "players", column: "player_two_id"
+  add_foreign_key "games", "players", column: "player_winner_id"
   add_foreign_key "participations", "contests"
   add_foreign_key "participations", "users"
   add_foreign_key "players", "contests"

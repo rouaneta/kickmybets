@@ -12,9 +12,11 @@ Status is either:
 
 ## Games table
 Status is either:
-- coming
-- ongoing
-- finished
+- pending (player_one_id.empty? && player_two_id.empty?)
+- coming (Time.now < start_time)
+- ongoing (start_time < Time.now < end_time)
+- finished (Time.now > end_time)
+- closed (score has been filled)
 
 ## Bet_form partial view
 To create a bet form (both Game and Event), we should render the shared/bet_form partial view as:
