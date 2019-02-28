@@ -1,2 +1,4 @@
-console.log('error')
-document.querySelector('#form-container-bet').innerHTML = '<%= render "shared/bet_form" %>'
+console.log('ok')
+document.querySelectorAll('.well').forEach((element) => {
+  element.innerHTML = "<%= j render 'shared/bet_form', participation: @participation, bet: @bet %>"
+})

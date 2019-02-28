@@ -1,14 +1,14 @@
 class BetsController < ApplicationController
   def create
     @bet = Bet.new(bet_params)
-    @bet.participation = Participation.find(params[:participation_id])
+    @participation = Participation.find(params[:participation_id])
+    @bet.participation = @participation
     if @bet.save
       render :create_success
     else
-      puts 'asfdsg'
+      @bet.amount = ''
       render :create_error
     end
-    # redirect_to participation_path(@bet.participation)
   end
 
   private

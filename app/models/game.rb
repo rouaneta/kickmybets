@@ -16,9 +16,13 @@ class Game < ApplicationRecord
     player_one.name
   end
 
+  alias_method :choice1, :choice_one
+
   def choice_two
     player_two.name
   end
+
+  alias_method :choice2, :choice_two
 
   private
 
