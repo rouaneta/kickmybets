@@ -1,4 +1,6 @@
 class GamesController < ApplicationController
-  def create
+  def update
+    @game = Games.find(params[:id])
+    @game.update(params[:game])
   end
 end
