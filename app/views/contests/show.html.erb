@@ -9,3 +9,5 @@
   <%= f.hidden_field :contest_id, value: @contest.id %>
   <%= f.button :submit, value: 'Bet on this contest' %>
 <% end %>
+
+<%= render 'modal_invitation_mail', contest: @contest %>
