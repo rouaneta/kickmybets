@@ -1,7 +1,7 @@
 <h2>welcome to the dashboard</h2>
 
 <% @user.participations.each do |participation|%>
-  <p><%= link_to participation.contest.title, contest_path(participation) %></p>
+  <p><%= link_to participation.contest.title, participation_path(participation) %></p>
 <% end %>
 
 <!-- modal button -->
@@ -10,11 +10,11 @@
     </button>
 
 
-
+<!-- modal  -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <div class="modal-header">
+      <div class="modal-header" id="invitation-modal">
         <%= render 'invitation' %>
       </div>
     </div>
