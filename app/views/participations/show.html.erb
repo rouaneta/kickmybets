@@ -2,6 +2,8 @@
 
 <h2><%= @participation.user.nickname %></h2>
 
+<h2>Available coins: <%= @participation.betcoins if @participation.betcoins %></h2>
+
 <div class=container>
   <% @events.order(start_time: :desc).each do |event| %>
     <%= event.title %> /
