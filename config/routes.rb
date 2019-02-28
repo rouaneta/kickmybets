@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   resources :contests, only: [:show, :new, :create]
 
-  resources :participations, only: [:show] do
+  resources :participations, only: [:show, :new, :create] do
     resources :events, only: [:create, :edit, :update]
     resources :bets, only: [:create]
   end
