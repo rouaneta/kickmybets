@@ -1,9 +1,11 @@
-<%= simple_form_for [@participation, @bet] do |f| %>
-  <%= f.error_notification %>
-  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-  <%= f.input :amount %>
-  <%= f.hidden_field :choice, value: locals[:value] %>
-  <%= f.hidden_field :resource_type, value: locals[:resource_type] %>
-  <%= f.hidden_field :resource_id, value: locals[:resource_id] %>
-  <%= f.button :submit, class: 'btn btn-info', onSubmit: "return confirm('Are you sure you wish to delete?');" %>
-<% end %>
+<div id="form-container-bet">
+  <%= simple_form_for [@participation, @bet], remote: true do |f| %>
+    <%= f.error_notification %>
+    <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+    <%= f.input :amount %>
+    <%= f.hidden_field :choice, value: locals[:value] %>
+    <%= f.hidden_field :resource_type, value: locals[:resource_type] %>
+    <%= f.hidden_field :resource_id, value: locals[:resource_id] %>
+    <%= f.button :submit, class: 'btn btn-info' %>
+  <% end %>
+</div>
