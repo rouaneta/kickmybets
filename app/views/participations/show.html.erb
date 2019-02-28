@@ -35,6 +35,12 @@
     <% disabled = 'disabled' %>
   <% end %>
 
+  <% bet1 = Bet.new(resource: event, choice: 1) %>
+  <% bet2 = Bet.new(resource: event, choice: 2) %>
+
+  <%= render 'shared/bet_button', participation: @participation, bet: bet1, disabled: disabled, index: index %>
+  <%= render 'shared/bet_button', participation: @participation, bet: bet2, disabled: disabled, index: index %>
+
   <%#= render 'shared/bet_button', locals: {
     index: index,
     value: 1,
