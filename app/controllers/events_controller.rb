@@ -11,17 +11,11 @@ class EventsController < ApplicationController
     end
   end
 
-  def edit
-    @event = Event.find(params[:id])
-  end
-
   def update
     @event = Event.find(params[:id])
-    if @event.update(event_params)
-      redirect_to participation_path(Participation.find(params[:participation_id]))
-    else
-      render :edit
-    end
+    binding.pry
+    @event.update(choice_win: params[:event][:choice_win], status: params[:event][:status])
+    redirect_to participation_path(Participation.find(params[:participation_id]))
   end
 
   private
@@ -30,4 +24,3 @@ class EventsController < ApplicationController
     params.require(:event).permit(:title, :description, :choice_one, :choice_two, :choice_win, :start_time, :end_time)
   end
 end
-

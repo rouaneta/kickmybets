@@ -4,7 +4,7 @@ class Event < ApplicationRecord
   has_many :bets, as: :resource, dependent: :destroy
 
   validates :title, :choice_one, :choice_two, presence: true
-  validates :status, inclusion: { in: %w(coming ongoing finished) }
+  validates :status, inclusion: { in: %w[coming ongoing finished] }
   validate :check_choices, on: :create
 
   def betable?(user)

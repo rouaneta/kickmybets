@@ -1,0 +1,28 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#eventBetModal">
+  Update this event
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="eventBetModal" tabindex="-1" role="dialog" aria-labelledby="eventBetModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="eventBetModalLabel"><%= event.title %></h4>
+      </div>
+      <div class="modal-body">
+        <%= simple_form_for [participation, event], remote: true do |f| %>
+          <%= f.error_notification %>
+          <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+          <%= f.input :choice_win, as: :radio_buttons, collection: [1, 2] %>
+          <%= f.input :status, collection: %w[coming ongoing finished] %>
+          <%= f.button :submit, class: 'btn btn-info' %>
+        <% end %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>

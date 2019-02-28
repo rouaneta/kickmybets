@@ -2,65 +2,36 @@
 
 <h2><%= @participation.user.nickname %></h2>
 
-<h2>Available coins: <%= @participation.betcoins if @participation.betcoins %></h2>
+<h3>Available coins: <%= @participation.betcoins if @participation.betcoins %> <i class="fas fa-coins"></i></h3>
 
-<div class=container>
-  <% @events.order(start_time: :desc).each do |event| %>
-    <%= event.title %> /
-    <%= event.description %> /
-    <%= event.choice_one %> /
-    <%= event.choice_two %> /
-    <%= event.start_time.strftime("%b %d, %Y - %H:%M") if event.start_time %> /
-    <%= event.end_time.strftime("%b %d, %Y - %H:%M") if event.end_time %>
-    <br>
-  <% end %>
-</div>
-----------
+
 <div class="container">
   <% @bets.each do |bet| %>
-    <p>You bet  <%= bet.amount %> on
-      <% if bet.choice == 1 %>
-        <%= bet.resource.choice_one %>
-      <% else %>
-        <%= bet.resource.choice_two %>
-      <% end %> </p>
+    <p>You bet <%= bet.amount %> on <%= bet.resource.send("choice#{bet.choice}".to_sym) %></p>
   <% end %>
 </div>
 
 <% @events.each_with_index do |event, index| %>
 
-  <% if event.betable?(current_user) %>
-    <% disabled = '' %>
-  <% else %>
-    <% disabled = 'disabled' %>
-  <% end %>
-
+  <% disabled = event.betable?(current_user) ? '' : 'disabled' %>
   <% bet1 = Bet.new(resource: event, choice: 1) %>
   <% bet2 = Bet.new(resource: event, choice: 2) %>
+
+  <h3><%= event.title %></h3>
+  <% if event.user_id == @participation.user_id %>
+    <%= render 'update_bet_modal', participation: @participation, event: event %>
+  <% end %>
 
   <%= render 'shared/bet_button', participation: @participation, bet: bet1, disabled: disabled, index: index %>
   <%= render 'shared/bet_button', participation: @participation, bet: bet2, disabled: disabled, index: index %>
 
-  <%#= render 'shared/bet_button', locals: {
-    index: index,
-    value: 1,
-    resource: event,
-    disabled: disabled,
-  } %>
-
-  <%#= render 'shared/bet_button', locals: {
-    index: index,
-    value: 2,
-    resource: event,
-    disabled: disabled
-  } %>
-
 <% end %>
 
+<hr><hr>
 
  <div class="show-button-modal">
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-      Create event
+      Submit a new bet
     </button>
  </div>
 
@@ -72,22 +43,14 @@
 
 <% @participation.contest.games.reject{ |game| game.status == 'pending' }.each_with_index do |game, index| %>
 
-  <% if game.betable?(current_user) %>
-    <% disabled = '' %>
-  <% else %>
-    <% disabled = 'disabled' %>
-  <% end %>
-
-
+  <% disabled = game.betable?(current_user) ? '' : 'disabled' %>
   <% bet1 = Bet.new(resource: game, choice: 1) %>
   <% bet2 = Bet.new(resource: game, choice: 2) %>
 
+  <h3><%= game.name %></h3>
+
   <%= render 'shared/bet_button', participation: @participation, bet: bet1, disabled: disabled, index: index %>
   <%= render 'shared/bet_button', participation: @participation, bet: bet2, disabled: disabled, index: index %>
-
-  <hr>
-  <hr>
-  <hr>
 
 <% end %>
 
