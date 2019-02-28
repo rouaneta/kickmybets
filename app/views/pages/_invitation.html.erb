@@ -1,0 +1,6 @@
+
+<!-- remote est un attribut qui permet de rester sur le modal si il y a une erreur -->
+<%= form_tag(participations_path, remote: true) do %>
+  <%= text_field_tag :code %>
+  <%= submit_tag 'Save' %>
+<% end %>
