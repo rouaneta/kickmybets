@@ -4,20 +4,5 @@
   <p><%= link_to participation.contest.title, participation_path(participation) %></p>
 <% end %>
 
-<!-- modal button -->
-    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-      Join contest
-    </button>
-
-
-<!-- modal  -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header" id="invitation-modal">
-        <%= render 'invitation' %>
-      </div>
-    </div>
-  </div>
-</div>
+<%= render 'modal_invitation' %>
 
