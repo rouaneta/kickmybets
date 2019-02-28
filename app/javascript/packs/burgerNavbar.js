@@ -1,6 +1,6 @@
 const plusBtn = document.querySelector('.plus-btn');
 
-const menuHomepage = () => {
+const burgerNavbar = () => {
 
 $(document).ready(function() {
     $(document).delegate('.open', 'click', function(event){
@@ -17,4 +17,4 @@ $(document).ready(function() {
   });
 }
 
-export default menuHomepage;
+export default burgerNavbar;
