@@ -2,6 +2,8 @@
 
 <h2><%= @participation.user.nickname %></h2>
 
+<h2>Available coins: <%= @participation.betcoins if @participation.betcoins %></h2>
+
 <div class=container>
   <% @events.order(start_time: :desc).each do |event| %>
     <%= event.title %> /
@@ -33,14 +35,14 @@
     <% disabled = 'disabled' %>
   <% end %>
 
-  <%= render 'shared/bet_button', locals: {
+  <%#= render 'shared/bet_button', locals: {
     index: index,
     value: 1,
     resource: event,
-    disabled: disabled
+    disabled: disabled,
   } %>
 
-  <%= render 'shared/bet_button', locals: {
+  <%#= render 'shared/bet_button', locals: {
     index: index,
     value: 2,
     resource: event,
@@ -70,19 +72,12 @@
     <% disabled = 'disabled' %>
   <% end %>
 
-  <%= render 'shared/bet_button', locals: {
-    index: index,
-    value: 1,
-    resource: game,
-    disabled: disabled
-  } %>
 
-  <%= render 'shared/bet_button', locals: {
-    index: index,
-    value: 2,
-    resource: game,
-    disabled: disabled
-  } %>
+  <% bet1 = Bet.new(resource: game, choice: 1) %>
+  <% bet2 = Bet.new(resource: game, choice: 2) %>
+
+  <%= render 'shared/bet_button', participation: @participation, bet: bet1, disabled: disabled, index: index %>
+  <%= render 'shared/bet_button', participation: @participation, bet: bet2, disabled: disabled, index: index %>
 
   <hr>
   <hr>

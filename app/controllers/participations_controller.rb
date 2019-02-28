@@ -12,10 +12,10 @@ class ParticipationsController < ApplicationController
       create_by_code(params[:code])
     else
       @participation = Participation.new(participation_params)
+      @participation.betcoins = @participation.contest.coins_init
       if @participation.save
         redirect_to participation_path(@participation)
-      else
-        redirect_to contest_path(@participation.contest)
+      else redirect_to contest_path(@participation.contest)
       end
     end
   end
@@ -29,11 +29,10 @@ class ParticipationsController < ApplicationController
   def create_by_code(code)
     @contest = Contest.find_by(code: code)
     if @contest
-      Participation.create!(contest: @contest, user: current_user)
+      Participation.create!(contest: @contest, user: current_user, betcoins: contest.coins_init)
       render :create_success
     else
       render :create_error
     end
   end
-
 end

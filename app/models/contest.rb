@@ -13,7 +13,7 @@ class Contest < ApplicationRecord
   validates :category, inclusion: { in: %w[cup league] }, presence: true
   validates :status, inclusion: { in: %w[opened closed finished] }
   validates :title, presence: true
-  validates :coins_init, presence: true
+  validates :coins_init, presence: true, numericality: { greater_than: 0 }
   validates :code, uniqueness: true
   validates :players_nb, presence: true
 

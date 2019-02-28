@@ -1,5 +1,9 @@
 <h2>welcome to the dashboard</h2>
 
+<%= link_to "New contest", new_contest_path %>
+
+<hr>
+
 <% @user.participations.each do |participation|%>
   <p><%= link_to participation.contest.title, participation_path(participation) %></p>
 <% end %>
