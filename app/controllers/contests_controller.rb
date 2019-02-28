@@ -2,7 +2,7 @@ class ContestsController < ApplicationController
   def show
     @contest = Contest.find(params[:id])
     @user = current_user
-    @participation = Participation.new # (user: @user, contest: @contest)
+    @participation = Participation.new
   end
 
   def new

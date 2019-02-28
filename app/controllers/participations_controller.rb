@@ -9,13 +9,16 @@ class ParticipationsController < ApplicationController
 
   def create
     @participation = Participation.new(participation_params)
-    @participation.save
-    redirect_to participation_path(@participation)
+    if @participation.save
+      redirect_to participation_path(@participation)
+    else
+      redirect_to contest_path(@participation.contest)
+    end
   end
 
   private
 
   def participation_params
-    params.require(:participation).permit(:user, :contest)
+    params.require(:participation).permit(:user_id, :contest_id)
   end
 end

@@ -2,5 +2,13 @@
 
 <p><%= @contest.description %></p>
 
-<%= link_to "I want to gamble on this contest", participation_path(@participation, user: @user, contest: @contest), method: :post %>
-<%#= link_to "Gambler view", participation_path(@contest.my_participation) %>
+<%= simple_form_for @participation do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+  <%= f.hidden_field :user_id, value: @user.id %>
+  <%= f.hidden_field :contest_id, value: @contest.id %>
+  <%= f.button :submit, value: 'Bet on this contest' %>
+<% end %>
+
+<%#= link_to "I want to gamble on this contest", participation_path(@participation, user: @user, contest: @contest), method: :post %>
+
