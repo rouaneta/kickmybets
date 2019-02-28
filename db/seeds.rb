@@ -26,6 +26,7 @@ contest = Contest.create!(
   coins_init: 100,
   category: "cup",
   code: "azertyuiop",
+  players_nb: 8,
   creator: user
   }
 )
@@ -47,11 +48,13 @@ player3 = Player.create!(
 puts "Creating games"
 game1 = Game.create!(
   player_one: player1,
-  player_two: player2
+  player_two: player2,
+  contest: contest
 )
 game2 = Game.create!(
   player_one: player1,
-  player_two: player3
+  player_two: player3,
+  contest: contest
 )
 
 puts"Creating participations"
@@ -70,10 +73,12 @@ puts "Creating Bets"
 bet1 = Bet.create!(
   resource: event,
   participation: participation,
+  amount: 4,
   choice: 1
   )
 bet2 = Bet.create!(
  resource: game1,
  participation: participation,
+  amount: 5,
  choice: 2
 )

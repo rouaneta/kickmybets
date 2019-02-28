@@ -1,6 +1,6 @@
 class Player < ApplicationRecord
   belongs_to :contest
-  
+
   has_many :games_as_p_one, class_name: "Game", foreign_key: "player_one_id", dependent: :destroy
   has_many :games_as_p_two, class_name: "Game", foreign_key: "player_two_id", dependent: :destroy
   has_many :bets_as_p_one, through: :games_as_p_one, source: :bets
@@ -15,5 +15,4 @@ class Player < ApplicationRecord
   def bets
     (bets_as_p_one.all + bets_as_p_two.all).uniq
   end
-
 end
