@@ -1,19 +1,9 @@
-<button class="btn btn-info" type="button" data-toggle="collapse" data-target="#bet-button-<%= locals[:resource].class.to_s %>-<%= locals[:value] %>-<%= locals[:index] %>" aria-expanded="false" aria-controls="bet-button-<%= locals[:resource].class.to_s %>-<%= locals[:value] %>-<%= locals[:index] %>" <%= locals[:disabled] %>>
-
-  <% if locals[:value] == 1 %>
-    <%= locals[:resource].choice_one %>
-  <% elsif locals[:value] == 2 %>
-    <%= locals[:resource].choice_two %>
-  <% end %>
-
+<button class="btn btn-info" type="button" data-toggle="collapse" data-target="#bet-button-<%= bet.resource.class.to_s %>-<%= bet.choice %>-<%= index %>" aria-expanded="false" aria-controls="bet-button-<%= bet.resource.class.to_s %>-<%= bet.choice %>-<%= index %>" <%= disabled %>>
+  <%= bet.resource.send("choice#{bet.choice}".to_sym) %>
 </button>
 
-<div class="collapse" id="bet-button-<%= locals[:resource].class.to_s %>-<%= locals[:value] %>-<%= locals[:index] %>">
-  <div class="well">
-    <%= render 'shared/bet_form', locals: {
-      value: locals[:value],
-      resource_type: locals[:resource].class.to_s,
-      resource_id: locals[:resource].id
-    } %>
+<div class="collapse" id="bet-button-<%= bet.resource.class.to_s %>-<%= bet.choice %>-<%= index %>">
+  <div class="well" id="bet-form-<%= bet.resource.class.to_s %>-<%= bet.choice %>-<%= index %>">
+    <%= render 'shared/bet_form', participation: participation, bet: bet %>
   </div>
 </div>
