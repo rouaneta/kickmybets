@@ -3,12 +3,34 @@
 <p><%= @contest.description %></p>
 <p><%= @contest.code %></p>
 
-<%= simple_form_for @participation do |f| %>
-  <%= f.error_notification %>
-  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-  <%= f.hidden_field :user_id, value: @user.id %>
-  <%= f.hidden_field :contest_id, value: @contest.id %>
-  <%= f.button :submit, value: 'Bet on this contest' %>
+<% if Participation.where(user_id: @user.id, contest_id: @contest).empty? %>
+  <%= render 'create_participation', participation: @participation, user_id: @user.id, contest_id: @contest.id %>
+<% else %>
+  <%= link_to 'Go to gambler view', participation_path(Participation.where(user_id: @user.id, contest_id: @contest).first) %>
 <% end %>
 
 <%= render 'modal_invitation_mail', contest: @contest %>
+
+<br>
+
+<% @contest.games.sort_by { |game| game.id }.each do |game| %>
+  <h3><%= game.name %></h3>
+  <% if game.status != 'pending' %>
+    <p><%= game.player_one.name %> vs <%= game.player_two.name %></p>
+
+    <% if game.status == 'closed' %>
+      <p><%= game.score_p_one %> - <%= game.score_p_two %></p>
+    <% else %>
+      <%= render 'update_game_score', game: game %>
+      <% if game.status == 'coming' %>
+        <%= link_to 'Close bets for this one', update_status_game_path(game), method: :patch, class: 'btn btn-warning', data: {confirm: "Do you really want to close bets for this game? You can't go back on this hard decision"} %>
+      <% end %>
+    <% end %>
+
+
+  <% else %>
+    <p>Still pending...</p>
+  <% end %>
+
+
+<% end %>

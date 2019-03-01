@@ -27,12 +27,6 @@ class ContestsController < ApplicationController
     redirect_to contest_path(contest)
   end
 
-  def update_games
-    @contest = Contest.find(params[:id])
-    GameGridUpdate.new(@contest).process
-    redirect_to contest_path(@contest)
-  end
-
   private
 
   def code_invit

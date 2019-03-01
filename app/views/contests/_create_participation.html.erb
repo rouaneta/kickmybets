@@ -1,0 +1,7 @@
+<%= simple_form_for participation do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+  <%= f.hidden_field :user_id, value: user_id %>
+  <%= f.hidden_field :contest_id, value: contest_id %>
+  <%= f.button :submit, value: 'Bet on this contest' %>
+<% end %>

@@ -10,6 +10,8 @@ class Game < ApplicationRecord
   before_save :update_status, :update_winner
 
   def betable?(user)
+    return false unless status == 'coming'
+
     bets.each do |bet|
       return false if bet.participation.user_id == user.id
     end
