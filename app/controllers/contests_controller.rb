@@ -22,10 +22,10 @@ class ContestsController < ApplicationController
   end
 
   def invite
-    user = User.find_by(email: params[:email])
     contest = Contest.find(params[:id])
-    InvitationMailer.invitation(user, contest).deliver_now!
-    head :ok
+    InvitationMailer.invitation(contest, params[:email]).deliver_now!
+    # redirect_to dashboard_path
+    redirect_to contest_path(contest)
   end
 
   def update_games
@@ -33,7 +33,7 @@ class ContestsController < ApplicationController
     (2..@contest.phases).to_a.reverse_each do |phase|
       update_next_games(@contest, phase)
     end
-    redirect_to contest_path(@contest)
+    redirect_to contests_path(@contest)
   end
 
   private

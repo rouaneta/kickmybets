@@ -1,6 +1,7 @@
 <h1><%= @contest.title %></h1>
 
 <p><%= @contest.description %></p>
+<p><%= @contest.code %></p>
 
 <%= simple_form_for @participation do |f| %>
   <%= f.error_notification %>
