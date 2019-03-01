@@ -1,0 +1,40 @@
+ <div class="tournament">
+
+
+      <% @participation.contest.games.reject{ |game| game.status == 'pending' }.each_with_index do |game, index| %>
+
+        <% if game.betable?(current_user) %>
+          <% disabled = '' %>
+        <% else %>
+          <% disabled = 'disabled' %>
+        <% end %>
+
+
+<!-- (index x 2 ) - 1 -->
+    <div id="player<%= (index+1)*2 - 1 %>" class="col-xs-6 col-sm-3">
+        <% bet1 = Bet.new(resource: game, choice: 1) %>
+        <%= render 'shared/bet_button', participation: @participation, bet: bet1, disabled: disabled, index: index %>
+    </div>
+
+<!-- (index x 2 ) -->
+    <div id="player<%= (index+1)*2%>" class="col-xs-6 col-sm-3">
+        <% bet2 = Bet.new(resource: game, choice: 2) %>
+        <%= render 'shared/bet_button', participation: @participation, bet: bet2, disabled: disabled, index: index %>
+    </div>
+      <% end %>
+
+    <div id="demi1">
+      demi1
+    </div>
+
+    <div id="demi2">
+      demi2
+    </div>
+
+    <div id="final">
+      winner
+    </div>
+
+
+</div>
+
