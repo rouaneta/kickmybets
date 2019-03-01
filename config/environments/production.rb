@@ -1,5 +1,11 @@
 Rails.application.configure do
   config.action_mailer.default_url_options = { host: "http://TODO_PUT_YOUR_DOMAIN_HERE" }
+
+  # config.action_mailer.delivery_method     = :sendgrid
+  # config.action_mailer.sendgrid_settings   = { api_key: ENV['SENDGRID_API_KEY'] }
+  # config.action_mailer.default_url_options = { host: "http://www.kickmybets.fun" }
+
+
   # Verifies that versions and hashed value of the package contents in the project's package.json
   config.webpacker.check_yarn_integrity = false
   # Settings specified here will take precedence over those in config/application.rb.
