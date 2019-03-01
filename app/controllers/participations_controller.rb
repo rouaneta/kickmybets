@@ -29,7 +29,7 @@ class ParticipationsController < ApplicationController
   def create_by_code(code)
     @contest = Contest.find_by(code: code)
     if @contest
-      Participation.create!(contest: @contest, user: current_user, betcoins: contest.coins_init)
+      Participation.create!(contest: @contest, user: current_user, betcoins: @contest.coins_init)
       render :create_success
     else
       render :create_error

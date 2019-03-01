@@ -1,9 +1,11 @@
-<button class="btn btn-info" type="button" data-toggle="collapse" data-target="#bet-button-<%= bet.resource.class.to_s %>-<%= bet.choice %>-<%= index %>" aria-expanded="false" aria-controls="bet-button-<%= bet.resource.class.to_s %>-<%= bet.choice %>-<%= index %>" <%= disabled %>>
-  <%= bet.resource.send("choice#{bet.choice}".to_sym) %>
-</button>
+<div class="bet-button">
+  <button class="btn btn-info" type="button" data-toggle="collapse" data-target="#bet-button-<%= bet.resource.class.to_s %>-<%= bet.choice %>-<%= index %>" aria-expanded="false" aria-controls="bet-button-<%= bet.resource.class.to_s %>-<%= bet.choice %>-<%= index %>" <%= disabled %>>
+    <%= bet.resource.send("choice#{bet.choice}".to_sym) %>
+  </button>
 
-<div class="collapse" id="bet-button-<%= bet.resource.class.to_s %>-<%= bet.choice %>-<%= index %>">
-  <div class="well" id="bet-form-<%= bet.resource.class.to_s %>-<%= bet.choice %>-<%= index %>">
-    <%= render 'shared/bet_form', participation: participation, bet: bet %>
+  <div class="collapse" id="bet-button-<%= bet.resource.class.to_s %>-<%= bet.choice %>-<%= index %>">
+    <div class="well" id="bet-form-<%= bet.resource.class.to_s %>-<%= bet.choice %>-<%= index %>">
+      <%= render 'shared/bet_form', participation: participation, bet: bet %>
+    </div>
   </div>
 </div>
