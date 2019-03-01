@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'auto-mailer@kickmybet.com'
+  default from: 'auto-mailer@kickmybets.fun'
   layout 'mailer'
 end
