@@ -5,6 +5,7 @@ class Game < ApplicationRecord
   has_many :bets, as: :resource, dependent: :destroy
 
   validates :status, inclusion: { in: %w[pending coming ongoing finished closed] }
+  validates :game_code, uniqueness: { scope: :contest_id }
 
   before_save :update_status, :update_winner
 
