@@ -27,43 +27,19 @@ contest = Contest.create!(
   category: "cup",
   code: "azertyuiop",
   players_nb: 8,
-  creator: user
+  creator: user,
+  players_attributes: [{name: "a"}, {name: "z"}, {name: "e"}, {name: "r"}, {name: "t"}, {name: "y"}, {name: "u"}, {name: "i"}]
   }
 )
 
-puts "Creating players"
-player1 = Player.create!(
-  contest: contest,
-  name: "toto1"
-)
-player2 = Player.create!(
-  contest: contest,
-  name: "toto2"
-)
-player3 = Player.create!(
-  contest: contest,
-  name: "toto3"
-)
-
-puts "Creating games"
-game1 = Game.create!(
-  player_one: player1,
-  player_two: player2,
-  contest: contest
-)
-game2 = Game.create!(
-  player_one: player1,
-  player_two: player3,
-  contest: contest
-)
+GameGridGenerator.new(contest).process
 
 puts"Creating participations"
 participation = Participation.create!(user: user, contest: contest, betcoins: 5)
 
 puts "Creating Events"
 event = Event.create!(
-  contest: contest,
-  user: user,
+  participation: participation,
   title: "event_incroyable",
   choice_one: "gagne",
   choice_two: "perdu"
@@ -77,7 +53,7 @@ bet1 = Bet.create!(
   choice: 1
   )
 bet2 = Bet.create!(
-  resource: game1,
+  resource: Game.last,
   participation: participation,
   amount: 5,
   choice: 2
