@@ -1,40 +1,60 @@
  <div class="tournament">
 
+<% @participation.contest.games.order(:id).each do |game| %>
 
-      <% @participation.contest.games.reject{ |game| game.status == 'pending' }.each_with_index do |game, index| %>
-
-        <% if game.betable?(current_user) %>
-          <% disabled = '' %>
-        <% else %>
-          <% disabled = 'disabled' %>
-        <% end %>
-
-
-<!-- (index x 2 ) - 1 -->
-    <div id="player<%= (index+1)*2 - 1 %>" class="col-xs-6 col-sm-3">
-        <% bet1 = Bet.new(resource: game, choice: 1) %>
-        <%= render 'shared/bet_button', participation: @participation, bet: bet1, disabled: disabled, index: index %>
+<div class="col-md-6 mb-2">
+  <div class="card second pool-card gamedPassed">
+    <div class="card-header">
+      <h2><%= game.name %></h2>
     </div>
-
-<!-- (index x 2 ) -->
-    <div id="player<%= (index+1)*2%>" class="col-xs-6 col-sm-3">
-        <% bet2 = Bet.new(resource: game, choice: 2) %>
-        <%= render 'shared/bet_button', participation: @participation, bet: bet2, disabled: disabled, index: index %>
+    <div class="card-body">
+      <div class="row mt-2">
+        <div class="col-sm-12 text-center  name-elt col-md-6">
+          <%= game.player_one.name unless game.player_one.nil? %>
+      <div class="name-office">
+        <small>One of the best</small>
+      </div>
     </div>
-      <% end %>
-
-    <div id="demi1">
-      demi1
+    <div class="text-center col-sm-4 col-md-2 pl-1 pr-1">
+        7
+      </div>
+      <div class="text-center col-sm-4 col-md-2 pl-1 pr-1">
+        11
+      </div>
+      <div class="text-center col-sm-4 col-md-2 pl-1 pr-1">
+        7
+      </div>
     </div>
-
-    <div id="demi2">
-      demi2
+    <hr class="mb-2 mt-2 vs-elt">
+    <div class="row mt-2 mb-2">
+      <div class="col-sm-12 text-center name-elt font-weight-bold text-green col-md-6">
+          <%= game.player_two.name unless game.player_two.nil? %>
+      <div class="name-office">
+        <small>One of the best</small>
+      </div>
     </div>
-
-    <div id="final">
-      winner
+    <div class="text-center col-sm-4 col-md-2 pl-1 pr-1">
+        11
+      </div>
+      <div class="text-center col-sm-4 col-md-2 pl-1 pr-1">
+        9
+      </div>
+      <div class="text-center col-sm-4 col-md-2 pl-1 pr-1">
+        11
+      </div>
     </div>
-
-
+  </div>
+  <div class="card-footer">
+    <div class="text-center text-grey">Joué mardi 20 novembre, 16:00
+    </div>
+  </div>
 </div>
+</div>
+<%end %>
+
+
+
+
+
+
 
