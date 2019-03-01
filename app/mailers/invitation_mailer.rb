@@ -4,9 +4,9 @@ class InvitationMailer < ApplicationMailer
   #
   #   en.invitation_mailer.invitation.subject
   #
-  def invitation(user, contest)
-    @user = user
+  def invitation(contest, email)
+    # @email = email
     @contest = contest
-    mail(to: @user.email, subject: 'contest invitation')
+    mail(to: email, subject: 'contest invitation')
   end
 end
