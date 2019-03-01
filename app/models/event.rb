@@ -8,7 +8,7 @@ class Event < ApplicationRecord
   validate :check_choices, on: :create
 
   def betable?(user)
-    return false if choice_win || (status != 'coming')
+    return false unless status == 'coming'
 
     bets.each do |bet|
       return false if bet.participation.user_id == user.id
