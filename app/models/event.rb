@@ -5,10 +5,12 @@ class Event < ApplicationRecord
   has_one :user, through: :participation
 
   validates :title, :choice_one, :choice_two, presence: true
-  validates :status, inclusion: { in: %w(coming ongoing finished) }
+  validates :status, inclusion: { in: %w[coming ongoing finished] }
   validate :check_choices, on: :create
 
   def betable?(user)
+    return false unless status == 'coming'
+
     bets.each do |bet|
       return false if bet.participation.user_id == user.id
     end
