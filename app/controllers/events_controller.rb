@@ -11,8 +11,6 @@ class EventsController < ApplicationController
     end
   end
 
-  #  , status: params[:event][:status]
-
   def update_status
     @event = Event.find(params[:id])
     @event.update(status: 'ongoing')
