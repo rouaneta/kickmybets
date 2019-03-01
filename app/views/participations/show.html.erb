@@ -2,6 +2,11 @@
 
 <h2><%= @participation.user.nickname %></h2>
 
+
+<h3>See your tournament</h3>
+
+ <%= render 'shared/cup_4_players' %>
+
 <h2>Available coins: <%= @participation.betcoins if @participation.betcoins %></h2>
 
 <div class=container>
@@ -65,7 +70,8 @@
  </div>
 
     <!-- Modal -->
- <%= render 'events/form_events', participation: @participation, event: @event %>
+
+ <%= render 'events/modal_event' %>
 
 
 <br><br><br><br><br><br>
