@@ -6,7 +6,11 @@ Rails.application.routes.draw do
   resources :contests, only: [:show, :new, :create] do
     member do
       post :invite
-      get 'update-games'
+      resources :games, only: [:update] do
+        member do
+          patch 'update_status'
+        end
+      end
     end
   end
 
