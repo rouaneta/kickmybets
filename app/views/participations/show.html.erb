@@ -14,12 +14,13 @@
 <% @events.each_with_index do |event, index| %>
 
   <% disabled = event.betable?(current_user) ? '' : 'disabled' %>
+  <p> Disabled: <%= disabled %> </p>
   <% bet1 = Bet.new(resource: event, choice: 1) %>
   <% bet2 = Bet.new(resource: event, choice: 2) %>
 
   <h3><%= event.title %></h3>
-  <% if event.user_id == @participation.user_id %>
-    <%= render 'update_bet_modal', participation: @participation, event: event %>
+  <% if (event.user_id == @participation.user_id) && !(event.choice_win) %>
+    <%= render 'update_event_modal', participation: @participation, event: event %>
   <% end %>
 
   <%= render 'shared/bet_button', participation: @participation, bet: bet1, disabled: disabled, index: index %>
