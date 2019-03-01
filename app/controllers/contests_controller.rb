@@ -21,12 +21,12 @@ class ContestsController < ApplicationController
     end
   end
 
-
   def invite
     user = User.find_by(email: params[:email])
     contest = Contest.find(params[:id])
     InvitationMailer.invitation(user, contest).deliver_now!
     head :ok
+  end
 
   def update_games
     @contest = Contest.find(params[:id])
@@ -34,7 +34,6 @@ class ContestsController < ApplicationController
       update_next_games(@contest, phase)
     end
     redirect_to contest_path(@contest)
-
   end
 
   private

@@ -1,8 +1,8 @@
 import "bootstrap";
 import playersGenerator from './players-generator';
-import menuHomepage from './menuHomepage';
+import burgerNavbar from './burgerNavbar';
 import btnHomepage from './btnHomepage';
 
 playersGenerator();
-menuHomepage();
+burgerNavbar();
 btnHomepage();

@@ -58,7 +58,7 @@ game2 = Game.create!(
 )
 
 puts"Creating participations"
-participation = Participation.create!(user: user, contest: contest, amount: 5)
+participation = Participation.create!(user: user, contest: contest, betcoins: 5)
 
 puts "Creating Events"
 event = Event.create!(
@@ -77,8 +77,8 @@ bet1 = Bet.create!(
   choice: 1
   )
 bet2 = Bet.create!(
- resource: game1,
- participation: participation,
+  resource: game1,
+  participation: participation,
   amount: 5,
- choice: 2
+  choice: 2
 )
