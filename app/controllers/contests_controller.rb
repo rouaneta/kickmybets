@@ -24,7 +24,6 @@ class ContestsController < ApplicationController
   def invite
     contest = Contest.find(params[:id])
     InvitationMailer.invitation(contest, params[:email]).deliver_now!
-    # redirect_to dashboard_path
     redirect_to contest_path(contest)
   end
 
