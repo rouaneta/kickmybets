@@ -13,9 +13,15 @@ class EventsController < ApplicationController
 
   #  , status: params[:event][:status]
 
+  def update_status
+    @event = Event.find(params[:id])
+    @event.update(status: 'ongoing')
+    redirect_to participation_path(Participation.find(params[:participation_id]))
+  end
+
   def update
     @event = Event.find(params[:id])
-    if [1, 2, '1', '2'].include?(params[:event][:choice_win]) && @event.update(choice_win: params[:event][:choice_win])
+    if [1, 2, '1', '2'].include?(params[:event][:choice_win]) && @event.update(status: 'finished', choice_win: params[:event][:choice_win])
       render :update_success
     else
       render :update_error
