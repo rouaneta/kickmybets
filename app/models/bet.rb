@@ -1,6 +1,7 @@
 class Bet < ApplicationRecord
   belongs_to :participation
   belongs_to :resource, polymorphic: true
+  has_one :contest, through: :participation
 
   validates :participation_id, uniqueness: { scope: %i[resource_type resource_id] }
   validate :enough_coins, on: :create

@@ -11,7 +11,11 @@ Rails.application.routes.draw do
   end
 
   resources :participations, only: [:show, :new, :create] do
-    resources :events, only: [:create, :edit, :update]
+    resources :events, only: [:create, :edit, :update] do
+      member do
+        patch 'update_status'
+      end
+    end
     resources :bets, only: [:create]
   end
 
