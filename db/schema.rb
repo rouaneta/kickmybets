@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_28_133620) do
+ActiveRecord::Schema.define(version: 2019_03_01_103712) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,20 +44,18 @@ ActiveRecord::Schema.define(version: 2019_02_28_133620) do
   end
 
   create_table "events", force: :cascade do |t|
-    t.bigint "user_id"
     t.string "title"
     t.text "description"
     t.string "choice_one"
     t.string "choice_two"
     t.integer "choice_win"
-    t.bigint "contest_id"
     t.datetime "start_time"
     t.datetime "end_time"
     t.string "status", default: "coming"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["contest_id"], name: "index_events_on_contest_id"
-    t.index ["user_id"], name: "index_events_on_user_id"
+    t.bigint "participation_id"
+    t.index ["participation_id"], name: "index_events_on_participation_id"
   end
 
   create_table "games", force: :cascade do |t|
@@ -120,8 +118,6 @@ ActiveRecord::Schema.define(version: 2019_02_28_133620) do
 
   add_foreign_key "bets", "participations"
   add_foreign_key "contests", "users", column: "creator_id"
-  add_foreign_key "events", "contests"
-  add_foreign_key "events", "users"
   add_foreign_key "games", "players", column: "player_one_id"
   add_foreign_key "games", "players", column: "player_two_id"
   add_foreign_key "games", "players", column: "player_winner_id"

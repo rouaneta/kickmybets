@@ -62,8 +62,7 @@ participation = Participation.create!(user: user, contest: contest, betcoins: 5)
 
 puts "Creating Events"
 event = Event.create!(
-  contest: contest,
-  user: user,
+  participation: participation,
   title: "event_incroyable",
   choice_one: "gagne",
   choice_two: "perdu"
