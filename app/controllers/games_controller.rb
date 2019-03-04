@@ -17,4 +17,7 @@ class GamesController < ApplicationController
     @game.update(status: 'ongoing')
     redirect_to contest_path(@game.contest)
   end
+
+
+
 end

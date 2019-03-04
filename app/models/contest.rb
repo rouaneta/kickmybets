@@ -23,6 +23,10 @@ class Contest < ApplicationRecord
     Math.log2(players_nb).to_i
   end
 
+  def current_phase
+    self.games.where(status: "coming").select(:phase).distinct.map {|e| e.phase}.max
+  end
+  
   private
 
   def generate_grid
