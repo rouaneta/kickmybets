@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_01_103712) do
+ActiveRecord::Schema.define(version: 2019_03_04_095319) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,11 +20,10 @@ ActiveRecord::Schema.define(version: 2019_03_01_103712) do
     t.bigint "resource_id"
     t.integer "amount"
     t.integer "choice"
-    t.float "odds"
     t.bigint "participation_id"
-    t.boolean "success"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "gains"
     t.index ["participation_id"], name: "index_bets_on_participation_id"
     t.index ["resource_type", "resource_id"], name: "index_bets_on_resource_type_and_resource_id"
   end
@@ -55,6 +54,8 @@ ActiveRecord::Schema.define(version: 2019_03_01_103712) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "participation_id"
+    t.float "odds_choice_one"
+    t.float "odds_choice_two"
     t.index ["participation_id"], name: "index_events_on_participation_id"
   end
 
@@ -63,7 +64,7 @@ ActiveRecord::Schema.define(version: 2019_03_01_103712) do
     t.bigint "player_two_id"
     t.integer "score_p_one"
     t.integer "score_p_two"
-    t.integer "winner"
+    t.integer "choice_win"
     t.datetime "start_time"
     t.datetime "end_time"
     t.string "status", default: "pending"
@@ -74,6 +75,8 @@ ActiveRecord::Schema.define(version: 2019_03_01_103712) do
     t.string "name"
     t.integer "player_winner_id"
     t.bigint "contest_id"
+    t.float "odds_player_one"
+    t.float "odds_player_two"
     t.index ["contest_id"], name: "index_games_on_contest_id"
     t.index ["player_one_id"], name: "index_games_on_player_one_id"
     t.index ["player_two_id"], name: "index_games_on_player_two_id"
