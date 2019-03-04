@@ -1,6 +1,7 @@
 class ContestsController < ApplicationController
+  before_action :set_contest, :only [:show, :invite, :update_games]
+
   def show
-    @contest = Contest.find(params[:id])
     @user = current_user
     @participation = Participation.new
   end
@@ -22,13 +23,11 @@ class ContestsController < ApplicationController
   end
 
   def invite
-    contest = Contest.find(params[:id])
-    InvitationMailer.invitation(contest, params[:email]).deliver_now!
+    InvitationMailer.invitation(@contest, params[:email]).deliver_now!
     redirect_to contest_path(contest)
   end
 
   def update_games
-    @contest = Contest.find(params[:id])
     GameGridUpdate.new(@contest).process
     redirect_to contest_path(@contest)
   end
@@ -38,11 +37,15 @@ class ContestsController < ApplicationController
   def code_invit
     code = ""
     8.times { code += [rand(48..57).chr, rand(97..122).chr, rand(65..90).chr].sample.to_s }
-    return code
+    return codeeach_pair { |name, val|  }
   end
 
   def contest_params
     params.require(:contest).permit(:category, :title, :description, :creator_id,
                                     :players_nb, :coins_init, players_attributes: [:name])
+  end
+
+  def set_contest
+    @contest = Contest.find(params[:id])
   end
 end
