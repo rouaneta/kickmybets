@@ -1,6 +1,7 @@
 class ContestsController < ApplicationController
+  before_action :set_contest, only: %I[show invite update_games]
+
   def show
-    @contest = Contest.find(params[:id])
     @user = current_user
     @participation = Participation.new
   end
@@ -22,9 +23,8 @@ class ContestsController < ApplicationController
   end
 
   def invite
-    contest = Contest.find(params[:id])
-    InvitationMailer.invitation(contest, params[:email]).deliver_now!
-    redirect_to contest_path(contest)
+    InvitationMailer.invitation(@contest, params[:email]).deliver_now!
+    redirect_to contest_path(@contest)
   end
 
   private
@@ -38,5 +38,9 @@ class ContestsController < ApplicationController
   def contest_params
     params.require(:contest).permit(:category, :title, :description, :creator_id,
                                     :players_nb, :coins_init, players_attributes: [:name])
+  end
+
+  def set_contest
+    @contest = Contest.find(params[:id])
   end
 end
