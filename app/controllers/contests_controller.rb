@@ -1,5 +1,5 @@
 class ContestsController < ApplicationController
-  before_action :set_contest, :only [:show, :invite, :update_games]
+  before_action :set_contest, only: %I[show invite update_games]
 
   def show
     @user = current_user
@@ -24,7 +24,7 @@ class ContestsController < ApplicationController
 
   def invite
     InvitationMailer.invitation(@contest, params[:email]).deliver_now!
-    redirect_to contest_path(contest)
+    redirect_to contest_path(@contest)
   end
 
   def update_games
@@ -37,7 +37,7 @@ class ContestsController < ApplicationController
   def code_invit
     code = ""
     8.times { code += [rand(48..57).chr, rand(97..122).chr, rand(65..90).chr].sample.to_s }
-    return codeeach_pair { |name, val|  }
+    return code
   end
 
   def contest_params
