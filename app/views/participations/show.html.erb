@@ -8,12 +8,12 @@
 
 <h3>See your tournament</h3>
 
- <%= render 'shared/cup_4_players' %>
-
- <hr>
- <hr>
-
 <h3>Available coins: <%= @participation.betcoins if @participation.betcoins %> <i class="fas fa-coins"></i></h3>
+
+ <%= render 'shared/tournament' %>
+
+ <hr>
+ <hr>
 
 <div class="container">
   <% @bets.each do |bet| %>

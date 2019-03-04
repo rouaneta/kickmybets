@@ -30,6 +30,21 @@ class Game < ApplicationRecord
 
   alias_method :choice2, :choice_two
 
+  def phase_name
+    case self.phase
+    when 1
+      return "Finals"
+    when 2
+      return "Semi-finals"
+    when 3
+      return "Quarter-Finals"
+    end
+  end
+
+  def game_betable?
+    self.status == "coming"
+  end
+
   private
 
   def update_status

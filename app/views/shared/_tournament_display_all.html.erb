@@ -1,0 +1,83 @@
+
+  <div class="card-tournament">
+
+
+    <% case game.phase %>
+    <% when 3 %>
+      <div class="card-header quarter-finals">
+        <%= game.phase_name %>
+      </div>
+    <% when 2 %>
+      <div class="card-header semi-finals">
+        <%= game.phase_name %>
+      </div>
+    <% when 1 %>
+      <div class="card-header finals">
+        <%= game.phase_name %>
+      </div>
+    <% end %>
+
+
+    <div class="card-display">
+
+      <div class="card-body">
+        <div class="player-info">
+          <div class="player-picture">
+          </div>
+          <div class="player-name">
+            <%= game.player_one.name unless game.player_one.nil? %>
+          </div>
+        </div>
+
+        <div class="score">
+          <div class="score-title">
+            Score:
+           <% unless game.score_p_one.nil? %>
+              <%= game.score_p_one %>
+            <% else %>
+              <%= "No score yet" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+
+      <div id="versus-icon">
+        <%= image_tag "versus-icon.png", class: "versus-icon" %>
+      </div>
+
+      <div class="card-body">
+        <div class="player-info">
+          <div class="player-picture">
+          </div>
+          <div class="player-name">
+            <%= game.player_two.name unless game.player_two.nil? %>
+          </div>
+        </div>
+
+        <div class="score">
+          <div class="score-title">
+            Score:
+            <% unless game.score_p_two.nil? %>
+              <%= game.score_p_two %>
+            <% else %>
+              <%= "No score yet" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="bet-btn">
+       <div class="show-button-modal">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+          Bet now!
+        </button>
+       </div>
+    </div>
+
+    <div class="gain-footer">
+      Your gain:
+    </div>
+
+  </div>

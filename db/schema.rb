@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_04_094302) do
+ActiveRecord::Schema.define(version: 2019_03_04_110127) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,7 +65,7 @@ ActiveRecord::Schema.define(version: 2019_03_04_094302) do
     t.bigint "player_two_id"
     t.integer "score_p_one"
     t.integer "score_p_two"
-    t.integer "winner"
+    t.integer "choice_win"
     t.datetime "start_time"
     t.datetime "end_time"
     t.string "status", default: "pending"
@@ -99,6 +99,7 @@ ActiveRecord::Schema.define(version: 2019_03_04_094302) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "picture_path"
     t.index ["contest_id"], name: "index_players_on_contest_id"
   end
 
