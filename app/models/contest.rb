@@ -17,7 +17,15 @@ class Contest < ApplicationRecord
   validates :code, uniqueness: true
   validates :players_nb, presence: true
 
+  after_create :generate_grid
+
   def phases
     Math.log2(players_nb).to_i
+  end
+
+  private
+
+  def generate_grid
+    GameGridGenerator.new(self).process
   end
 end
