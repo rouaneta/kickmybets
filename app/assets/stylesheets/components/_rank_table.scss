@@ -4,8 +4,8 @@
   border-radius: 50%;
 }
 
-.ranking-table {
-  border-radius: 10px 0px;
+#ranking-table {
+  width: 100%;
 }
 
 .ranking-td {
@@ -31,3 +31,20 @@
   border-radius:0 10px 0 0;
 }
 
+.td-rank {
+  width: 40px;
+  text-align: center;
+}
+
+.td-avatar {
+  width: 45px;
+}
+
+.td-bets {
+  width: 40px;
+}
+
+.td-betcoins {
+  font-weight: bold;
+  width: 70px;
+}

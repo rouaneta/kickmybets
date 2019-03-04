@@ -1,29 +1,29 @@
 <div class="container">
-  <h1><%= @contest.title %></h1>
+<h1>Ranking -- <%= @contest.title %></h1>
 
-  <div id="ranking-table">
-    <table>
-      <thead>
-        <tr class="ranking-tr">
-          <th class="ranking-th">Rank.</th>
-          <th class="ranking-th" colspan="2">Gambler</th>
-          <th class="ranking-th">Ƀ</th>
-          <th class="ranking-th"><i class="fas fa-angle-up"></i></th>
-          <th class="ranking-th"><i class="fas fa-angle-down"></i></th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @participations.each_with_index do |participation, index| %>
-          <tr class="ranking-tr <%= 'even-row' if index.even? %>">
-            <td class="ranking-td text-center"><%= index + 1 %>.</td>
-            <td class="ranking-td"><%= image_tag participation.user.picture_path, class: 'ranking-avatar' %></td>
-            <td class="ranking-td"><%= participation.user.nickname %></td>
-            <td class="ranking-td"><%= participation.betcoins %></td>
-            <td class="ranking-td"><%#= Bet.where(participation_id: participation.id).where('gains > 0').count %></td>
-            <td class="ranking-td"><%#= Bet.where(participation_id: participation.id).where('gains < 0').count %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-  </div>
-</div>
+<%= render 'podium', players: @participations.map{ |participation| participation.user } %>
+
+<table id="ranking-table">
+  <thead>
+    <tr class="ranking-tr">
+      <th class="ranking-th td-rank"><i class="fas fa-trophy"></i></th>
+      <th class="ranking-th" colspan="2">Player</th>
+      <th class="ranking-th td-betcoins">Score</th>
+      <th class="ranking-th td-bets"><i class="fas fa-angle-up"></i></th>
+      <th class="ranking-th td-bets"><i class="fas fa-angle-down"></i></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @participations.each_with_index do |participation, index| %>
+      <tr class="ranking-tr <%= 'even-row' if index.even? %>">
+        <td class="ranking-td td-rank"><strong><%= index + 1 %></strong></td>
+        <td class="ranking-td td-avatar"><%= image_tag participation.user.picture_path, class: 'ranking-avatar' %></td>
+        <td class="ranking-td"><%= participation.user.nickname %></td>
+        <td class="ranking-td td-betcoins"><%= participation.betcoins %> Ƀ</td>
+        <td class="ranking-td td-bets">4<%#= Bet.where(participation_id: participation.id).where('gains > 0').count %></td>
+        <td class="ranking-td td-bets">4<%#= Bet.where(participation_id: participation.id).where('gains < 0').count %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
