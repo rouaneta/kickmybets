@@ -1,0 +1,29 @@
+<div class="container">
+  <h1><%= @contest.title %></h1>
+
+  <div id="ranking-table">
+    <table>
+      <thead>
+        <tr class="ranking-tr">
+          <th class="ranking-th">Rank.</th>
+          <th class="ranking-th" colspan="2">Gambler</th>
+          <th class="ranking-th">Ƀ</th>
+          <th class="ranking-th"><i class="fas fa-angle-up"></i></th>
+          <th class="ranking-th"><i class="fas fa-angle-down"></i></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @participations.each_with_index do |participation, index| %>
+          <tr class="ranking-tr <%= 'even-row' if index.even? %>">
+            <td class="ranking-td text-center"><%= index + 1 %>.</td>
+            <td class="ranking-td"><%= image_tag participation.user.picture_path, class: 'ranking-avatar' %></td>
+            <td class="ranking-td"><%= participation.user.nickname %></td>
+            <td class="ranking-td"><%= participation.betcoins %></td>
+            <td class="ranking-td"><%#= Bet.where(participation_id: participation.id).where('gains > 0').count %></td>
+            <td class="ranking-td"><%#= Bet.where(participation_id: participation.id).where('gains < 0').count %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
