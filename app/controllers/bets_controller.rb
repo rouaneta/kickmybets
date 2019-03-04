@@ -16,6 +16,6 @@ class BetsController < ApplicationController
   private
 
   def bet_params
-    params.require(:bet).permit(:amount, :choice, :resource_type, :resource_id)
+    params.require(:bet).permit(:amount, :comment, :choice, :resource_type, :resource_id)
   end
 end
