@@ -4,10 +4,10 @@
   justify-content: center;
   text-align: center;
   flex-direction: column;
-  height: 80vh;
+  height: 70vh;
   font-family: 'Roboto', sans-serif;
   color: black;
-  padding-bottom: 30px;
+  margin-top: 10px;
   h1 {
     font-size: 60px;
     font-weight: 300;
@@ -188,6 +188,30 @@ body.menu-open {
 }
 
 
+.trophy {
+  color: #F9D834;
+  font-size: 25px;
+}
 
+.friend {
+  color: #005EB7;
+  font-size: 25px;
+}
+
+.bitcoin {
+  color: #1C7C54;
+  font-size: 25px;
+}
+
+.pycto-claim {
+
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  color: grey;
+  font-weight: 800;
+  font-size: 25px;
+}
 
 
