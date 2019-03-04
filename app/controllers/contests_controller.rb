@@ -32,6 +32,7 @@ class ContestsController < ApplicationController
     redirect_to contest_path(@contest)
   end
 
+
   private
 
   def code_invit
