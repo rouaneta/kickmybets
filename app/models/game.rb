@@ -32,18 +32,18 @@ class Game < ApplicationRecord
   alias choice2 choice_two
 
   def phase_name
-    case self.phase
+    case phase
     when 1
-      return "Finals"
+      return "Final"
     when 2
-      return "Semi-finals"
+      return "Semi-Finals"
     when 3
       return "Quarter-Finals"
     end
   end
 
   def game_betable?
-    self.status == "coming"
+    status == "coming"
   end
 
   private

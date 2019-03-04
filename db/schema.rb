@@ -23,8 +23,8 @@ ActiveRecord::Schema.define(version: 2019_03_04_110127) do
     t.bigint "participation_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.float "gains"
     t.text "comment"
+    t.float "gains"
     t.index ["participation_id"], name: "index_bets_on_participation_id"
     t.index ["resource_type", "resource_id"], name: "index_bets_on_resource_type_and_resource_id"
   end
