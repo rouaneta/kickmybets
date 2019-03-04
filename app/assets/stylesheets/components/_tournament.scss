@@ -4,8 +4,6 @@
   grid-template-columns: 1fr 1fr;
 }
 
-
-
 .card-tournament {
   margin: 10px;
   font-family: "Roboto", sans-serif;
@@ -15,7 +13,6 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  border-bottom: 1px solid #9DACB2;
   height: 180px;
 }
 
@@ -50,17 +47,17 @@
   border-top-right-radius: 20px;
 }
 
-.quarter-finals {
+.Quarter-Finals {
   background-color: #005EB7;
   color: white;
 }
 
-.semi-finals {
+.Semi-Finals {
   background-color: #1C7C54;
   color: white;
 }
 
-.finals {
+.Final {
   background-color: #F9D834;
   color: black;
   font-weight: bold;

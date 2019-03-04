@@ -1,0 +1,20 @@
+<div class="card-body">
+  <div class="player-info">
+    <div class="player-picture">
+    </div>
+    <div class="player-name">
+      <%= game.send("player_#{number}".to_sym).name unless game.send("player_#{number}".to_sym).nil? %>
+    </div>
+  </div>
+
+  <div class="score">
+    <div class="score-title">
+     <% unless game.send("score_p_#{number}".to_sym).nil? %>
+        <%= game.send("score_p_#{number}".to_sym) %>
+      <% else %>
+        -
+      <% end %>
+    </div>
+  </div>
+</div>
+
