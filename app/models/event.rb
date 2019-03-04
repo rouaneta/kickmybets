@@ -11,10 +11,7 @@ class Event < ApplicationRecord
   def betable?(user)
     return false unless status == 'coming'
 
-    bets.each do |bet|
-      return false if bet.participation.user_id == user.id
-    end
-    true
+    bets.none? { |bet| bet.participation.user_id == user.id }
   end
 
   def choice1
