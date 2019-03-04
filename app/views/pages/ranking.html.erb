@@ -20,8 +20,8 @@
         <td class="ranking-td td-avatar"><%= image_tag participation.user.picture_path, class: 'ranking-avatar' %></td>
         <td class="ranking-td"><%= participation.user.nickname %></td>
         <td class="ranking-td td-betcoins"><%= participation.betcoins %> Ƀ</td>
-        <td class="ranking-td td-bets">4<%#= Bet.where(participation_id: participation.id).where('gains > 0').count %></td>
-        <td class="ranking-td td-bets">4<%#= Bet.where(participation_id: participation.id).where('gains < 0').count %></td>
+        <td class="ranking-td td-bets">4<%= Bet.where(participation_id: participation.id).where('gains > 0').count %></td>
+        <td class="ranking-td td-bets">4<%= Bet.where(participation_id: participation.id).where('gains = 0').count %></td>
       </tr>
     <% end %>
   </tbody>
