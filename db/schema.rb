@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_01_103712) do
+ActiveRecord::Schema.define(version: 2019_03_04_094302) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 2019_03_01_103712) do
     t.boolean "success"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "comment"
     t.index ["participation_id"], name: "index_bets_on_participation_id"
     t.index ["resource_type", "resource_id"], name: "index_bets_on_resource_type_and_resource_id"
   end
@@ -40,6 +41,7 @@ ActiveRecord::Schema.define(version: 2019_03_01_103712) do
     t.string "code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "picture_path"
     t.index ["creator_id"], name: "index_contests_on_creator_id"
   end
 
@@ -112,6 +114,7 @@ ActiveRecord::Schema.define(version: 2019_03_01_103712) do
     t.integer "points"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "picture_path"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
