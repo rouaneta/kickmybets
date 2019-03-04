@@ -14,7 +14,8 @@ users_attributes = []
 users_attributes << {
   nickname: "toto",
   email: "toto@mail.com",
-  password: "azertyuiop"
+  password: "azertyuiop",
+  picture_path: 'toto.jpg'
 }
 User.create!(users_attributes)
 user = User.first
@@ -22,6 +23,7 @@ user = User.first
 puts "Creating Contests"
 contest = Contest.create!(
   {
+  picture_path: 'contest.jpg',
   title: "contest",
   coins_init: 100,
   category: "cup",
@@ -49,12 +51,14 @@ puts "Creating Bets"
 bet1 = Bet.create!(
   resource: event,
   participation: participation,
+  comment: 'this guy sucks',
   amount: 4,
   choice: 1
   )
 bet2 = Bet.create!(
   resource: Game.last,
   participation: participation,
+  comment: 'I bet all my life on you',
   amount: 5,
   choice: 2
 )
