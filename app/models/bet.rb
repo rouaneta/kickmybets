@@ -19,7 +19,6 @@ class Bet < ApplicationRecord
   end
 
   def update_resource_odds
-    resource = self.resource
     sum_bets_one = resource.bets.where(choice: 1).sum(:amount)
     sum_bets_two = resource.bets.where(choice: 2).sum(:amount)
     sum_bets = sum_bets_one + sum_bets_two
