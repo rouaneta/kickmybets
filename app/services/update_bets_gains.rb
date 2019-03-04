@@ -22,7 +22,7 @@ class UpdateBetsGains
     elsif choice_win == 2 && bet.choice == 2
       bet.gains = bet.amount * @resource.odds_choice_two
     else
-      bet.gains = - bet.amount
+      bet.gains = 0
     end
   end
 end
