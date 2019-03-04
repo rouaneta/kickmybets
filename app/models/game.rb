@@ -7,7 +7,8 @@ class Game < ApplicationRecord
   validates :status, inclusion: { in: %w[pending coming ongoing finished closed] }
   validates :game_code, uniqueness: { scope: :contest_id }
 
-  before_save :update_status, :update_winner
+  before_save :update_status, :update_winner, :update_grid
+  after_save :update_bets_gains
 
   def betable?(user)
     return false unless status == 'coming'
@@ -22,13 +23,13 @@ class Game < ApplicationRecord
     player_one.name
   end
 
-  alias_method :choice1, :choice_one
+  alias choice1 choice_one
 
   def choice_two
     player_two.name
   end
 
-  alias_method :choice2, :choice_two
+  alias choice2 choice_two
 
   def phase_name
     case self.phase
@@ -61,5 +62,13 @@ class Game < ApplicationRecord
       self.choice_win = 2
       self.player_winner_id = player_two_id
     end
+  end
+
+  def update_grid
+    GameGridUpdate.new(contest).process
+  end
+
+  def update_bets_gains
+    UpdateBetsGains.new(self).process
   end
 end

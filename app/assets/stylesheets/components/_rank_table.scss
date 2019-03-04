@@ -1,0 +1,50 @@
+.ranking-avatar {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+}
+
+#ranking-table {
+  width: 100%;
+}
+
+.ranking-td {
+  padding: 5px;
+  background: #A1C6EA;
+}
+
+.even-row > td {
+  background: #A1C6EAAA;
+}
+
+.ranking-th {
+  padding: 5px;
+  background: #373a3d;
+  color: white;
+  font-weight: bold;
+}
+
+.ranking-th:first-child {
+  border-radius:10px 0 0 0;
+}
+.ranking-th:last-child {
+  border-radius:0 10px 0 0;
+}
+
+.td-rank {
+  width: 40px;
+  text-align: center;
+}
+
+.td-avatar {
+  width: 45px;
+}
+
+.td-bets {
+  width: 40px;
+}
+
+.td-betcoins {
+  font-weight: bold;
+  width: 70px;
+}

@@ -1,0 +1,41 @@
+.flex-podium {
+  //height: 100vh;
+  //position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 80px;
+}
+
+.podium-container {
+  max-width: 720px;
+}
+
+.flex-image-podium {
+  position: relative;
+}
+
+.podium-avatar {
+  position: absolute;
+  width: 12%;
+  border-radius: 50px;
+}
+
+.podium-p1 {
+  top: 4%;
+  left: 45%;
+}
+
+.podium-p2 {
+  top: 21%;
+  left: 28%;
+}
+
+.podium-p3 {
+  top: 26%;
+  left: 63%;
+}
+
+#podium-img {
+  width: 100%;
+}

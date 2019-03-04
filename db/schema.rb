@@ -20,11 +20,10 @@ ActiveRecord::Schema.define(version: 2019_03_04_110127) do
     t.bigint "resource_id"
     t.integer "amount"
     t.integer "choice"
-    t.float "odds"
     t.bigint "participation_id"
-    t.boolean "success"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "gains"
     t.text "comment"
     t.index ["participation_id"], name: "index_bets_on_participation_id"
     t.index ["resource_type", "resource_id"], name: "index_bets_on_resource_type_and_resource_id"
@@ -57,6 +56,8 @@ ActiveRecord::Schema.define(version: 2019_03_04_110127) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "participation_id"
+    t.float "odds_choice_one"
+    t.float "odds_choice_two"
     t.index ["participation_id"], name: "index_events_on_participation_id"
   end
 
@@ -76,6 +77,8 @@ ActiveRecord::Schema.define(version: 2019_03_04_110127) do
     t.string "name"
     t.integer "player_winner_id"
     t.bigint "contest_id"
+    t.float "odds_choice_one"
+    t.float "odds_choice_two"
     t.index ["contest_id"], name: "index_games_on_contest_id"
     t.index ["player_one_id"], name: "index_games_on_player_one_id"
     t.index ["player_two_id"], name: "index_games_on_player_two_id"
