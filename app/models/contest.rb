@@ -5,7 +5,7 @@ class Contest < ApplicationRecord
   accepts_nested_attributes_for :players
   has_many :participations, dependent: :destroy
   has_many :events, through: :participations
-  has_many :games
+  has_many :games, dependent: :destroy
   has_many :bets_on_events, through: :events, source: :bets, as: :resource
   has_many :bets_on_games, through: :games, source: :bets, as: :resource
   has_many :bets, through: :participations
