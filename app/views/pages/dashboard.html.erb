@@ -3,12 +3,24 @@
 <%= link_to "New contest", new_contest_path %>
 
 <hr>
-
-<% @user.participations.map { |e| e.contest }.each do |contest|%>
-  <p> <% contest.participations.where(user: @user).each do |participation| %> </p>
-  <p><%= link_to contest.title, participation_path(participation) %></p>
-  <% end %>
-<% end %>
+<div class="container">
+  <div class="cards">
+    <div class="row">
+      <% @user.participations.map { |e| e.contest }.each do |contest|%>
+        <p> <% contest.participations.where(user: @user).each do |participation| %> </p>
+          <div class="col-xs-12 col-sm-6 col-md-4">
+            <div class="card_contest">
+              <div class="contest-image" style="background-image: url(<%= contest.picture_path %>)"></div>
+              <div class="contest-info">
+                <%= link_to contest.title, participation_path(participation) %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
 <br>
 <br>
 <% @user.contests.each do |contest| %>
