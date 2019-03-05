@@ -35,8 +35,8 @@ class ContestsController < ApplicationController
   end
 
   def contest_params
-    params.require(:contest).permit(:category, :title, :description, :creator_id,
-                                    :players_nb, :coins_init, players_attributes: [:name])
+    params.require(:contest).permit(:category, :title, :description, :creator_id, :players_nb,
+                                    :coins_init, :picture_path, players_attributes: [:name])
   end
 
   def set_contest
