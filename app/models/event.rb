@@ -1,6 +1,7 @@
 class Event < ApplicationRecord
   belongs_to :participation
   has_many :bets, as: :resource, dependent: :destroy
+  has_many :comments, as: :resource, dependent: :destroy
   has_one :contest, through: :participation
   has_one :user, through: :participation
 

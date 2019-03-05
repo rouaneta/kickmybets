@@ -2,7 +2,6 @@
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
   <%= f.input :amount %>
-  <%= f.input :comment %>
   <%= f.hidden_field :choice %>
   <%= f.hidden_field :resource_type %>
   <%= f.hidden_field :resource_id %>

@@ -4,7 +4,7 @@
   </button>
 
   <div class="collapse" id="bet-button-<%= bet.resource.class.to_s %>-<%= bet.choice %>-<%= index %>">
-    <div class="well" id="bet-form-<%= bet.resource.class.to_s %>-<%= bet.choice %>-<%= index %>">
+    <div class="well well-bet" id="bet-form-<%= bet.resource.class.to_s %>-<%= bet.choice %>-<%= index %>">
       <%= render 'shared/bet_form', participation: participation, bet: bet %>
     </div>
   </div>
