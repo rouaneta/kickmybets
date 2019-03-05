@@ -1,0 +1,17 @@
+<div class="flex-podium">
+  <div class="podium-container">
+    <div class="flex-image-podium">
+      <%= image_tag "podium.png", alt: "Brilliant podium", id: 'podium-img' %>
+
+      <% if @participations[0] %>
+        <%= image_tag @participations[0].user.picture_path, alt: "alttext", class: 'podium-avatar podium-p1' %>
+      <% end %>
+      <% if @participations[1] %>
+        <%= image_tag @participations[1].user.picture_path, alt: "alttext", class: 'podium-avatar podium-p2' %>
+      <% end %>
+      <% if @participations[2] %>
+        <%= image_tag @participations[2].user.picture_path, alt: "alttext", class: 'podium-avatar podium-p3' %>
+      <% end %>
+    </div>
+  </div>
+</div>

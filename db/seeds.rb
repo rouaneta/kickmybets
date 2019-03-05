@@ -34,8 +34,6 @@ contest = Contest.create!(
   }
 )
 
-GameGridGenerator.new(contest).process
-
 puts"Creating participations"
 participation = Participation.create!(user: user, contest: contest, betcoins: 5)
 

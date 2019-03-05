@@ -1,0 +1,107 @@
+#el_stL77T_DP_{
+    -webkit-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+  transform-box: fill-box;
+  -webkit-transform: translate(0px, 0px);
+  transform: translate(0px, 0px);
+  animation-name: move;
+   animation-duration: 30s;
+}
+@-webkit-keyframes move{
+  0%{
+    -webkit-transform: translate(0px, 0px);
+    transform: translate(0px, 0px);
+  }
+  7.78%{
+    -webkit-transform: translate(23px, 0px);
+    transform: translate(23px, 0px);
+  }
+  100%{
+    -webkit-transform: translate(800px, 0px);
+    transform: translate(800px, 0px);
+  }
+}
+@keyframes move {
+ 0%{-webkit-transform: translate(0px, 0px);
+   transform: translate(0px, 0px);
+   }
+   7.78%{
+     -webkit-transform: translate(23px, 0px);
+     transform: translate(23px, 0px);
+   }
+   100%{
+     -webkit-transform: translate(500px, 0px);
+     transform: translate(800px, 0px);
+   }
+}
+
+@keyframes rotate{
+  0%{
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100%{
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+
+#el_-TWBznsTc *{
+  -webkit-animation-duration: 3s;
+  animation-duration: 3s;
+  -webkit-animation-timing-function: cubic-bezier(0, 0, 1, 1);
+  animation-timing-function: cubic-bezier(0, 0, 1, 1);
+  animation-iteration-count: infinite;
+}
+#el_PRMgDsYyJA{
+  fill: #fff;
+}
+#el_WCV-rm_wAr{
+  fill: url(#gridpattern);
+  stroke-width: 0;
+}
+#el_9OAkGMQhHt{
+  stroke-width: 9;
+  stroke: #000;
+  fill: #fff;
+}
+#el_Bj_HtMcd_0, #el_ALQa8qz3EZ, #el_hMEibUohhS, #el_gzr9MNgtcJ, #el_gKjqL-sHeQ, #el_XBxGSZ7ar1, #el_JV3ocdtwtY6, #el_RC8bEWHyy4P{
+  fill: none;
+  stroke: #000;
+  stroke-width: 1.5;
+  stroke-opacity: null;
+  fill-opacity: null;
+}
+
+#el_KCYTv96caG{
+  stroke-width: 9;
+  fill: #fff;
+  stroke: #000;
+}
+
+#el_CkKjQD_kjMC, #el_UzdFhN9Tr_g, #el_XLk0DfiMMK0, #el_iKGezHhihy6, #el_v3airVb5iBq, #el_VHhZAchzx5G, #el_J8MXmJ1gywe, #el_GFQnrRDr7o9, #el_4LIOjZ_bWPN{
+  fill-opacity: null;
+  stroke-opacity: null;
+  stroke-width: 5;
+  stroke: #000;
+  fill: none;
+}
+
+#el_n6qUwfgig_3, #el_eOgaPpZB4hI, #el_KcbEK6cE6L4, #el_hadg8EV6KIC, #el_hYdOb40x8kP{
+  fill-opacity: null;
+  stroke-opacity: null;
+  stroke-width: 1.5;
+  stroke: #000;
+  fill: black;
+}
+
+#el_qvoYAhk4wZ_4lvhItYYT, #el_NNLWpvLfxMa_akhlpeM6l, #el_q9ZiWXx2FT_92Gu6pVz-{
+  -webkit-animation-name: rotate;
+  animation-name: rotate;
+  -webkit-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+  transform-box: fill-box;
+  -webkit-transform: rotate(0deg);
+  transform: rotate(0deg);
+}

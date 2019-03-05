@@ -5,4 +5,5 @@ class Participation < ApplicationRecord
   has_many :events, dependent: :destroy
 
   validates :contest_id, uniqueness: { scope: :user_id }
+  validates :betcoins, presence: true
 end
