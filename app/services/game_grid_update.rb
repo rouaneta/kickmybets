@@ -4,11 +4,11 @@ class GameGridUpdate
   end
 
   def process
-    Game.skip_callback(:save, :before, :update_grid)
+    Game.skip_callback(:save, :after, :update_grid)
     (2..@contest.phases).to_a.reverse_each do |phase|
       update_next_games(@contest, phase)
     end
-    Game.set_callback(:save, :before, :update_grid)
+    Game.set_callback(:save, :after, :update_grid)
   end
 
   private
