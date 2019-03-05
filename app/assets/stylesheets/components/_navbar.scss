@@ -1,7 +1,8 @@
 /* Main navbar */
 .navbar-wagon {
   position: fixed;
-  top: 10px;
+  top: 15px;
+  right: 10px;
   width: 100%;
   background: transparent;
   transition: all 0.3s ease;
@@ -26,13 +27,21 @@
 
 /* Right section */
 .navbar-wagon-right {
-  background-color: #FFFFFFEE;
-  box-shadow: 1px 1px 3px gray;
-  padding: 20px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 4px 9px 11px 7px;
+}
+
+.navbar-circle{
+  background-color: #FFFFFFEE;
+  box-shadow: 1px 1px 3px gray;
+}
+
+.navbar-login {
+  background: transparent;
+  box-shadow: none;
 }
 
 /* Basic navbar item */
