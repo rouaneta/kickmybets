@@ -6,6 +6,11 @@
 <div class="container">
   <div class="cards">
     <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="card-content">
+          +
+        </div>
+      </div>
       <% @user.participations.map { |e| e.contest }.each do |contest|%>
         <p> <% contest.participations.where(user: @user).each do |participation| %> </p>
           <div class="col-xs-12 col-sm-6 col-md-4">

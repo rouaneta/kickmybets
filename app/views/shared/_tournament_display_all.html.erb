@@ -1,0 +1,33 @@
+<div class="card-tournament">
+
+  <div class='card-header <%= game.phase_name %>'>
+    <%= game.phase_name %>
+  </div>
+
+  <div class="card-display">
+
+    <%= render 'shared/tournament_card_body', class: 'card-body', game: game, number: 'one' %>
+
+    <div id="versus-icon">
+      <%= image_tag "versus-icon.png", class: "versus-icon" %>
+    </div>
+
+    <%= render 'shared/tournament_card_body', class: 'card-body', game: game, number: 'two' %>
+
+  </div>
+
+  <div class="bet-btn text-center">
+    <% if game.betable?(current_user) %>
+      <%= render 'shared/bet_function_modal', game: game, participation: participation, bet: Bet.new %>
+    <% elsif game.player_one && game.player_two %>
+      <%= render 'shared/your_bet', bet: Bet.where(participation: participation, resource: game).first %>
+    <% else %>
+      Wait for the players to bet...
+    <% end %>
+  </div>
+
+  <div class="gain-footer">
+    Your gain:
+  </div>
+
+</div>

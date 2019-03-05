@@ -1,0 +1,31 @@
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#GameModal<%= game.id %>">
+  Bet now!
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="GameModal<%= game.id %>" tabindex="-1" role="dialog" aria-labelledby="GameModal<%= game.id %>Label">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="GameModal<%= game.id %>Label">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        <%= simple_form_for [participation, bet], remote: true do |f| %>
+          <%= f.error_notification %>
+          <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+          <%= f.input :choice, as: :radio_buttons, collection: [[1, game.choice_one], [2, game.choice_two]], label_method: :last, value_method: :first, required: true %>
+          <%= f.input :amount %>
+          <%= f.input :comment %>
+          <%= f.hidden_field :resource_id, value: game.id %>
+          <%= f.hidden_field :resource_type, value: 'Game' %>
+          <%= f.button :submit, class: 'btn btn-info', data: {confirm: "SURE??? You can't go back on a bet" } %>
+        <% end %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>

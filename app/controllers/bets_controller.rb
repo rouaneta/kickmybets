@@ -4,8 +4,6 @@ class BetsController < ApplicationController
     @participation = Participation.find(params[:participation_id])
     @bet.participation = @participation
     if @bet.save
-      @participation.betcoins -= @bet.amount
-      @participation.save
       render :create_success
     else
       @bet.amount = ''
@@ -16,6 +14,6 @@ class BetsController < ApplicationController
   private
 
   def bet_params
-    params.require(:bet).permit(:amount, :choice, :resource_type, :resource_id)
+    params.require(:bet).permit(:amount, :comment, :choice, :resource_type, :resource_id)
   end
 end

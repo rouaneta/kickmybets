@@ -8,7 +8,6 @@ class GamesController < ApplicationController
     else
       @game.choice_win = @game.score_p_one > @game.score_p_two ? 1 : 2
       @game.save
-      GameGridUpdate.new(@game.contest).process
     end
     redirect_to contest_path(@game.contest)
   end
@@ -18,4 +17,7 @@ class GamesController < ApplicationController
     @game.update(status: 'ongoing')
     redirect_to contest_path(@game.contest)
   end
+
+
+
 end

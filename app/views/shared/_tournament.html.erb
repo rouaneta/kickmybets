@@ -1,0 +1,24 @@
+  <div class="checkbox-bet">
+    <input type="checkbox" id="bettable-btn" name="Bettable games" unchecked>
+    <label for="scales"> Betable games </label>
+  </div>
+
+
+<div class="tournament">
+  <div class="brackets">
+    <% participation.contest.games.order(:id).each do |game| %>
+
+      <% betable_class = game.game_betable? ? 'bettable-games' : 'unbettable-games' %>
+
+      <div class="<%= betable_class %>">
+        <%= render 'shared/tournament_display_all', game: game, participation: participation %>
+      </div>
+
+    <% end %>
+  </div>
+
+</div>
+
+
+
+

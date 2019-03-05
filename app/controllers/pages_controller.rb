@@ -8,4 +8,9 @@ class PagesController < ApplicationController
     @user = current_user
     @participation = Participation.new
   end
+
+  def ranking
+    @contest = Contest.find(params[:id])
+    @participations = Participation.where(contest_id: @contest.id).order(betcoins: :desc)
+  end
 end

@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   resources :contests, only: [:show, :new, :create] do
     member do
+      get 'ranking', to: 'pages#ranking'
       post :invite
       resources :games, only: [:update] do
         member do

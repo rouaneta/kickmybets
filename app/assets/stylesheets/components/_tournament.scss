@@ -1,10 +1,129 @@
+.brackets {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
 
-.tournament {
-  width: 100%
+.card-tournament {
+  margin: 10px;
+  font-family: "Roboto", sans-serif;
+}
+
+.card-display {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 180px;
+}
+
+.player-info {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  color: black;
+  font-weight: 900;
+  padding: 5px 5px;
+
+}
+
+.player-picture {
+  width: 45px;
+  height: 45px;
+  border: 1px solid black;
+  border-radius: 50%;
+}
+
+.bet-info {
+  width: 100%;
+  color: #005EB7
+}
+
+.card-header {
+  text-align: center;
+  font-size: 30px;
+  font-weight: lighter;
+  border-top-right-radius: 20px;
+}
+
+.Quarter-Finals {
+  background-color: #005EB7;
+  color: white;
+}
+
+.Semi-Finals {
+  background-color: #1C7C54;
+  color: white;
+}
+
+.Final {
+  background-color: #F9D834;
+  color: black;
+  font-weight: bold;
+}
+
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 0;
 }
 
 .pool-card {
   border: solid 1px black;
 }
 
+.card-footer {
+  text-align: center;
+  background-color: #BCD4DE;
+  color: #FFFCE8;
+  font-weight: 300;
+}
 
+.gain-footer {
+  text-align: center;
+  background-color: #75CDF5;
+  border-bottom-left-radius: 20px;
+  color: #FFFCE8;
+  font-weight: 300;
+}
+
+.unbettable-games {
+  &:last-child {
+    grid-column: span 2;
+    padding: 10px;
+  }
+}
+
+
+
+.bettable-games {
+}
+
+.hidden-bet {
+  display: none;
+}
+
+.versus-icon {
+  width: 70px;
+  height: 70px;
+}
+
+.card-tournament {
+
+}
+
+@media screen and (max-width: 640px) {
+  .brackets {
+    grid-template-columns: 1fr;
+  }
+  .unbettable-games {
+  &:last-child {
+    grid-column: span 1;
+    padding: 10px;
+  }
+}
+}

@@ -4,16 +4,15 @@
   <%= link_to 'Admin view', contest_path(@participation.contest) %>
 <% end %>
 
-<h2><%= @participation.user.nickname %></h2>
+<h3>Available coins: <%= @participation.betcoins %> <i class="fas fa-coins"></i></h3>
 
-<h3>See your tournament</h3>
+ <%= render 'shared/tournament', participation: @participation %>
 
- <%= render 'shared/cup_4_players' %>
+  <%# We should delete all below this line %>
+
 
  <hr>
  <hr>
-
-<h3>Available coins: <%= @participation.betcoins if @participation.betcoins %> <i class="fas fa-coins"></i></h3>
 
 <div class="container">
   <% @bets.each do |bet| %>

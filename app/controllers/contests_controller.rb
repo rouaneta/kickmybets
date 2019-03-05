@@ -15,7 +15,6 @@ class ContestsController < ApplicationController
     if @contest.valid?
       @contest = Contest.create!(contest_params)
       @contest.update(code: code_invit)
-      GameGridGenerator.new(@contest).process
       redirect_to contest_path(@contest)
     else
       render :new
