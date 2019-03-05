@@ -2,7 +2,7 @@
 <div class="content">
   <div class="title-menu">
     <h1>
-      Kick my bets
+      Kick my <span id="b-letter">Ƀ</span>ets
     </h1>
     <h2>
       Bet me if you can
@@ -10,15 +10,20 @@
   </div>
 
   <div class="list-link">
-      <div class="plus-btn-pos">
+      <div id ="plus-btn" class="plus-btn-pos">
         <div class="plus-btn">
           <div class="r1"></div>
           <div class="r2"></div>
         </div>
       </div>
   </div>
-<!-- Button to display the menus -->
+
+  <div class="chevron row">
+    <a href="#chevron-scroll" class="chevron col-xs-4 offset-xs-4"><i class="fas fa-chevron-down"></i></a>
+  </div>
 </div>
+
+<!-- Button to display the menus -->
 <div class="menu-container">
   <div class="menu-sliders"></div>
   <div class="menu-sliders"></div>
@@ -34,4 +39,21 @@
     </ul>
   </div>
 </div>
+
+<div id="chevron-scroll" class="pycto">
+  <div class="pycto-claim">
+    <div class="text-claim">
+    Organize contests between friends and colleagues. <br>
+    Forecast and bet on the outcome of the games.
+      <div class="page2-link">
+       <%= link_to "New contest", new_contest_path, class: "btn btn-lg btn-success page2-btn" %>
+       <%= link_to "Join contest", dashboard_path, class: "btn btn-lg btn-success page2-btn"  %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
 
