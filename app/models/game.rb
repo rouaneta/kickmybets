@@ -3,6 +3,7 @@ class Game < ApplicationRecord
   belongs_to :player_one, class_name: "Player", foreign_key: "player_one_id", optional: true
   belongs_to :player_two, class_name: "Player", foreign_key: "player_two_id", optional: true
   has_many :bets, as: :resource, dependent: :destroy
+  has_many :comments, as: :resource, dependent: :destroy
 
   validates :status, inclusion: { in: %w[pending coming ongoing finished closed] }
   validates :game_code, uniqueness: { scope: :contest_id }
@@ -13,10 +14,7 @@ class Game < ApplicationRecord
   def betable?(user)
     return false unless status == 'coming'
 
-    bets.each do |bet|
-      return false if bet.participation.user_id == user.id
-    end
-    true
+    bets.none? { |bet| bet.participation.user_id == user.id }
   end
 
   def choice_one

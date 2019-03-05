@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_04_110127) do
+ActiveRecord::Schema.define(version: 2019_03_05_103404) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,10 +23,20 @@ ActiveRecord::Schema.define(version: 2019_03_04_110127) do
     t.bigint "participation_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.text "comment"
     t.float "gains"
     t.index ["participation_id"], name: "index_bets_on_participation_id"
     t.index ["resource_type", "resource_id"], name: "index_bets_on_resource_type_and_resource_id"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.string "resource_type"
+    t.bigint "resource_id"
+    t.bigint "participation_id"
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["participation_id"], name: "index_comments_on_participation_id"
+    t.index ["resource_type", "resource_id"], name: "index_comments_on_resource_type_and_resource_id"
   end
 
   create_table "contests", force: :cascade do |t|
@@ -124,6 +134,7 @@ ActiveRecord::Schema.define(version: 2019_03_04_110127) do
   end
 
   add_foreign_key "bets", "participations"
+  add_foreign_key "comments", "participations"
   add_foreign_key "contests", "users", column: "creator_id"
   add_foreign_key "games", "players", column: "player_one_id"
   add_foreign_key "games", "players", column: "player_two_id"
