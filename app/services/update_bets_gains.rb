@@ -7,7 +7,7 @@ class UpdateBetsGains
     return unless @resource.status == "closed"
 
     @resource.bets.each do |bet|
-      bet.gains = calculate_gains(bet, @resource)
+      bet.gains = calculate_gains(bet)
       Bet.skip_callback(:save, :after, :update_resource_odds)
       bet.save!
       Bet.set_callback(:save, :after, :update_resource_odds)
