@@ -16,7 +16,6 @@
           <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
           <%= f.input :choice, as: :radio_buttons, collection: [[1, game.choice_one], [2, game.choice_two]], label_method: :last, value_method: :first, required: true %>
           <%= f.input :amount %>
-          <%= f.input :comment %>
           <%= f.hidden_field :resource_id, value: game.id %>
           <%= f.hidden_field :resource_type, value: 'Game' %>
           <%= f.button :submit, class: 'btn btn-info', data: {confirm: "SURE??? You can't go back on a bet" } %>

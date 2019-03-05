@@ -49,14 +49,12 @@ puts "Creating Bets"
 bet1 = Bet.create!(
   resource: event,
   participation: participation,
-  comment: 'this guy sucks',
   amount: 4,
   choice: 1
   )
 bet2 = Bet.create!(
-  resource: Game.last,
+  resource: contest.games.first,
   participation: participation,
-  comment: 'I bet all my life on you',
   amount: 5,
   choice: 2
 )
