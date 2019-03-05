@@ -42,10 +42,6 @@ class Game < ApplicationRecord
     end
   end
 
-  def game_betable?
-    status == "coming"
-  end
-
   private
 
   def update_status

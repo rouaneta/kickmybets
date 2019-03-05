@@ -27,12 +27,12 @@
 
       <%#= Game is bet by current_user %>
       <% bet = Bet.where(participation: participation, resource: game).first %>
-      <% if bet.gains %>
+      <% if bet && bet.gains %>
 
         <%#= Bet is closed %>
         <%= render 'shared/your_gains', bet: bet %>
 
-      <% else %>
+      <% elsif bet %>
 
         <%#= Bet is pending %>
         <%= render 'shared/your_bet', bet: bet %>
