@@ -1,9 +1,8 @@
 class ParticipationsController < ApplicationController
   def show
     @participation = Participation.find(params[:id])
-    @bet = Bet.new
     @event = Event.new
-    @events = Event.where(contest: @participation.contest).all
+    @events = Event.joins(:participation).where("participations.contest_id = ?", @participation.contest_id)
     @bets = Bet.where(participation: @participation).all
   end
 

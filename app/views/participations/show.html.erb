@@ -36,7 +36,7 @@
 
   <%# Update result of event if CurrentUser is the creator AND the Winner is not defined yet %>
 
-  <% if (event.user_id == @participation.user_id) && !(event.choice_win) %>
+  <% if (event.user == @participation.user) && !(event.choice_win) %>
     <%= render 'update_event_modal', participation: @participation, event: event, index: index %>
   <% end %>
 

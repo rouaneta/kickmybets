@@ -17,17 +17,34 @@
   </div>
 
   <div class="bet-btn text-center">
+
     <% if game.betable?(current_user) %>
+
+      <%#= Game is betable => Display BET NOW button %>
       <%= render 'shared/bet_function_modal', game: game, participation: participation, bet: Bet.new %>
+
     <% elsif game.player_one && game.player_two %>
-      <%= render 'shared/your_bet', bet: Bet.where(participation: participation, resource: game).first %>
+
+      <%#= Game is bet by current_user %>
+      <% bet = Bet.where(participation: participation, resource: game).first %>
+      <% if bet.gains %>
+
+        <%#= Bet is closed %>
+        <%= render 'shared/your_gains', bet: bet %>
+
+      <% else %>
+
+        <%#= Bet is pending %>
+        <%= render 'shared/your_bet', bet: bet %>
+      <% end %>
+
     <% else %>
       Wait for the players to bet...
     <% end %>
   </div>
 
   <div class="gain-footer">
-    Your gain:
+    <%= render 'shared/comments_collapse', resource: game %>
   </div>
 
 </div>

@@ -7,7 +7,7 @@ class UpdateBetsGains
     return unless @resource.status == "closed"
 
     @resource.bets.each do |bet|
-      bet.gains = calculate_gains(bet, @resource)
+      bet.gains = calculate_gains(bet)
       Bet.skip_callback(:save, :after, :update_resource_odds)
       bet.save!
       Bet.set_callback(:save, :after, :update_resource_odds)
@@ -19,7 +19,7 @@ class UpdateBetsGains
   def calculate_gains(bet)
     if @resource.choice_win == 1 && bet.choice == 1
       bet.gains = bet.amount * @resource.odds_choice_one
-    elsif choice_win == 2 && bet.choice == 2
+    elsif @resource.choice_win == 2 && bet.choice == 2
       bet.gains = bet.amount * @resource.odds_choice_two
     else
       bet.gains = 0

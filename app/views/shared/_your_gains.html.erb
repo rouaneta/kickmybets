@@ -1,0 +1,13 @@
+<% gains = (bet.gains - bet.amount).round(1) %>
+
+<p>
+  <% if gains > 0 %>
+    Gains:
+  <% else %>
+    Losses:
+  <% end %>
+</p>
+
+<h3>
+  <%= '+' if gains > 0 %><%= gains %> Ƀ
+</h3>
