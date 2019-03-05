@@ -30,7 +30,7 @@ class Bet < ApplicationRecord
   end
 
   def update_participation_betcoins
-    participation.betcoins = participation.contest.coins_init - participation.bets.sum(:amount) + participation.bets.sum(:gains)
+    participation.betcoins = participation.contest.coins_init.to_f - participation.bets.sum(:amount).to_f + participation.bets.sum(:gains)
     participation.save!
   end
 end

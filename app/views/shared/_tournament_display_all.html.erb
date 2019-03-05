@@ -1,50 +1,41 @@
 <div class="card-tournament">
 
-  <div class='card-header <%= game.phase_name %>'>
-    <%= game.phase_name %>
-  </div>
-
   <div class="card-display">
 
     <%= render 'shared/tournament_card_body', class: 'card-body', game: game, number: 'one' %>
 
-    <div id="versus-icon">
-      <%= image_tag "versus-icon.png", class: "versus-icon" %>
+    <div class="whole-info-box text-center">
+
+      <% if game.betable?(current_user) %>
+
+        <%#= Display BET NOW button (Game is betable) %>
+        <%= render 'shared/odds_sums', resource_info: 'Bets', resource: game, class: 'game-info-box' %>
+        <%= render 'shared/bet_function_modal', game: game, participation: participation, bet: Bet.new %>
+
+      <% elsif game.player_one && game.player_two %>
+
+        <% bet = Bet.where(participation: participation, resource: game).first %>
+        <% if bet && bet.gains %>
+
+          <%#= Bet is closed %>
+          <%= render 'shared/odds_sums', resource_info: 'Odds', resource: game, class: 'game-info-box' %>
+          <%= render 'shared/your_gains', bet: bet %>
+        <% elsif bet %>
+
+          <%#= Bet is pending %>
+          <%= render 'shared/odds_sums', resource_info: 'Odds', resource: game, class: 'game-info-box' %>
+          <%= render 'shared/your_bet', bet: bet %>
+        <% end %>
+
+      <% else %>
+        Wait for the players to bet...
+      <% end %>
     </div>
 
     <%= render 'shared/tournament_card_body', class: 'card-body', game: game, number: 'two' %>
 
   </div>
 
-  <div class="bet-btn text-center">
-
-    <% if game.betable?(current_user) %>
-
-      <%#= Game is betable => Display BET NOW button %>
-      <%= render 'shared/bet_function_modal', game: game, participation: participation, bet: Bet.new %>
-
-    <% elsif game.player_one && game.player_two %>
-
-      <%#= Game is bet by current_user %>
-      <% bet = Bet.where(participation: participation, resource: game).first %>
-      <% if bet && bet.gains %>
-
-        <%#= Bet is closed %>
-        <%= render 'shared/your_gains', bet: bet %>
-
-      <% elsif bet %>
-
-        <%#= Bet is pending %>
-        <%= render 'shared/your_bet', bet: bet %>
-      <% end %>
-
-    <% else %>
-      Wait for the players to bet...
-    <% end %>
-  </div>
-
-  <div class="gain-footer">
-    <%= render 'shared/comments_collapse', resource: game %>
-  </div>
+  <%= render 'shared/comments_collapse', resource: game %>
 
 </div>
