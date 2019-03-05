@@ -8,8 +8,8 @@ class Game < ApplicationRecord
   validates :status, inclusion: { in: %w[pending coming ongoing finished closed] }
   validates :game_code, uniqueness: { scope: :contest_id }
 
-  before_save :update_status, :update_winner, :update_grid
-  after_save :update_bets_gains
+  before_save :update_status, :update_winner
+  after_save :update_grid, :update_bets_gains
 
   def betable?(user)
     return false unless status == 'coming'
