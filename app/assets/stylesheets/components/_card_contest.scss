@@ -10,6 +10,17 @@
     margin-bottom: 10px;
     height: 300px;
     z-index: 1;
+    &:hover {
+      color: white;
+    }
+    a {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      z-index: 6;
+    }
     .contest-color {
       background-color: grey;
       position: absolute;
@@ -30,14 +41,6 @@
     .contest-info {
       position: absolute;
       z-index: 6;
-      a {
-        text-decoration: none;
-        color: black;
-        font-weight: bold;
-        &:hover {
-          color: white;
-        }
-      }
     }
   }
 

@@ -20,12 +20,13 @@
         <% contest.participations.where(user: @user).each do |participation| %>
           <div class="col-xs-12 col-sm-6 col-md-4">
             <div class="card-contest">
+              <%= link_to "", participation_path(participation) %>
               <div class="contest-image" style="background-image: url(<%= contest.picture_path %>)"></div>
               <% if !contest.picture_path? %>
                 <div class="contest-color"></div>
               <% end %>
               <div class="contest-info">
-                <%= link_to contest.title, participation_path(participation) %>
+                <p><%= contest.title %></p>
               </div>
             </div>
           </div>
@@ -44,6 +45,8 @@
         <div class="card-contest">
           <div class="plus-btn-pos">
             <div class="plus-btn">
+              <div class="r1"></div>
+              <div class="r2"></div>
             </div>
           </div>
         </div>
