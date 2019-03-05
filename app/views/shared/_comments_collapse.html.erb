@@ -4,7 +4,14 @@
 
 <div class="collapse" id="comments-collapse-<%= resource.class.to_s %>-<%= resource.id %>">
   <div class="well">
-    comment1 <br> comment 2 <br> comment 2 <br> comment 2 <br> comment 2
-    <%= render 'shared/comment_form', comment: Comment.new %>
+    <%= render 'shared/comments_flow', resource: resource %>
   </div>
+
+  <% comment = Comment.new(resource: resource) %>
+  <%= simple_form_for([participation, comment], remote: true) do |f| %>
+    <%= f.input :resource_id, as: :hidden %>
+    <%= f.input :resource_type, as: :hidden %>
+    <%= f.input :content, as: :string %>
+  <% end %>
+
 </div>
