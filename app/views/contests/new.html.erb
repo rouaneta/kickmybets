@@ -1,17 +1,19 @@
-<h1>New contests</h1>
-<%= link_to "back to dashboard", dashboard_path %>
-
-<%= simple_form_for @contest do |f| %>
-  <%= f.error_notification %>
-  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-  <%= f.input :category, as: :radio_buttons, collection: ['cup', 'league'] %>
-  <%= f.input :title, placeholder: 'Tournoi de la mort' %>
-  <%= f.input :description %>
-  <%= f.hidden_field :creator_id, value: current_user.id %>
-  <%= f.input :players_nb, collection: [2, 4, 8, 16, 32, 64], id: 'players-nb' %>
-
-  <div id="players-fields"></div>
-
-  <%= f.input :coins_init %>
-  <%= f.submit %>
-<% end %>
+<div class="container">
+  <h1>New contests</h1>
+  <%= link_to "back to dashboard", dashboard_path %>
+  
+  <%= simple_form_for @contest do |f| %>
+    <%= f.error_notification %>
+    <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+    <%= f.input :category, as: :radio_buttons, collection: ['cup', 'league'] %>
+    <%= f.input :title, placeholder: 'Tournoi de la mort' %>
+    <%= f.input :description %>
+    <%= f.hidden_field :creator_id, value: current_user.id %>
+    <%= f.input :players_nb, collection: [2, 4, 8, 16, 32, 64], id: 'players-nb' %>
+  
+    <div id="players-fields"></div>
+  
+    <%= f.input :coins_init %>
+    <%= f.submit %>
+  <% end %>
+</div>
