@@ -41,7 +41,7 @@
     right: 3px;
     top: 3px;
     overflow: hidden;
-    transition: all 0.4s ease;
+    transition: all 0.1s ease;
     &:nth-child(1){
       margin-top: 10px;
       z-index: 9;
@@ -55,7 +55,7 @@
   }
 }
 .sub-menu{
-  transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transition: all 0.1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     height: 0;
     width: 0;
     right: 0;
@@ -71,7 +71,7 @@
       clear: both;
       height: auto;
       margin-right: -160px;
-      transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      transition: all 0.1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
       &:first-child{
         margin-top: 180px;
       }
