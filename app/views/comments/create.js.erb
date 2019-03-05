@@ -1,0 +1,6 @@
+card = document.querySelector('div[data-resource-id="<%=@comment.resource_id%>"][data-resource-type="<%=@comment.resource_type%>"]')
+commentInput = card.querySelector('#comment_content')
+wellElement = card.querySelector('.well')
+wellHtml = "<%= j render 'shared/comments_flow', resource: @comment.resource %>"
+commentInput.value = "";
+wellElement.innerHTML = wellHtml;
