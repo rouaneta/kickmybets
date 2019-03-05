@@ -7,6 +7,9 @@
 .card-tournament {
   margin: 10px;
   font-family: "Roboto", sans-serif;
+  box-shadow: 1px 1px 12px -2px rgba(7,5,15,1);
+  border-radius: 20px;
+  padding: 20px;
 }
 
 .card-display {
@@ -16,6 +19,14 @@
   height: 180px;
 }
 
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 60px;
+}
+
 .player-info {
   width: 100%;
   display: flex;
@@ -23,16 +34,22 @@
   align-items: center;
   justify-content: space-around;
   color: black;
-  font-weight: 900;
-  padding: 5px 5px;
-
+  padding-bottom: 15px;
+  font-size: 15px;
+  font-weight: 200;
 }
 
 .player-picture {
-  width: 45px;
-  height: 45px;
+  width: 55px;
+  height: 55px;
   border: 1px solid black;
   border-radius: 50%;
+}
+
+.score-title {
+  font-size: 50px;
+  font-weight: lighter;
+  font-family: 'Slabo 27px', serif;
 }
 
 .bet-info {
@@ -44,7 +61,6 @@
   text-align: center;
   font-size: 30px;
   font-weight: lighter;
-  border-top-right-radius: 20px;
 }
 
 .Quarter-Finals {
@@ -64,32 +80,8 @@
 }
 
 
-.card-body {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  padding: 5px 0;
-}
-
 .pool-card {
   border: solid 1px black;
-}
-
-.card-footer {
-  text-align: center;
-  background-color: #BCD4DE;
-  color: #FFFCE8;
-  font-weight: 300;
-}
-
-.gain-footer {
-  text-align: center;
-  background-color: #75CDF5;
-  border-bottom-left-radius: 20px;
-  color: #FFFCE8;
-  font-weight: 300;
-  padding-bottom: 1px;
 }
 
 .unbettable-games {
