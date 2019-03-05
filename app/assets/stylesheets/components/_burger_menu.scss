@@ -19,7 +19,7 @@
   z-index: 10001;
   position: relative;
   top: 0;
-  right: 40px;
+  //right: 40px;
   width: 50px;
   height: 50px;
   display: block;
@@ -61,7 +61,7 @@
     right: 0;
     top: 0;
     position: absolute;
-    background-color: rgba(2, 89, 165, 0.54);
+    background-color: #0D2C5488;
     border-radius: 50%;
     z-index: 18;
     overflow: hidden;
@@ -73,7 +73,7 @@
       margin-right: -160px;
       transition: all 0.1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
       &:first-child{
-        margin-top: 180px;
+        margin-top: 195px;
       }
       &:nth-child(1){
         -webkit-transition-delay: 0.05s;
