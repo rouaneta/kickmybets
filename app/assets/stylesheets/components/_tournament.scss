@@ -24,7 +24,7 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  padding: 5px 0;
+  padding: 5px 60px;
 }
 
 .player-info {
@@ -34,16 +34,22 @@
   align-items: center;
   justify-content: space-around;
   color: black;
-  font-weight: 900;
-  padding: 5px 5px;
-
+  padding-bottom: 15px;
+  font-size: 15px;
+  font-weight: 200;
 }
 
 .player-picture {
-  width: 45px;
-  height: 45px;
+  width: 55px;
+  height: 55px;
   border: 1px solid black;
   border-radius: 50%;
+}
+
+.score-title {
+  font-size: 50px;
+  font-weight: lighter;
+  font-family: 'Slabo 27px', serif;
 }
 
 .bet-info {
