@@ -7,6 +7,9 @@
 .card-tournament {
   margin: 10px;
   font-family: "Roboto", sans-serif;
+  box-shadow: 1px 1px 12px -2px rgba(7,5,15,1);
+  border-radius: 20px;
+  padding: 20px;
 }
 
 .card-display {
@@ -14,6 +17,14 @@
   justify-content: space-around;
   align-items: center;
   height: 180px;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 0;
 }
 
 .player-info {
@@ -44,7 +55,6 @@
   text-align: center;
   font-size: 30px;
   font-weight: lighter;
-  border-top-right-radius: 20px;
 }
 
 .Quarter-Finals {
@@ -64,32 +74,8 @@
 }
 
 
-.card-body {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  padding: 5px 0;
-}
-
 .pool-card {
   border: solid 1px black;
-}
-
-.card-footer {
-  text-align: center;
-  background-color: #BCD4DE;
-  color: #FFFCE8;
-  font-weight: 300;
-}
-
-.gain-footer {
-  text-align: center;
-  background-color: #75CDF5;
-  border-bottom-left-radius: 20px;
-  color: #FFFCE8;
-  font-weight: 300;
-  padding-bottom: 1px;
 }
 
 .unbettable-games {
