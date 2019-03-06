@@ -1,17 +1,30 @@
+<div class="show-banner" style="background-image: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.6)), url(<%= image_path(@participation.contest.picture_path) %>)">
+  <div class="show-title">
+    <%= @participation.contest.title %>
+  </div>
+  <div class="bettings-info">
+    <div class="manager">
+      <% if @participation.contest.creator_id == @participation.user_id %>
+        <%= link_to 'Manage contest', contest_path(@participation.contest) %>
+      <% end %>
+    </div>
+    <div class="available-coins">
+      <p>Available coins: <%= @participation.betcoins %> <i class="fas fa-coins"></i></p>
+    </div>
+  </div>
+</div>
+
 <div class="container">
-  <h1><%= @participation.contest.title %></h1>
-
-  <% if @participation.contest.creator_id == @participation.user_id %>
-    <%= link_to 'Manage contest', contest_path(@participation.contest) %>
-  <% end %>
-
-  <h3>Available coins: <%= @participation.betcoins %> <i class="fas fa-coins"></i></h3>
 
    <%= render 'shared/tournament', participation: @participation %>
 
    <hr>
    <hr>
+  <% if @participation.contest.creator_id == @participation.user_id %>
+    <%= link_to 'Manage contest', contest_path(@participation.contest) %>
+  <% end %>
 
+  <h3>Available coins: <%= @participation.betcoins %> <i class="fas fa-coins"></i></h3>
   <div class="">
     <% @bets.each do |bet| %>
       You bet <%= bet.amount %> on <%= bet.resource.send("choice#{bet.choice}".to_sym) %>
