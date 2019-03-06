@@ -227,9 +227,11 @@ puts"Creating participations"
 participation = Participation.create!(user: user, contest: contest, betcoins: 5)
 
 puts "Creating Events"
+
 event = Event.create!(
   participation: participation,
   title: "Fracture du mental pour François en demi-finale",
   choice_one: "Fracture",
   choice_two: "Pas de fracture, man!"
 )
+
