@@ -1,0 +1,18 @@
+h2 {
+  margin: 40px 45px;
+  font-size: 46px;
+}
+
+body h2, body h3 {
+  font-family: roboto;
+}
+
+.container::after {
+    content: "";
+    display: block;
+    margin: 0 auto;
+    width: 75%;
+    padding-top: 60px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid lightgrey;
+}
