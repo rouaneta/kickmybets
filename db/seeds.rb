@@ -150,6 +150,12 @@ users_attributes << {
   picture_path: 'users/ouramdane.jpg'
 }
 users_attributes << {
+  nickname: "arthur",
+  email: "arthur@kickmybets.fun",
+  password: "azertyuiop",
+  picture_path: 'users/arthur.jpg'
+}
+users_attributes << {
   nickname: "pedro",
   email: "pedro@kickmybets.fun",
   password: "azertyuiop",
