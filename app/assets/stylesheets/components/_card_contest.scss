@@ -1,17 +1,30 @@
+h2 {
+  margin: 40px 45px;
+  font-size: 46px
+}
+
+body h2, body h3 {
+  font-family: roboto;
+}
 .card-container {
   color: white;
   position: relative;
-  font-family: open-sans;
+  font-family: roboto;
   border: 1px solid lightgrey;
   border-radius: 15px;
   margin-bottom: 10px;
   box-shadow: 1px 1px 5px #AAA;
+  &:hover {
+    transform: scale(1.02);
+    cursor: pointer;
+  }
   a {
     position: absolute;
     top: 0;
     bottom: 0;
     right: 0;
     left: 0;
+    z-index: 6;
   }
   .contest-image {
     background-size: cover;
@@ -41,4 +54,11 @@
     width: 100%;
   }
 }
-
+.card-contest2 {
+  height: 100px;
+  color: #22333B;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+}
