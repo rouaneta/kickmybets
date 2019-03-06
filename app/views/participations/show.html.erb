@@ -15,9 +15,9 @@
    <hr>
    <hr>
 
-  <div class="container">
+  <div class="">
     <% @bets.each do |bet| %>
-      <p>You bet <%= bet.amount %> on <%= bet.resource.send("choice#{bet.choice}".to_sym) %></p>
+      You bet <%= bet.amount %> on <%= bet.resource.send("choice#{bet.choice}".to_sym) %>
     <% end %>
   </div>
 

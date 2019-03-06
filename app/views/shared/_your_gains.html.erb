@@ -1,3 +1,6 @@
-<% gains = (bet.gains - bet.amount).round(1) %>
-
-<%= '+' if gains > 0 %><%= gains %> <i class="fas fa-coins"></i>
+<div class="your-gains">
+  <% gains = (bet.gains - bet.amount).round(1) %>
+  <div class="<%= gains > 0 ? 'win' : 'loose' %>-gains">
+  <%= '+' if gains > 0 %><%= gains %> <i class="fas fa-coins"></i>
+  </div>
+</div>
