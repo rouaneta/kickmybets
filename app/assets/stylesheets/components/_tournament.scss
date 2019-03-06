@@ -1,3 +1,8 @@
+$white: #EFEFEF;
+$blue: #D1D1D1;
+$orange: #FC5130;
+
+
 .brackets {
   width: 100%;
   display: grid;
@@ -11,6 +16,8 @@
   border-radius: 20px;
   padding: 13px;
   padding-bottom: 8px;
+  // background: linear-gradient(90deg, #0D2C54 50%, #F6F6F6 50%);
+  background: linear-gradient(70deg, $blue 50%, $white 50%);
 }
 
 .card-display {
@@ -36,17 +43,18 @@
   justify-content: space-around;
   color: black;
   font-size: 15px;
-  font-weight: 200;
+  font-weight: 400;
+  letter-spacing: 2px;
 }
 
 .avatar-player {
-  width: 55px;
-  height: 55px;
+  width: 65px;
+  height: 65px;
   border-radius: 50%;
 }
 
 .score-title {
-  font-size: 20px;
+  font-size: 30px;
   font-weight: lighter;
   font-family: 'Slabo 27px', serif;
 }
@@ -119,3 +127,15 @@
   }
 }
 }
+
+.text-score-one {
+  color: $orange;
+}
+.text-score-two {
+  color: $orange;
+}
+
+.text-player {
+  color: black;
+}
+
