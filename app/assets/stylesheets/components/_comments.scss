@@ -1,3 +1,30 @@
 .comments-icon > a {
+}
 
+.comment {
+  background: white;
+  margin: 5px 5px;
+  padding: 12px;
+  padding-bottom: 5px;
+  border-radius: 5px;
+  .comments-avatar {
+    width: 30px;
+    border-radius: 50px;
+    box-shadow: 0 0 2px #0D2C54;
+  }
+  .comments-nickname {
+    font-weight: bold;
+    padding-left: 5px;
+    font-size: 15px;
+    color: #FC5130;
+  }
+  .comments-content {
+    font-style: italic;
+    padding-left: 30px;
+    font-size: 14px;
+  }
+  .comments-form-label {
+    font-size: 15px;
+    color: #0D2C54;
+  }
 }
