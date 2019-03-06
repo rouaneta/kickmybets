@@ -10,12 +10,13 @@ body h2, body h3 {
   color: white;
   position: relative;
   font-family: roboto;
-  border: 1px solid lightgrey;
   border-radius: 15px;
   margin-bottom: 10px;
-  box-shadow: 1px 1px 5px #AAA;
+  box-shadow: 1px 1px 5px -1px rgba(7,5,15,0.3);
+
   &:hover {
     transform: scale(1.02);
+    transition: all 0.25s linear;
     cursor: pointer;
   }
   a {
@@ -25,6 +26,9 @@ body h2, body h3 {
     right: 0;
     left: 0;
     z-index: 6;
+    &:hover {
+      text-decoration: none;
+    }
   }
   .contest-image {
     background-size: cover;
@@ -54,11 +58,32 @@ body h2, body h3 {
     width: 100%;
   }
 }
-.card-contest2 {
-  height: 100px;
-  color: #22333B;
+
+.plus-btn-pos {
+  width: 100%;
+  height: 100%;
+}
+
+.plus-container {
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 15px;
+  height: 100%;
+  width: 100%;
+  opacity: 0.6;
+  &:hover {
+    opacity: 1;
+  }
+  .plus-circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #0d2c54;
+    border-radius: 50px;
+    font-size: 40px;
+    padding: 8px;
+    width: 70px;
+    height: 70px;
+    color: #0d2c54;
+  }
 }

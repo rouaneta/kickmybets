@@ -1,4 +1,4 @@
-  <%= form_tag(participations_path, remote: true) do %>
-    <%= text_field_tag :code, "", class: 'form-control'%>
-    <%= submit_tag 'Save', class: 'btn btn-primary' %>
+  <%= form_tag(participations_path, remote: true, class: 'd-flex') do %>
+    <%= text_field_tag :code, "", class: 'form-control code-input', placeholder: 'Enter your code'%>
+    <%= submit_tag 'Join contest!', class: 'btn btn-primary code-submit' %>
   <% end %>
