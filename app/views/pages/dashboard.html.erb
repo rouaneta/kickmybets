@@ -1,17 +1,18 @@
-<h2>welcome to the dashboard</h2>
-
-<%= link_to "New contest", new_contest_path %>
+<h2>My contests</h2>
 <!-- Display contest join -->
-<hr>
 <div class="container">
+  <h3>Contest as Gambler</h3>
   <div class="cards">
     <div class="row">
       <div class="col-xs-12 col-sm-6 col-md-4">
-        <div class="card-contest">
-          <div class="plus-btn-pos">
-            <div class="plus-btn">
-              <div class="r1"></div>
-              <div class="r2"></div>
+        <div class="card-container">
+          <div class="card-contest">
+            <div class="plus-btn-pos">
+              <div class="plus-btn">
+                <%= link_to "", new_contest_path, class: "plus-link" %>
+                <div class="r1"></div>
+                <div class="r2"></div>
+              </div>
             </div>
           </div>
         </div>
@@ -19,14 +20,20 @@
       <% @user.participations.map { |e| e.contest }.each do |contest|%>
         <% contest.participations.where(user: @user).each do |participation| %>
           <div class="col-xs-12 col-sm-6 col-md-4">
-            <div class="card-contest">
+            <div class="card-container">
               <%= link_to "", participation_path(participation) %>
-              <div class="contest-image" style="background-image: url(<%= contest.picture_path %>)"></div>
-              <% if !contest.picture_path? %>
-                <div class="contest-color"></div>
-              <% end %>
-              <div class="contest-info">
-                <p><%= contest.title %></p>
+              <div class="card-contest contest-image" style="background-image: url(<%= contest.picture_path %>)">
+                <div id="title"><%= contest.title %></div>
+              </div>
+              <div class="details">
+                <span class="gambler">
+                  <span id="number-gambler"> <%= contest.participations.count %> </span>
+                  <i class="fas fa-user-friends" id="icone-people"></i>
+                </span>
+                <div class="coins">
+                  <span id="number-coins"> <%= participation.betcoins %></span>
+                  <span class="fas fa-coins"></span>
+                </div>
               </div>
             </div>
           </div>
@@ -39,39 +46,43 @@
 <br>
 <!-- Display contest create -->
 <div class="container">
+  <h3>personnal contest</h3>
   <div class="cards">
     <div class="row">
       <div class="col-xs-12 col-sm-6 col-md-4">
-        <div class="card-contest">
-          <div class="plus-btn-pos">
-            <div class="plus-btn">
-              <div class="r1"></div>
-              <div class="r2"></div>
-            </div>
+        <div class="card-container">
+          <div class="card-contest">
+            <%= render 'modal_invitation' %>
           </div>
         </div>
       </div>
-        <% @user.contests.each do |contest| %>
-          <% contest.participations.where(user: @user).each do |participation| %>
-            <div class="col-xs-12 col-sm-6 col-md-4">
-              <div class="card-contest">
+      <% @user.contests.each do |contest| %>
+        <% contest.participations.where(user: @user).each do |participation| %>
+          <div class="col-xs-12 col-sm-6 col-md-4">
+            <div class="card-container">
+              <div class="card-contest contest-image" style="background-image: url(<%= contest.picture_path %>)">
                 <%= link_to "", participation_path(participation) %>
-                <div class="contest-image" style="background-image: url(<%= contest.picture_path %>)"></div>
-                <% if !contest.picture_path? %>
-                  <div class="contest-color"></div>
-                <% end %>
-                <div class="contest-info">
-                  <p><%=  contest.title%></p>
+                <div id="title"><%= contest.title %></div>
+              </div>
+              <div class="details">
+                <span class="gambler">
+                  <span id="number-gambler"> <%= contest.participations.count %> </span>
+                  <i class="fas fa-user-friends" id="icone-people"></i>
+                </span>
+                <div class="coins">
+                  <span id="number-coins"> <%= participation.betcoins %></span>
+                  <span class="fas fa-coins"></span>
                 </div>
               </div>
             </div>
+          </div>
         <% end %>
       <% end %>
     </div>
   </div>
 </div>
 
-<%= render 'modal_invitation' %>
+
 
 
 
