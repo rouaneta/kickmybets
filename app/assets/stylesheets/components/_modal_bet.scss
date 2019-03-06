@@ -1,0 +1,61 @@
+.avatar-player-bet {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.02)
+  }
+}
+
+.select-choice {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.choice {
+  display: none;
+}
+
+.choice + label {
+  margin: 0 auto;
+}
+
+.choice:checked + label{
+  .avatar-player-bet {
+  // border: 1px solid #0D2C54;
+  box-shadow: 0px 0px 3px 3px #FC5130;
+  }
+}
+
+#new_bet > .bet_amount {
+  margin-bottom: 0;
+}
+.bet_amount > label {
+  font-size: 15px;
+  font-family: 'Open Sans';
+  color: #0D2C54;
+}
+
+#bet_amount {
+  width: 150px;
+  margin: 0 auto;
+  font-size: 14px;
+  font-family: 'Open Sans';
+  color: #0D2C54;
+  text-align: center;
+}
+
+#bet-title {
+  font-size: 25px;
+  font-family: 'Roboto';
+  color: #0D2C54;
+}
+
+#betcoins-remaining{
+  font-size: 13px;
+  font-family: 'Open Sans';
+  color: lightgrey;
+  padding-bottom: 10px;
+}

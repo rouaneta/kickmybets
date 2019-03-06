@@ -6,6 +6,7 @@ class Bet < ApplicationRecord
   validates :participation_id, uniqueness: { scope: %i[resource_type resource_id] }
   validate :enough_coins, on: :create
   validates :amount, presence: true, numericality: { only_integer: true, greater_than: 0 }
+  validates :choice, presence: true
 
   after_save :update_resource_odds, :update_participation_betcoins
 

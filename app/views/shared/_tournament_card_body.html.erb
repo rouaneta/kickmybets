@@ -1,7 +1,7 @@
 <div class="card-body">
   <div class="player-info">
-    <% if game.send("player_#{number}".to_sym).nil? || game.send("player_#{number}".to_sym).picture_path.nil? %>
-      <%= image_tag "players/default_#{number}.jpg", class: "avatar-player", alt: "avatar-player" %>
+    <% if game.status == "pending" %>
+      <%= image_tag "players/default.jpg", class: "avatar-player", alt: "avatar-player" %>
     <% else %>
       <%= image_tag game.send("player_#{number}".to_sym).picture_path, class: "avatar-player", alt: "avatar-player" %>
     <% end %>

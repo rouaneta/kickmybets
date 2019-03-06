@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_05_103404) do
+ActiveRecord::Schema.define(version: 2019_03_06_110940) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -76,7 +76,7 @@ ActiveRecord::Schema.define(version: 2019_03_05_103404) do
     t.bigint "player_two_id"
     t.integer "score_p_one"
     t.integer "score_p_two"
-    t.integer "winner"
+    t.integer "choice_win"
     t.datetime "start_time"
     t.datetime "end_time"
     t.string "status", default: "pending"
@@ -112,7 +112,7 @@ ActiveRecord::Schema.define(version: 2019_03_05_103404) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "picture_path"
+    t.string "picture_path", default: "players/default.jpg"
     t.index ["contest_id"], name: "index_players_on_contest_id"
   end
 
@@ -128,7 +128,7 @@ ActiveRecord::Schema.define(version: 2019_03_05_103404) do
     t.integer "points"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "picture_path"
+    t.string "picture_path", default: "users/default.jpg"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
