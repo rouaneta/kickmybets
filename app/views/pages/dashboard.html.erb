@@ -1,7 +1,7 @@
 <h2>My contests</h2>
 <!-- Display contest join -->
 <div class="container">
-  <h3>Contest as Gambler</h3>
+  <h3>As Gambler</h3>
   <div class="cards">
     <div class="row">
       <div class="col-xs-12 col-sm-6 col-md-4">
@@ -22,7 +22,7 @@
           <div class="col-xs-12 col-sm-6 col-md-4">
             <div class="card-container">
               <%= link_to "", participation_path(participation) %>
-              <div class="card-contest contest-image" style="background-image: url(<%= contest.picture_path %>)">
+              <div class="card-contest contest-image" style="background-image: url(<%= image_path(contest.picture_path) %>)">
                 <div id="title"><%= contest.title %></div>
               </div>
               <div class="details">
@@ -46,7 +46,7 @@
 <br>
 <!-- Display contest create -->
 <div class="container">
-  <h3>personnal contest</h3>
+  <h3>As organizer</h3>
   <div class="cards">
     <div class="row">
       <div class="col-xs-12 col-sm-6 col-md-4">
@@ -57,11 +57,10 @@
         </div>
       </div>
       <% @user.contests.each do |contest| %>
-        <% contest.participations.where(user: @user).each do |participation| %>
-          <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="col-xs-12 col-sm-6 col-md-4">
             <div class="card-container">
-              <div class="card-contest contest-image" style="background-image: url(<%= contest.picture_path %>)">
-                <%= link_to "", participation_path(participation) %>
+              <div class="card-contest contest-image" style="background-image: url(<%= image_path(contest.picture_path) %>)">
+                <%= link_to "", contest_path(contest) %>
                 <div id="title"><%= contest.title %></div>
               </div>
               <div class="details">
@@ -69,21 +68,10 @@
                   <span id="number-gambler"> <%= contest.participations.count %> </span>
                   <i class="fas fa-user-friends" id="icone-people"></i>
                 </span>
-                <div class="coins">
-                  <span id="number-coins"> <%= participation.betcoins %></span>
-                  <span class="fas fa-coins"></span>
-                </div>
               </div>
             </div>
           </div>
-        <% end %>
       <% end %>
     </div>
   </div>
 </div>
-
-
-
-
-
-

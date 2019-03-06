@@ -14,18 +14,14 @@
     bottom: 0;
     right: 0;
     left: 0;
-    z-index: 7;
   }
   .contest-image {
     background-size: cover;
     background-position: center;
-    z-index: 3;
   }
   .card-contest {
     height: 100px;
-    z-index: 1;
     color: #22333B;
-    opacity: 0.6;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -43,14 +39,15 @@
     font-size: 16px;
     width: 100%;
     .gambler {
-      z-index: 6;
       #number-gambler {
       }
     }
     .coins {
-      z-index: 6;
       #number-coins {
       }
     }
   }
+}
+
+#invitationModal {
 }
