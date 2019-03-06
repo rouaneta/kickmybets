@@ -1,3 +1,20 @@
-<% resource.comments.order(created_at: :asc).each do |comment| %>
-  <p><%= comment.content %></p>
+<% if resource.comments.empty? %>
+  <p>Be the first to leave a comment</p>
+<% else %>
+  <% resource.comments.order(created_at: :asc).each do |comment| %>
+    <div class="comment">
+      <%= image_tag comment.user.picture_path, alt: "No PP", class: 'comments-avatar' %>
+      <span class="comments-nickname"><%= comment.user.nickname %></span>
+      <div class="comments-content"><%= comment.content %></div>
+    </div>
+  <% end %>
 <% end %>
+
+<% comment = Comment.new(resource: resource) %>
+<div class="comment">
+  <%= simple_form_for([participation, comment], remote: true) do |f| %>
+    <%= f.input :resource_id, as: :hidden %>
+    <%= f.input :resource_type, as: :hidden %>
+    <%= f.input :content, label: 'Share your expert opinion', label_html: { class: 'comments-form-label' }, as: :string %>
+  <% end %>
+</div>

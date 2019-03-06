@@ -35,20 +35,18 @@
   align-items: center;
   justify-content: space-around;
   color: black;
-  padding-bottom: 15px;
   font-size: 15px;
   font-weight: 200;
 }
 
-.player-picture {
+.avatar-player {
   width: 55px;
   height: 55px;
-  border: 1px solid black;
   border-radius: 50%;
 }
 
 .score-title {
-  font-size: 50px;
+  font-size: 20px;
   font-weight: lighter;
   font-family: 'Slabo 27px', serif;
 }
