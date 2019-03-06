@@ -1,9 +1,17 @@
-<a class="" role="button" data-toggle="collapse" href="#comments-collapse-<%= resource.class.to_s %>-<%= resource.id %>" aria-expanded="false" aria-controls="comments-collapse-<%= resource.class.to_s %>-<%= resource.id %>">
-  X comments...
+<a role="button" data-toggle="collapse" href="#comments-collapse-<%= resource.class.to_s %>-<%= resource.id %>" aria-expanded="false" aria-controls="comments-collapse-<%= resource.class.to_s %>-<%= resource.id %>">
+  5 <i class="far fa-comment-alt"></i>
 </a>
 
 <div class="collapse" id="comments-collapse-<%= resource.class.to_s %>-<%= resource.id %>">
   <div class="well">
-    ...
+    <%= render 'shared/comments_flow', resource: resource %>
   </div>
+
+  <% comment = Comment.new(resource: resource) %>
+  <%= simple_form_for([participation, comment], remote: true) do |f| %>
+    <%= f.input :resource_id, as: :hidden %>
+    <%= f.input :resource_type, as: :hidden %>
+    <%= f.input :content, as: :string %>
+  <% end %>
+
 </div>

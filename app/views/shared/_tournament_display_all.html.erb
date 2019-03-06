@@ -1,4 +1,4 @@
-<div class="card-tournament">
+<div class="card-tournament" data-resource-type="Game" data-resource-id="<%= game.id %>">
 
   <div class="card-display">
 
@@ -36,6 +36,8 @@
 
   </div>
 
-  <%= render 'shared/comments_collapse', resource: game %>
-
+  <%# Comments %>
+  <div class="comments-icon">
+    <%= render 'shared/comments_collapse', class: 'comments-icon', resource: game, participation: participation %>
+  </div>
 </div>
