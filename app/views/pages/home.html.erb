@@ -8,7 +8,12 @@
       Bet me if you can
     </h2>
     <div id="go-btn-homepage">
-      <%= link_to "Go!", dashboard_path, id: "go-trigger" %>
+       <a href="/dashboard" class="button-go">
+        <div class="qube">
+           <div class="front">Go!</div>
+           <div class="back">Ready to kick?</div>
+        </div>
+      </a>
     </div>
   </div>
 </div>
@@ -21,8 +26,8 @@
         Forecast and bet on the outcome of the games.
     </div>
       <div class="page2-link">
-       <%= link_to "New contest", new_contest_path, class: "page2-btn", id: "btn2" %>
-       <%= link_to "Join contest", dashboard_path, class: "page2-btn",id: "btn2"   %>
+       <%= link_to "New contest", new_contest_path, class: "btn btn-lg btn-primary" %>
+       <%= link_to "Join contest", dashboard_path, class: "btn btn-lg btn-primary" %>
       </div>
     </div>
   </div>

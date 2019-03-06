@@ -1,0 +1,19 @@
+.your_gains {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 40px;
+}
+
+.loose-gains {
+  color: #9E100E;
+  font-weight: bold;
+  font-family: 'Slabo 27px', serif;
+  font-size: 30px;
+}
+
+.win-gains {
+  color: #17905A;
+  font-weight: bold;
+  font-family: 'Slabo 27px', serif;
+  font-size: 30px;
+}
