@@ -32,7 +32,8 @@ $orange: #FC5130;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  padding: 5px 60px;
+  padding: 5px 0px;
+  width: 100px;
 }
 
 .player-info {
@@ -139,3 +140,18 @@ $orange: #FC5130;
   color: black;
 }
 
+.Event-card-height {
+  height: 100px;
+}
+
+.comment-banner-update {
+  position: absolute;
+  top: -2px;
+  left: 20%;
+}
+
+.comment-banner-winner {
+  position: absolute;
+  top: -7px;
+  right: 1%;
+}
