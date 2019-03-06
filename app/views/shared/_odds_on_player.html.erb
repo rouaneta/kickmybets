@@ -1,0 +1,6 @@
+<div class="odds-on-player">
+  <% if game.player_one && game.player_two %>
+
+    <%= resource.send("odds_choice_#{number}") ? "(" + resource.send("odds_choice_#{number}").round(2).to_s + ")" : ""  %>
+  <% end %>
+</div>
