@@ -21,6 +21,7 @@ Rails.application.routes.draw do
         patch 'update_status'
       end
     end
+    resources :comments, only: [:create]
     resources :bets, only: [:create]
   end
 
