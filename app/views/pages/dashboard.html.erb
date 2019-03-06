@@ -7,13 +7,7 @@
       <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="card-container">
           <div class="card-contest">
-            <div class="plus-btn-pos">
-              <div class="plus-btn">
-                <%= link_to "", new_contest_path, class: "plus-link" %>
-                <div class="r1"></div>
-                <div class="r2"></div>
-              </div>
-            </div>
+            <%= render 'modal_invitation' %>
           </div>
         </div>
       </div>
@@ -22,7 +16,7 @@
           <div class="col-xs-12 col-sm-6 col-md-4">
             <div class="card-container">
               <%= link_to "", participation_path(participation) %>
-              <div class="card-contest contest-image" style="background-image: url(<%= image_path(contest.picture_path) %>)">
+              <div class="card-contest contest-image" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path(contest.picture_path) %>)">
                 <div id="title"><%= contest.title %></div>
               </div>
               <div class="details">
@@ -52,14 +46,20 @@
       <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="card-container">
           <div class="card-contest">
-            <%= render 'modal_invitation' %>
+            <div class="plus-btn-pos">
+              <div class="plus-btn">
+                <%= link_to "", new_contest_path, class: "plus-link" %>
+                <div class="r1"></div>
+                <div class="r2"></div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
       <% @user.contests.each do |contest| %>
         <div class="col-xs-12 col-sm-6 col-md-4">
             <div class="card-container">
-              <div class="card-contest contest-image" style="background-image: url(<%= image_path(contest.picture_path) %>)">
+              <div class="card-contest contest-image" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path(contest.picture_path) %>)">
                 <%= link_to "", contest_path(contest) %>
                 <div id="title"><%= contest.title %></div>
               </div>

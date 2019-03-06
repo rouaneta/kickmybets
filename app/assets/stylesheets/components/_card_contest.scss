@@ -1,13 +1,11 @@
 .card-container {
+  color: white;
   position: relative;
   font-family: open-sans;
   border: 1px solid lightgrey;
   border-radius: 15px;
   margin-bottom: 10px;
-  &:hover {
-    color: white;
-    opacity: 1;
-  }
+  box-shadow: 1px 1px 5px #AAA;
   a {
     position: absolute;
     top: 0;
@@ -25,9 +23,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    border-radius: 15px;
+
     #title {
       text-align: center;
       font-size: 26px;
+      color: white;
     }
   }
   .details {
@@ -38,16 +39,6 @@
     justify-content: space-between;
     font-size: 16px;
     width: 100%;
-    .gambler {
-      #number-gambler {
-      }
-    }
-    .coins {
-      #number-coins {
-      }
-    }
   }
 }
 
-#invitationModal {
-}
