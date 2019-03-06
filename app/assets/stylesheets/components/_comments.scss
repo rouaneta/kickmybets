@@ -1,4 +1,12 @@
-.comments-icon > a {
+.comments-icon a {
+  color: #0D2C54;
+  text-decoration: none;
+  font-weight: bold;
+  &:hover {
+    text-decoration: none;
+    opacity: 0.7;
+  }
+
 }
 
 .comment {

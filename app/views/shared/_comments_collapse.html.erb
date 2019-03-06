@@ -2,7 +2,7 @@
   <%= resource.comments.count %> <i class="far fa-comment-alt"></i>
 </a>
 
-<div class="collapse in" id="comments-collapse-<%= resource.class.to_s %>-<%= resource.id %>">
+<div class="collapse" id="comments-collapse-<%= resource.class.to_s %>-<%= resource.id %>">
   <div class="well">
     <%= render 'shared/comments_flow', resource: resource, participation: participation %>
   </div>
