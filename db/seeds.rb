@@ -210,12 +210,28 @@ contest = Contest.create!(
   code: "zEhv8YavQ",
   players_nb: 8,
   creator: user,
-  players_attributes: [{name: "eleonore"}, {name: "matthieu"}, {name: "leon"}, {name: "francois"}, {name: "david"}, {name: "aymeric"}, {name: "joseph"}]
+  players_attributes: [{name: "eleonore"}, {name: "matthieu"}, {name: "leon"}, {name: "francois"}, {name: "david"}, {name: "aymeric"}, {name: "joseph"}, {name: "benjamin"}]
   }
 )
+
+Player.where(name: "eleonore").first.update(picture_path: "users/eleonore.jpg")
+Player.where(name: "matthieu").first.update(picture_path: "users/matthieu.jpg")
+Player.where(name: "leon").first.update(picture_path: "users/leon.jpg")
+Player.where(name: "francois").first.update(picture_path: "users/francois.jpg")
+Player.where(name: "david").first.update(picture_path: "users/david.jpg")
+Player.where(name: "aymeric").first.update(picture_path: "users/aymeric.jpg")
+Player.where(name: "joseph").first.update(picture_path: "users/joseph.jpg")
+Player.where(name: "benjamin").first.update(picture_path: "users/benjamin.jpg")
 
 puts"Creating participations"
 participation = Participation.create!(user: user, contest: contest, betcoins: 5)
 
 puts "Creating Events"
+
+event = Event.create!(
+  participation: participation,
+  title: "Fracture du mental pour François en demi-finale",
+  choice_one: "Fracture",
+  choice_two: "Pas de fracture, man!"
+)
 
