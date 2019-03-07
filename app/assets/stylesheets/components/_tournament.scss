@@ -2,6 +2,13 @@ $white: #EFEFEF;
 $blue: #D1D1D1;
 $orange: #FC5130;
 
+.fas.fa-crown {
+  color: $orange;
+  position: absolute;
+  top: -31px;
+  left: 30px;
+  font-size: 32px;
+}
 
 .brackets {
   width: 100%;
@@ -46,6 +53,7 @@ $orange: #FC5130;
   font-size: 15px;
   font-weight: 400;
   letter-spacing: 2px;
+  position: relative;
 }
 
 .avatar-player {
