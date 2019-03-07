@@ -2,7 +2,9 @@ $white: #EFEFEF;
 $grey: #D1D1D1;
 $orange: #FC5130;
 :root {
-  --gradient: 50%
+  --offset-initial: -10000px;
+  --offset-final: -10000px;
+  --linear-ratio: 0;
 }
 
 
@@ -19,7 +21,18 @@ $orange: #FC5130;
   border-radius: 20px;
   padding: 13px;
   padding-bottom: 8px;
-  background: linear-gradient(70deg, $grey var(--gradient), $white var(--gradient));
+  background: linear-gradient(70deg, $grey var(--linear-ratio), transparent var(--linear-ratio)), $white;
+  background-repeat-x: no-repeat;
+  animation: glissement 2s ease forwards;
+}
+
+@keyframes glissement {
+  from {
+    background-position-x: var(--offset-initial);
+  }
+  to {
+    background-position-x: var(--offset-final);
+  }
 }
 
 .card-display {
