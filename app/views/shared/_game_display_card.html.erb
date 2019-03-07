@@ -1,4 +1,4 @@
-<div class="card-tournament <%= resource.class.to_s %>-card" data-resource-type="<%= resource.class.to_s %>" data-resource-id="<%= resource.id %>">
+<div class="card-tournament <%= resource.class.to_s %>-card" data-resource-type="<%= resource.class.to_s %>" data-resource-id="<%= resource.id %>" id="<%= resource.class.to_s %>-<%= resource.id %>">
 
   <%#= TITLE IF EVENT %>
 
@@ -73,7 +73,7 @@
 
         <!-- Modal -->
 
-        <%= render 'shared/modal_event_settings', resource: resource, participation: participation, index: index %>
+        <%= render 'shared/modal_event_settings', resource: resource, participation: participation %>
 
       <% end %>
 

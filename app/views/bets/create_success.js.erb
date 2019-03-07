@@ -1,1 +1,8 @@
-window.location = '<%= participation_path(@bet.participation) %>'
+const card = document.querySelector('#<%= @bet.resource_type %>-<%= @bet.resource_id %>');
+const cardParent = document.querySelector('#parent-<%= @bet.resource_type %>-<%= @bet.resource_id %>');
+
+console.log(card);
+console.log(cardParent);
+// window.location = '<%= participation_path(@bet.participation) %>'
+cardParent.innerHTML = "<%= j render 'shared/game_display_card', resource: @bet.resource, participation: @participation %>";
+document.location.reload(true);

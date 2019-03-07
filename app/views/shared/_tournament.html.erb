@@ -27,7 +27,7 @@
 
       <% betable_class = game.betable?(current_user) ? 'bettable-games' : 'unbettable-games' %>
 
-      <div class="<%= betable_class %> game-group-card game-phase-<%= game.phase %>">
+      <div class="<%= betable_class %> game-group-card game-phase-<%= game.phase %>" id="parent-Game-<%= game.id %>">
         <%= render 'shared/game_display_card', resource: game, participation: participation %>
       </div>
 
@@ -43,7 +43,7 @@
 
       <% betable_class = game.betable?(current_user) ? 'bettable-games' : 'unbettable-games' %>
 
-      <div class="<%= betable_class %> game-group-card game-phase-<%= game.phase %>">
+      <div class="<%= betable_class %> game-group-card game-phase-<%= game.phase %>" id="parent-Game-<%= game.id %>">
         <%= render 'shared/game_display_card', resource: game, participation: participation %>
       </div>
 
@@ -59,7 +59,7 @@
 
       <% betable_class = game.betable?(current_user) ? 'bettable-games' : 'unbettable-games' %>
 
-      <div class="<%= betable_class %> game-group-card game-phase-<%= game.phase %>">
+      <div class="<%= betable_class %> game-group-card game-phase-<%= game.phase %>" id="parent-Game-<%= game.id %>">
         <%= render 'shared/game_display_card', resource: game, participation: participation %>
       </div>
 
@@ -83,8 +83,8 @@
 
       <% betable_class = event.betable?(current_user) ? 'bettable-games' : 'unbettable-games' %>
 
-      <div class="<%= betable_class %> event-group-card">
-        <%= render 'shared/game_display_card', resource: event, participation: participation, index: index %>
+      <div class="<%= betable_class %> event-group-card" id="parent-Event-<%= event.id %>">
+        <%= render 'shared/game_display_card', resource: event, participation: participation %>
       </div>
 
     <% end %>

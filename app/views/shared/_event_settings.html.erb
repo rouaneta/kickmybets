@@ -1,6 +1,6 @@
 <div class="flex-event-settings">
   <% if event.status == 'coming' %>
-    <%= link_to 'Close bets for this one', update_status_participation_event_path(participation, event), method: :patch, class: 'btn btn-warning btn-xs modal-btn-update', data: {confirm: "Do you really want to close bets for this event? You can't go back on this hard decision"} %>
+    <%= link_to 'Close bets', update_status_participation_event_path(participation, event), method: :patch, class: 'btn btn-warning btn-xs modal-btn-update' %>
   <% end %>
 
   <%# Update result of event if CurrentUser is the creator AND the Winner is not defined yet %>
