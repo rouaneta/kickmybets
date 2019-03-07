@@ -1,21 +1,14 @@
-
-<!-- Banner -->
-<div class="banner-container">
-    <div id="gambler-view">
-      <% if Participation.where(user_id: @user.id, contest_id: @contest).empty? %>
-        <%= render 'create_participation', participation: @participation, user_id: @user.id, contest_id: @contest.id %>
-      <% else %>
-        <div class="bettings-path-info ">
-            <%= link_to 'Go to bet view', participation_path(Participation.where(user_id: @user.id, contest_id: @contest).first) %>
-        </div>
-      <% end %>
-    </div>
-  <div class="show-banner" style="background-image: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.6)), url(<%= image_path(@contest.picture_path) %>)">
-    <div class="show-title"> <%= @contest.title %></div>
-    <div id="description"> <%= @contest.description %> </div>
+<div class="show-banner" style="background-image: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.6)), url(<%= image_path(@contest.picture_path) %>)">
+  <div class="show-title">
+    <%= @contest.title %>
+  </div>
+  <div class="bettings-info">
+    <%= link_to 'Go to gambler view', participation_path(Participation.where(user_id: @user.id, contest_id: @contest).first) %>
     <div class="code-mail">
-      <div class="code"><%= @contest.code %></div>
       <%= render 'modal_invitation_mail', contest: @contest %>
+      <div class="code">
+        <%= @contest.code %>
+      </div>
     </div>
   </div>
 </div>
