@@ -1,6 +1,7 @@
-<p>Hi guy, </p>
 
-<a href="http://www.kickmybets.fun/">welcome in kickmybets</a>
-<p> you have been invited by <strong> <%= @contest.creator.nickname %></strong> to participate at the contest <strong> <%= @contest.title %></strong> , the code to join them is : <strong> <%= @contest.code %></strong></p>
-
-<h3>happy betting !</h3>
+<div class="invitation-mail", style="background-color: #d1d1d1; color: #003153 ; text-decoration: none; font-family: roboto; padding: 10px 25px" >
+  <p>Hi guy, </p>
+  Welcome to <a href="http://www.kickmybets.fun/" style="text-decoration: none; color: #FC5130;">kickmybets</a>
+  <p> You have been invited by <strong style="color: #FC5130;"> <%= @contest.creator.nickname %></strong> to participate at the contest <strong style="color: #FC5130;"> <%= @contest.title %></strong> , the code to join them is : <strong style="color: #003153;"> <%= @contest.code %></strong></p>
+  <h3>Happy betting !</h3>
+</div>
