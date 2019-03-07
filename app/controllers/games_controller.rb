@@ -9,12 +9,12 @@ class GamesController < ApplicationController
       @game.choice_win = @game.score_p_one > @game.score_p_two ? 1 : 2
       @game.save
     end
-    redirect_to contest_path(@game.contest)
+    render :update_status_success
   end
 
   def update_status
     @game = Game.find(params[:id])
     @game.update(status: 'ongoing')
-    redirect_to contest_path(@game.contest)
+    render :update_status_success
   end
 end

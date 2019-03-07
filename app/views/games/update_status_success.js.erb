@@ -1,0 +1,11 @@
+function updateGamesAdmin() {
+  const card = document.querySelector('#admin-card-<%= @game.id %>');
+  const cardParent = document.querySelector('#parent-admin-card-<%= @game.id %>');
+
+  cardParent.innerHTML = "<%= j render 'shared/admin_card', game: @game %>";
+
+  const event = new CustomEvent('new_content', { 'detail': "#admin-card-<%= @game.id %>" });
+  document.dispatchEvent(event);
+}
+
+updateGamesAdmin();
