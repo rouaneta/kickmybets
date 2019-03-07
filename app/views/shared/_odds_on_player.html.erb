@@ -1,5 +1,5 @@
 <div class="odds-on-player">
-  <% if game.player_one && game.player_two %>
+  <% if (resource.class.to_s == 'Event' && resource.choice_one && resource.choice_two) || (resource.class.to_s == 'Game' && resource.player_one && resource.player_two) %>
 
     <%= resource.send("odds_choice_#{number}") ? "(" + resource.send("odds_choice_#{number}").round(2).to_s + ")" : ""  %>
   <% end %>
