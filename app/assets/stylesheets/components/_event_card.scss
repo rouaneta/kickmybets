@@ -2,6 +2,8 @@ $orangekick: #FC5130;
 $yellowlight: #FEF3D1;
 $yellow: #FDDF82;
 $orange: #FC5130;
+$blue: #0D2C54;
+
 :root {
   --offset-initial: -10000px;
   --offset-final: -10000px;
@@ -78,6 +80,21 @@ $orange: #FC5130;
   margin-bottom: 10px;
   &:hover{
     border: solid 2px $orangekick;
+    font-weight: bold;
+  }
+}
+
+.btn-send-email {
+  background-color: transparent;
+  color: white;
+  border: solid 1px white;
+  border-radius: 20px;
+  padding: 10px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  font-size: 15px;
+  &:hover{
+    border: solid 2px white;
     font-weight: bold;
   }
 }
