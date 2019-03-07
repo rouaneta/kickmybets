@@ -5,7 +5,57 @@
 
 <div class="tournament">
 
-  <h2>Events</h2>
+  <h3>Quarter-Finals</h3>
+
+  <div class="brackets">
+
+    <% participation.contest.games.where(phase: 3).order(:id).each do |game| %>
+
+      <% betable_class = game.betable?(current_user) ? 'bettable-games' : 'unbettable-games' %>
+
+      <div class="<%= betable_class %> game-group-card game-phase-<%= game.phase %>">
+        <%= render 'shared/game_display_card', resource: game, participation: participation %>
+      </div>
+
+    <% end %>
+
+  </div>
+
+  <h3>Semi-Finals</h3>
+
+  <div class="brackets">
+
+    <% participation.contest.games.where(phase: 2).order(:id).each do |game| %>
+
+      <% betable_class = game.betable?(current_user) ? 'bettable-games' : 'unbettable-games' %>
+
+      <div class="<%= betable_class %> game-group-card game-phase-<%= game.phase %>">
+        <%= render 'shared/game_display_card', resource: game, participation: participation %>
+      </div>
+
+    <% end %>
+
+  </div>
+
+  <h3>Final</h3>
+
+  <div class="brackets">
+
+    <% participation.contest.games.where(phase: 1).order(:id).each do |game| %>
+
+      <% betable_class = game.betable?(current_user) ? 'bettable-games' : 'unbettable-games' %>
+
+      <div class="<%= betable_class %> game-group-card game-phase-<%= game.phase %>">
+        <%= render 'shared/game_display_card', resource: game, participation: participation %>
+      </div>
+
+    <% end %>
+
+  </div>
+
+  <hr>
+
+  <h3>Events</h3>
 
    <div class="show-button-modal">
       <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createEventModal">
@@ -27,23 +77,4 @@
 
   </div>
 
-  <h2>Games</h2>
-
-  <div class="brackets">
-
-    <% participation.contest.games.order(:id).each do |game| %>
-
-      <% betable_class = game.betable?(current_user) ? 'bettable-games' : 'unbettable-games' %>
-
-      <div class="<%= betable_class %> game-group-card">
-        <%= render 'shared/game_display_card', resource: game, participation: participation %>
-      </div>
-
-    <% end %>
-  </div>
-
 </div>
-
-
-
-
