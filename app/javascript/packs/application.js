@@ -7,4 +7,9 @@ import setGradient from './setGradient';
 playersGenerator();
 burgerNavbar();
 bettableDisplay();
-setGradient();
+setGradient(document.querySelectorAll('.card-tournament'));
+
+document.addEventListener("new_content", (event) => {
+  console.log(event.detail)
+  setGradient(document.querySelectorAll(event.detail));
+})

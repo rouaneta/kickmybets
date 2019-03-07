@@ -1,8 +1,8 @@
-const cardTournaments = document.querySelectorAll('.card-tournament')
+
 const regexSumsOne = /\d+/;
 const regexSumsTwo = /(\d+$)/;
 
-const setGradient = () => {
+const setGradient = (cardTournaments) => {
   if (cardTournaments) {
     cardTournaments.forEach((cardTournament) => {
       let offsetCard = cardTournament.offsetHeight / 2.747477;

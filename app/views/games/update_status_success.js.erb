@@ -1,6 +1,15 @@
-const card = document.querySelector('#admin-card-<%= @game.id %>');
-const cardParent = document.querySelector('#parent-admin-card-<%= @game.id %>');
+// import setGradient from '../../javascript/packs/setGradient';
 
-cardParent.innerHTML = "<%= j render 'shared/admin_card', game: @game %>";
+function updateGamesAdmin() {
+  const card = document.querySelector('#admin-card-<%= @game.id %>');
+  const cardParent = document.querySelector('#parent-admin-card-<%= @game.id %>');
 
+  cardParent.innerHTML = "<%= j render 'shared/admin_card', game: @game %>";
+  // setGradient(document.querySelectorAll('#parent-admin-card-<%= @game.id %>'));
+  // cardParent.location.reload(true);
 
+  const event = new CustomEvent('new_content', { 'detail': "#admin-card-<%= @game.id %>" });
+  document.dispatchEvent(event);
+}
+
+updateGamesAdmin();
