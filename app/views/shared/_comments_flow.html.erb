@@ -1,6 +1,4 @@
-<% if resource.comments.empty? %>
-  <p>Be the first to leave a comment</p>
-<% else %>
+<% unless resource.comments.empty? %>
   <% resource.comments.order(created_at: :asc).each do |comment| %>
     <div class="comment">
       <%= image_tag comment.user.picture_path, alt: "No PP", class: 'comments-avatar' %>
