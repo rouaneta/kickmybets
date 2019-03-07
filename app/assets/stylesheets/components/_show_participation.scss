@@ -11,10 +11,35 @@ flex-direction: column;
 
 .show-title {
   color: white;
-  font-family: 'Indie Flower', cursive;;
+  font-family: 'Indie Flower', cursive;
   font-size: 60px;
   opacity: 0.9;
   margin-top: 60px;
+}
+.code-mail {
+  .code {
+    font-family: roboto;
+  }
+}
+
+.bettings-path-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 200px;
+  color: white;
+  opacity: 0.8;
+  padding: 20px;
+  a {
+    color: white;
+    border-top: 1px white solid;
+    border-bottom: 1px white solid;
+    opacity: 0.8
+    }
+    a:hover {
+      text-decoration: none;
+      opacity: 1;
+    }
 }
 
 .bettings-info {
