@@ -1,7 +1,17 @@
-<%= simple_form_for game do |f| %>
+<%= simple_form_for game, html: {class: "game-form-grid"} do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-  <%= f.input :score_p_one %>
-  <%= f.input :score_p_two %>
-  <%= f.button :submit, value: 'Update score', data: {confirm: "Really?" } %>
+  <div class="game-form-row">
+      <div class="game-col col-one">
+        <%= f.input :score_p_one, label: "Score #{game.player_one.name.capitalize}" %>
+      </div>
+      <div class="game-col col-two">
+        <%= f.button :submit, value: 'Validate' %>
+      </div>
+      <div class="game-col col-three">
+        <%= f.input :score_p_two, label: "Score #{game.player_two.name.capitalize}" %>
+      </div>
+  </div>
+
 <% end %>
+
