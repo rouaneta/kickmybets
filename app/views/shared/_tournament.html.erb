@@ -1,6 +1,20 @@
-<div class="checkbox-bet">
-  <input type="checkbox" id="bettable-btn" name="Bettable games" unchecked>
-  <label for="scales"> Betable games </label>
+<div class="the-checkbox-menu">
+  <div class="checkbox-bet">
+    <input type="checkbox" id="bettable-btn" name="Bettable games" >
+    <label for="scales"> Betable games </label>
+  </div>
+  <div class="total-podium">
+    <div class="ranking-path">
+      <div class="ranking-path-icon">
+        <a id="podium-text-display">
+        <%= link_to '', ranking_contest_path(@participation.contest), class: "fas fa-trophy" %>
+      </div>
+      <div class="ranking-path-title">
+        <%= link_to 'Podium', ranking_contest_path(@participation.contest), id: "text-podium" %>
+      </div>
+        </a>
+    </div>
+  </div>
 </div>
 
 <div class="tournament">
@@ -58,7 +72,7 @@
   <h3>Events</h3>
 
    <div class="show-button-modal">
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createEventModal">
+      <button type="button" class="btn-create-event" data-toggle="modal" data-target="#createEventModal">
         Submit a new bet
       </button>
    </div>

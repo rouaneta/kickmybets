@@ -1,0 +1,24 @@
+<div class="card-tournament">
+  <div class="card-display">
+    <div class="game-form-row">
+      <div class="game-col col-one">
+        <%= render 'shared/player_card_body', class: 'card-body', game: game, number: 'one' %>
+      </div>
+      <div class="game-col col-two">
+        <% if game.status == 'coming' %>
+          <%= link_to 'Close bets', update_status_game_path(game), method: :patch, class: 'close-bet-btn' %>
+        <% end %>
+      </div>
+      <div class="game-col col-three">
+        <%= render 'shared/player_card_body', class: 'card-body', game: game, number: 'two' %>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="scores">
+    <% if (game.status != 'closed') && (game.status != 'pending') %>
+      <%= render 'update_game_score', game: game %>
+    <% end %>
+  </div>
+</div>
