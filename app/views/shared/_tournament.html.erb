@@ -35,7 +35,7 @@
 
       <% betable_class = game.betable?(current_user) ? 'bettable-games' : 'unbettable-games' %>
 
-      <div class="<%= betable_class %> game-group-card">
+      <div class="<%= betable_class %> game-group-card game-phase-<%= game.phase %>">
         <%= render 'shared/game_display_card', resource: game, participation: participation %>
       </div>
 
