@@ -1,5 +1,5 @@
 $white: #EFEFEF;
-$blue: #D1D1D1;
+$grey: #D1D1D1;
 $orange: #FC5130;
 
 
@@ -17,7 +17,7 @@ $orange: #FC5130;
   padding: 13px;
   padding-bottom: 8px;
   // background: linear-gradient(90deg, #0D2C54 50%, #F6F6F6 50%);
-  background: linear-gradient(70deg, $blue 50%, $white 50%);
+  background: linear-gradient(70deg, $grey 50%, $white 50%);
 }
 
 .card-display {
