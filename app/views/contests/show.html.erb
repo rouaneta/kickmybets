@@ -2,7 +2,7 @@
 <!-- Banner -->
 <div class="banner-container">
     <div id="gambler-view">
-<div class="bettings-info ">
+<div class="bettings-path-info ">
   <%= link_to 'Go to bet view', participation_path(Participation.where(user_id: @user.id, contest_id: @contest).first) %>
 </div>
       <% if Participation.where(user_id: @user.id, contest_id: @contest).empty? %>
