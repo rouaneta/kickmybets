@@ -7,7 +7,7 @@ body h2, body h3 {
   font-family: roboto;
 }
 
-.container::after {
+.container-gambler::after {
     content: "";
     display: block;
     margin: 0 auto;
@@ -15,4 +15,8 @@ body h2, body h3 {
     padding-top: 60px;
     margin-bottom: 30px;
     border-bottom: 1px solid lightgrey;
+}
+
+#dashboard-title{
+  margin: 0;
 }
