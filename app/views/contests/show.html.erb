@@ -25,7 +25,9 @@
 
   <div class="brackets">
     <% @contest.games.where(phase: 3).order(:id).each do |game| %>
-      <%= render 'shared/admin_card', game: game %>
+      <div id="parent-admin-card-<%= game.id %>">
+        <%= render 'shared/admin_card', game: game %>
+      </div>
     <% end %>
   </div>
 
@@ -33,7 +35,9 @@
 
   <div class="brackets">
     <% @contest.games.where(phase: 2).order(:id).each do |game| %>
-      <%= render 'shared/admin_card', game: game %>
+      <div id="parent-admin-card-<%= game.id %>">
+        <%= render 'shared/admin_card', game: game %>
+      </div>
     <% end %>
   </div>
 
@@ -41,7 +45,9 @@
 
   <div class="brackets">
     <% @contest.games.where(phase: 1).order(:id).each do |game| %>
-      <%= render 'shared/admin_card', game: game %>
+      <div id="parent-admin-card-<%= game.id %>">
+        <%= render 'shared/admin_card', game: game %>
+      </div>
     <% end %>
   </div>
 </div>

@@ -1,0 +1,6 @@
+const card = document.querySelector('#admin-card-<%= @game.id %>');
+const cardParent = document.querySelector('#parent-admin-card-<%= @game.id %>');
+
+cardParent.innerHTML = "<%= j render 'shared/admin_card', game: @game %>";
+
+

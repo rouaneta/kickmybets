@@ -15,6 +15,6 @@ class GamesController < ApplicationController
   def update_status
     @game = Game.find(params[:id])
     @game.update(status: 'ongoing')
-    redirect_to contest_path(@game.contest)
+    render :update_status_success
   end
 end
