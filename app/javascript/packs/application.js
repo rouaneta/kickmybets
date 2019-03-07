@@ -8,4 +8,3 @@ playersGenerator();
 burgerNavbar();
 bettableDisplay();
 setGradient();
-
