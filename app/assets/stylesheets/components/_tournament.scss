@@ -2,7 +2,7 @@ $white: #EFEFEF;
 $grey: #D1D1D1;
 $orange: #FC5130;
 :root {
-  --gradient: 20%
+  --gradient: 50%
 }
 
 
@@ -19,7 +19,6 @@ $orange: #FC5130;
   border-radius: 20px;
   padding: 13px;
   padding-bottom: 8px;
-  // background: linear-gradient(90deg, #0D2C54 50%, #F6F6F6 50%);
   background: linear-gradient(70deg, $grey var(--gradient), $white var(--gradient));
 }
 
