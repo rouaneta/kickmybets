@@ -92,7 +92,7 @@ $orange: #FC5130;
   border: solid 1px black;
 }
 
-.unbettable-games {
+.game-group-card {
   &:last-child {
     grid-column: span 2;
     padding: 10px;
@@ -121,7 +121,7 @@ $orange: #FC5130;
   .brackets {
     grid-template-columns: 1fr;
   }
-  .unbettable-games {
+  .game-group-card {
   &:last-child {
     grid-column: span 1;
     padding: 10px;
@@ -138,20 +138,4 @@ $orange: #FC5130;
 
 .text-player {
   color: black;
-}
-
-.Event-card-height {
-  height: 100px;
-}
-
-.comment-banner-update {
-  position: absolute;
-  top: -2px;
-  left: 20%;
-}
-
-.comment-banner-winner {
-  position: absolute;
-  top: -7px;
-  right: 1%;
 }

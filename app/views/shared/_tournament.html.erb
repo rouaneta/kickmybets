@@ -5,6 +5,28 @@
 
 <div class="tournament">
 
+  <h2>Events</h2>
+
+   <div class="show-button-modal">
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createEventModal">
+        Submit a new bet
+      </button>
+   </div>
+
+  <div class="brackets">
+
+    <% @events.each_with_index do |event, index| %>
+
+      <% betable_class = event.betable?(current_user) ? 'bettable-games' : 'unbettable-games' %>
+
+      <div class="<%= betable_class %> event-group-card">
+        <%= render 'shared/game_display_card', resource: event, participation: participation, index: index %>
+      </div>
+
+    <% end %>
+
+  </div>
+
   <h2>Games</h2>
 
   <div class="brackets">
@@ -13,27 +35,11 @@
 
       <% betable_class = game.betable?(current_user) ? 'bettable-games' : 'unbettable-games' %>
 
-      <div class="<%= betable_class %>">
+      <div class="<%= betable_class %> game-group-card">
         <%= render 'shared/game_display_card', resource: game, participation: participation %>
       </div>
 
     <% end %>
-  </div>
-
-  <h2>Events</h2>
-
-  <div class="brackets">
-
-    <% @events.each_with_index do |event, index| %>
-
-      <% betable_class = event.betable?(current_user) ? 'bettable-games' : 'unbettable-games' %>
-
-      <div class="<%= betable_class %>">
-        <%= render 'shared/game_display_card', resource: event, participation: participation, index: index %>
-      </div>
-
-    <% end %>
-
   </div>
 
 </div>
