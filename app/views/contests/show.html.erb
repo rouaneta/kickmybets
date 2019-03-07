@@ -2,6 +2,9 @@
 <!-- Banner -->
 <div class="banner-container">
     <div id="gambler-view">
+<div class="bettings-info ">
+  <%= link_to 'Go to bet view', participation_path(Participation.where(user_id: @user.id, contest_id: @contest).first) %>
+</div>
       <% if Participation.where(user_id: @user.id, contest_id: @contest).empty? %>
         <%= render 'create_participation', participation: @participation, user_id: @user.id, contest_id: @contest.id %>
       <% else %>
@@ -17,9 +20,6 @@
   </div>
 </div>
 
-<div class="bettings-info ">
-  <%= link_to 'Go to bet view', participation_path(Participation.where(user_id: @user.id, contest_id: @contest).first) %>
-</div>
 
 <!-- Games -->
 <div class="container">

@@ -26,11 +26,13 @@ flex-direction: column;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 90%;
+  width: 200px;
   color: white;
   opacity: 0.8;
+  padding: 20px;
   a {
-    color: black;
+
+    color: white;
     border-top: 1px white solid;
     border-bottom: 1px white solid;
     opacity: 0.8
