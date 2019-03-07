@@ -3,6 +3,9 @@
     <% if game.status == "pending" %>
       <%= image_tag "players/default.jpg", class: "avatar-player", alt: "avatar-player" %>
     <% else %>
+      <% if game.send("player_#{number}".to_sym).id == game.player_winner_id %>
+        <div><i class="fas fa-crown"></i></div>
+      <% end %>
       <%= image_tag game.send("player_#{number}".to_sym).picture_path, class: "avatar-player", alt: "avatar-player" %>
     <% end %>
     <div class="player-name text-player-<%= number %>">
@@ -21,4 +24,5 @@
     </div>
   </div>
 </div>
+
 
