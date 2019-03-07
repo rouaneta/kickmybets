@@ -5,7 +5,6 @@
       <% if Participation.where(user_id: @user.id, contest_id: @contest).empty? %>
         <%= render 'create_participation', participation: @participation, user_id: @user.id, contest_id: @contest.id %>
       <% else %>
-        <%= link_to 'Go to gambler view', participation_path(Participation.where(user_id: @user.id, contest_id: @contest).first) %>
       <% end %>
     </div>
   <div class="show-banner" style="background-image: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.6)), url(<%= image_path(@contest.picture_path) %>)">
@@ -18,6 +17,9 @@
   </div>
 </div>
 
+<div class="bettings-info ">
+  <%= link_to 'Go to bet view', participation_path(Participation.where(user_id: @user.id, contest_id: @contest).first) %>
+</div>
 
 <!-- Games -->
 <div class="container">
