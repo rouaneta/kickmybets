@@ -4,16 +4,36 @@
 </div>
 
 <div class="tournament">
+
+  <h2>Games</h2>
+
   <div class="brackets">
+
     <% participation.contest.games.order(:id).each do |game| %>
 
       <% betable_class = game.betable?(current_user) ? 'bettable-games' : 'unbettable-games' %>
 
       <div class="<%= betable_class %>">
-        <%= render 'shared/tournament_display_all', game: game, participation: participation %>
+        <%= render 'shared/game_display_card', resource: game, participation: participation %>
       </div>
 
     <% end %>
+  </div>
+
+  <h2>Events</h2>
+
+  <div class="brackets">
+
+    <% @events.each_with_index do |event, index| %>
+
+      <% betable_class = event.betable?(current_user) ? 'bettable-games' : 'unbettable-games' %>
+
+      <div class="<%= betable_class %>">
+        <%= render 'shared/game_display_card', resource: event, participation: participation, index: index %>
+      </div>
+
+    <% end %>
+
   </div>
 
 </div>
