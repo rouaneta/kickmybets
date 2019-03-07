@@ -22,10 +22,10 @@
 
     <div class="whole-info-box text-center">
 
+      <%= render 'shared/odds_sums', resource: resource, class: 'game-info-box' %>
       <% if resource.betable?(current_user) %>
 
         <%#= Display BET NOW button (Game is betable) %>
-        <%= render 'shared/odds_sums', resource: resource, class: 'game-info-box' %>
         <%= render 'shared/bet_function_modal', resource: resource, participation: participation %>
 
       <% elsif (resource.class.to_s == 'Event') || (resource.player_one && resource.player_two) %>
@@ -34,12 +34,10 @@
         <% if bet && bet.gains %>
 
           <%#= Bet is closed %>
-          <%= render 'shared/odds_sums', resource: resource, class: 'game-info-box' %>
           <%= render 'shared/your_gains', bet: bet %>
         <% elsif bet %>
 
           <%#= Bet is pending %>
-          <%= render 'shared/odds_sums', resource: resource, class: 'game-info-box' %>
           <%= render 'shared/your_bet', bet: bet %>
         <% end %>
 
