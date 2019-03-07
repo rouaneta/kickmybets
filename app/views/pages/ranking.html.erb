@@ -1,7 +1,25 @@
 <div class="container">
-<h1>Ranking -- <%= @contest.title %></h1>
+<h1><strong><%= @contest.title %></strong> - Overview</h1>
+
+<%#= LINKS TO GO BACK ON ADMIN/GAMBLER VIEWS %>
+
+<% unless Participation.where(user: current_user, contest: @contest).empty? %>
+  <%= link_to participation_path(Participation.where(user: current_user, contest: @contest).first), class: 'ranking-nav-link' do %>
+    <i class="fas fa-chevron-left"></i> Gambler view
+  <% end %>
+<% end %>
+
+<% if @contest.creator_id == current_user.id %>
+  <%= link_to contest_path(@contest), class: 'ranking-nav-link' do %>
+    <i class="fas fa-chevron-left"></i> Admin view
+  <% end %>
+<% end %>
+
+<%#= PODIUM %>
 
 <%= render 'podium', players: @participations.map{ |participation| participation.user } %>
+
+<%#= RANKING TABLE %>
 
 <table id="ranking-table">
   <thead>
@@ -19,9 +37,9 @@
         <td class="ranking-td td-rank"><strong><%= index + 1 %></strong></td>
         <td class="ranking-td td-avatar"><%= image_tag participation.user.picture_path, class: 'ranking-avatar' %></td>
         <td class="ranking-td"><%= participation.user.nickname %></td>
-        <td class="ranking-td td-betcoins"><%= participation.betcoins %> Ƀ</td>
-        <td class="ranking-td td-bets">4<%= Bet.where(participation_id: participation.id).where('gains > 0').count %></td>
-        <td class="ranking-td td-bets">4<%= Bet.where(participation_id: participation.id).where('gains = 0').count %></td>
+        <td class="ranking-td td-betcoins"><%= participation.betcoins.round(1) %> Ƀ</td>
+        <td class="ranking-td td-bets"><%= Bet.where(participation_id: participation.id).where('gains > 0').count %></td>
+        <td class="ranking-td td-bets"><%= Bet.where(participation_id: participation.id).where('gains = 0').count %></td>
       </tr>
     <% end %>
   </tbody>

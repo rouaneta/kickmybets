@@ -1,3 +1,5 @@
+$orangekick: #FC5130;
+
 .ranking-avatar {
   width: 45px;
   height: 45px;
@@ -46,5 +48,16 @@
 
 .td-betcoins {
   font-weight: bold;
-  width: 70px;
+  width: 85px;
+}
+
+.ranking-nav-link {
+  display: block;
+  color: $orangekick;
+  padding: 5px;
+  &:hover {
+    text-decoration: none;
+    color: $orangekick;
+    opacity: 0.8;
+  }
 }
