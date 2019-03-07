@@ -7,7 +7,7 @@
       <% if resource.class.to_s == 'Game' %>
         <%= image_tag resource.player_one.picture_path, class: "avatar-player-bet", alt: "avatar-player" %>
       <% elsif resource.class.to_s == 'Event' %>
-        <%= resource.choice_one %>
+        <span class="event-choice-bet"><%= resource.choice_one %></span>
       <% end %>
     </label>
     <input class="choice" type="radio" name="bet[choice]" value=2 id="select-<%= resource.class.to_s %>-two-<%= resource.id %>">
@@ -15,7 +15,7 @@
       <% if resource.class.to_s == 'Game' %>
         <%= image_tag resource.player_two.picture_path, class: "avatar-player-bet", alt: "avatar-player" %>
       <% elsif resource.class.to_s == 'Event' %>
-        <%= resource.choice_two %>
+        <span class="event-choice-bet"><%= resource.choice_two %></span>
       <% end %>
     </label>
   </div>
