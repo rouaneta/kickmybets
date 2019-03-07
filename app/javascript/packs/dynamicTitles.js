@@ -4,15 +4,15 @@ const initializeTitles = () => {
   const quarterFinals = document.querySelector('.game-phase-3');
 
   if (finals) {
-    finals.insertAdjacentHTML('beforebegin', '</div><h3>Final</h3><div class="brackets">');
+    finals.insertAdjacentHTML('beforebegin', '<h3 style="grid-column: span 2;">Final</h3>');
   }
 
   if (semiFinals) {
-    semiFinals.insertAdjacentHTML('beforebegin', '</div><h3>Semi-Finals</h3><div class="brackets">');
+    semiFinals.insertAdjacentHTML('beforebegin', '<h3 style="grid-column: span 2;">Semi-Finals</h3>');
   }
 
   if (quarterFinals) {
-    quarterFinals.insertAdjacentHTML('beforebegin', '</div><h3>Quarter-Finals</h3><div class="brackets">');
+    quarterFinals.insertAdjacentHTML('beforebegin', '<h3 style="grid-column: span 2;">Quarter-Finals</h3>');
   }
 };
 

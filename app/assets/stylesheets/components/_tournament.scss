@@ -100,14 +100,10 @@ $orange: #FC5130;
   border: solid 1px black;
 }
 
-.game-group-card {
-  &:last-child {
-    grid-column: span 2;
-    padding: 10px;
-  }
+.game-group-card.game-phase-1 {
+  grid-column: span 2;
+  padding: 10px;
 }
-
-
 
 .bettable-games {
 }
@@ -129,12 +125,10 @@ $orange: #FC5130;
   .brackets {
     grid-template-columns: 1fr;
   }
-  .game-group-card {
-  &:last-child {
+  .game-group-card.game-phase-1 {
     grid-column: span 1;
     padding: 10px;
   }
-}
 }
 
 .text-score-one {
