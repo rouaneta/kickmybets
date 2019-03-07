@@ -11,23 +11,7 @@
         <h4 class="modal-title" id="bet-title"><%= "#{resource.choice_one.capitalize} VS #{resource.choice_two.capitalize}" %></h4>
       </div>
       <div class="modal-body">
-        <%= simple_form_for [participation, bet], remote: true do |f| %>
-          <%= f.error_notification %>
-          <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-          <div class="select-choice">
-            <input class="choice" type="radio" name="bet[choice]" value=1 id="select-p-one-<%= resource.id %>">
-            <label for="select-p-one-<%= resource.id %>"><%= image_tag resource.player_one.picture_path, class: "avatar-player-bet", alt: "avatar-player" %></label>
-            <input class="choice" type="radio" name="bet[choice]" value=2 id="select-p-two-<%= resource.id %>">
-            <label for="select-p-two-<%= resource.id %>"><%= image_tag resource.player_two.picture_path, class: "avatar-player-bet", alt: "avatar-player" %></label>
-          </div>
-          <%= f.input :amount, label: "Show me what you got", placeholder: "How much?"%>
-          <div id="betcoins-remaining">
-            <%= "(#{participation.betcoins} betcoins remaining)"%>
-          </div>
-          <%= f.hidden_field :resource_id, value: resource.id %>
-          <%= f.hidden_field :resource_type, value: 'Game' %>
-          <%= f.button :submit, class: 'btn btn-info', data: {confirm: "Is that all you got? You can't go back on a bet" }, value: "Kick bets!"%>
-        <% end %>
+        <%= render "shared/bet_form_modal", participation: participation, resource: resource, bet: Bet.new %>
       </div>
     </div>
   </div>

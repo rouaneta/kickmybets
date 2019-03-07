@@ -10,7 +10,7 @@
     <% end %>
     <div class="player-name text-player-<%= number %>">
       <%= game.send("player_#{number}".to_sym).name.capitalize unless game.send("player_#{number}".to_sym).nil?%>
-      <%= render 'shared/odds_on_player', number: number, resource: game, game: game, class: 'game-info-box' %>
+      <%= render 'shared/odds_on_player', number: number, resource: game, class: 'game-info-box' %>
     </div>
   </div>
 

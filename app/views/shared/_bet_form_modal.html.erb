@@ -1,0 +1,29 @@
+<%= simple_form_for [participation, bet], remote: true do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+  <div class="select-choice">
+    <input class="choice" type="radio" name="bet[choice]" value=1 id="select-<%= resource.class.to_s %>-one-<%= resource.id %>">
+    <label for="select-<%= resource.class.to_s %>-one-<%= resource.id %>">
+      <% if resource.class.to_s == 'Game' %>
+        <%= image_tag resource.player_one.picture_path, class: "avatar-player-bet", alt: "avatar-player" %>
+      <% elsif resource.class.to_s == 'Event' %>
+        <span class="event-choice-bet"><%= resource.choice_one %></span>
+      <% end %>
+    </label>
+    <input class="choice" type="radio" name="bet[choice]" value=2 id="select-<%= resource.class.to_s %>-two-<%= resource.id %>">
+    <label for="select-<%= resource.class.to_s %>-two-<%= resource.id %>">
+      <% if resource.class.to_s == 'Game' %>
+        <%= image_tag resource.player_two.picture_path, class: "avatar-player-bet", alt: "avatar-player" %>
+      <% elsif resource.class.to_s == 'Event' %>
+        <span class="event-choice-bet"><%= resource.choice_two %></span>
+      <% end %>
+    </label>
+  </div>
+  <%= f.input :amount, label: "Show me what you got", placeholder: "How much?"%>
+  <div id="betcoins-remaining">
+    <%= "(#{participation.betcoins} betcoins remaining)"%>
+  </div>
+  <%= f.hidden_field :resource_id, value: resource.id %>
+  <%= f.hidden_field :resource_type, value: resource.class.to_s %>
+  <%= f.button :submit, class: 'btn btn-info', data: {confirm: "Is that all you got? You can't go back on a bet" }, value: "Kick bets!"%>
+<% end %>

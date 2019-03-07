@@ -1,4 +1,4 @@
-<div class="card-tournament" data-resource-type="<%= resource.class.to_s %>" data-resource-id="<%= resource.id %>">
+<div class="card-tournament <%= resource.class.to_s %>-card" data-resource-type="<%= resource.class.to_s %>" data-resource-id="<%= resource.id %>">
 
   <%#= TITLE IF EVENT %>
 
@@ -22,13 +22,11 @@
 
     <div class="whole-info-box text-center">
 
+      <%= render 'shared/odds_sums', resource: resource, class: 'game-info-box' %>
       <% if resource.betable?(current_user) %>
 
         <%#= Display BET NOW button (Game is betable) %>
-        <%= render 'shared/odds_sums', resource: resource, class: 'game-info-box' %>
-        <% if resource.class.to_s == 'Game' %>
-          <%= render 'shared/bet_function_modal', resource: resource, participation: participation, bet: Bet.new %>
-        <% end %>
+        <%= render 'shared/bet_function_modal', resource: resource, participation: participation %>
 
       <% elsif (resource.class.to_s == 'Event') || (resource.player_one && resource.player_two) %>
 
@@ -36,12 +34,10 @@
         <% if bet && bet.gains %>
 
           <%#= Bet is closed %>
-          <%= render 'shared/odds_sums', resource: resource, class: 'game-info-box' %>
           <%= render 'shared/your_gains', bet: bet %>
         <% elsif bet %>
 
           <%#= Bet is pending %>
-          <%= render 'shared/odds_sums', resource: resource, class: 'game-info-box' %>
           <%= render 'shared/your_bet', bet: bet %>
         <% end %>
 
@@ -62,27 +58,26 @@
 
   <%# COMMENTS %>
 
-  <div class="comments-icon">
+  <div class="footer-icons">
     <%= render 'shared/comments_collapse', resource: resource, participation: participation %>
 
     <%# Update event status if it's still 'coming' %>
 
     <% if resource.class.to_s == 'Event' %>
+      <!-- Button trigger modal -->
+      <% if (resource.user == participation.user) && !(resource.choice_win) %>
 
-      <% event = resource %>
+        <button type="button" class="btn-event-settings" data-toggle="modal" data-target="#settings-event-<%= resource.id %>">
+          <i class="fas fa-cog"></i>
+        </button>
 
-      <% if (event.user == participation.user) && event.status == 'coming' %>
-        <%= link_to 'Close bets for this one', update_status_participation_event_path(participation, event), method: :patch, class: 'btn btn-warning btn-xs comment-banner-update', data: {confirm: "Do you really want to close bets for this event? You can't go back on this hard decision"} %>
-      <% end %>
+        <!-- Modal -->
 
-      <%# Update result of event if CurrentUser is the creator AND the Winner is not defined yet %>
+        <%= render 'shared/modal_event_settings', resource: resource, participation: participation, index: index %>
 
-      <% if (event.user == participation.user) && !(event.choice_win) %>
-        <%= render 'update_event_modal', participation: participation, event: event, index: index %>
       <% end %>
 
     <% end %>
-
 
   </div>
 </div>

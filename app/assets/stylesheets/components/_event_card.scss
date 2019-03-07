@@ -1,0 +1,37 @@
+$orangekick: #FC5130;
+
+.event-card-title {
+  color: $orangekick;
+  font-weight: bold;
+  text-align: center;
+}
+
+.Event-card-height {
+  //height: 150px;
+}
+
+.flex-event-settings {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.modal-btn-update {
+
+}
+
+.modal-btn-winner {
+
+}
+
+.btn-event-settings {
+  border: none;
+  background: transparent;
+  position: absolute;
+  top: 0px;
+  right: 5px;
+}
+
+.event-choice-card {
+  font-weight: bold;
+}
