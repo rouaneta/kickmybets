@@ -1,3 +1,6 @@
+$orangekick: #FC5130;
+$blue: #0D2C54;
+
 .whole-info-box{
   display: flex;
   flex-direction: column;
@@ -56,3 +59,46 @@
   position: relative;
   top: 30px;
 }
+
+.close-bet-btn {
+  color: white;
+  background-color: #FC5130BB;
+  opacity: 1;
+  border: solid 2px #F1F1F3;
+  border-radius: 25px;
+  padding: 13px;
+  &:hover {
+    text-decoration: none;
+    color: white;
+    background-color: $orangekick;
+  }
+}
+
+.btn-validate-bet {
+  color: white;
+  background-color: #0D2C54BB;
+  opacity: 1;
+  border: solid 2px #F1F1F3;
+  border-radius: 25px;
+  padding: 13px;
+  &:hover {
+    text-decoration: none;
+    color: white;
+    background-color: $blue;
+  }
+}
+
+.create-event-btn {
+  background-color: white;
+  border: solid 1px $orangekick;
+  border-radius: 20px;
+  padding: 10px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  &:hover{
+    border: solid 2px $orangekick;
+    font-weight: bold;
+    background-color: rgba(252, 81, 47, 0.2);
+  }
+}
+
