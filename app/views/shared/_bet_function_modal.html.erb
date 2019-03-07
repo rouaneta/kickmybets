@@ -11,7 +11,7 @@
         <h4 class="modal-title" id="bet-title"><%= "#{resource.choice_one.capitalize} VS #{resource.choice_two.capitalize}" %></h4>
       </div>
       <div class="modal-body">
-        <%= render "shared/bet_form_modal_#{resource.class.to_s}", participation: participation, resource: resource, bet: Bet.new %>
+        <%= render "shared/bet_form_modal", participation: participation, resource: resource, bet: Bet.new %>
       </div>
     </div>
   </div>
