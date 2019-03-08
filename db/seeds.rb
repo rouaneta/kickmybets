@@ -1,4 +1,5 @@
 puts "Emptying database"
+  Game.destroy_all
   User.destroy_all
 
 puts "Creating Users"
@@ -390,15 +391,17 @@ puts"Creating participations"
   participation_pedro = Participation.create!(user: pedro, contest: pingpong, betcoins: pingpong.coins_init)
   participation_dhh = Participation.create!(user: dhh, contest: pingpong, betcoins: pingpong.coins_init)
   participation_arthur = Participation.create!(user: arthur, contest: boulescarrees, betcoins: boulescarrees.coins_init)
-  participation_eleonore = Participation.create!(user: eleonore, contest: pingpong, betcoins: -1000)
-  participation_matthieu = Participation.create!(user: matthieu, contest: pingpong, betcoins: -1000)
-  participation_francois = Participation.create!(user: francois, contest: pingpong, betcoins: -1000)
-  participation_joseph = Participation.create!(user: joseph, contest: pingpong, betcoins: -1000)
-  participation_tenderlove = Participation.create!(user: tenderlove, contest: pingpong, betcoins: -1000)
-  participation_kevin = Participation.create!(user: kevin, contest: pingpong, betcoins: -1000)
-  participation_toto = Participation.create!(user: toto, contest: pingpong, betcoins: -1000)
-  participation_boris = Participation.create!(user: boris, contest: pingpong, betcoins: -1000)
-  
+
+
+  participation_eleonore = Participation.create!(user: eleonore, contest: pingpong, betcoins: 0)
+  participation_matthieu = Participation.create!(user: matthieu, contest: pingpong, betcoins: 0)
+  participation_francois = Participation.create!(user: francois, contest: pingpong, betcoins: 0)
+  participation_joseph = Participation.create!(user: joseph, contest: pingpong, betcoins: 0)
+  participation_tenderlove = Participation.create!(user: tenderlove, contest: pingpong, betcoins: 0)
+  participation_kevin = Participation.create!(user: kevin, contest: pingpong, betcoins: 0)
+  participation_toto = Participation.create!(user: toto, contest: pingpong, betcoins: 0)
+  participation_boris = Participation.create!(user: boris, contest: pingpong, betcoins: 0)
+
 puts "Creating Events"
   event = Event.create!(
     participation: participation_nathan,
@@ -555,3 +558,14 @@ puts "Creating comments"
       content: "@boris on rail"
     }
   )
+
+puts "Creating bets"
+  bet_participations = Participation.where(contest: pingpong).where('betcoins > 10')
+  Game.all.each do |game|
+    puts ">> Creating for #{game}..."
+    bet_participations.sample(10).each do |participation|
+      Bet.create!(resource: game, amount: rand(1..10), participation: participation, choice: rand(1..2))
+    end
+  end
+puts "#{Bet.count} bets randomly created"
+puts "All finished"
