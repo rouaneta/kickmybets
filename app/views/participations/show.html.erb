@@ -9,11 +9,16 @@
       <% end %>
     </div>
     <div class="available-coins">
-      <p>Available coins: <%= @participation.betcoins %> <i class="fas fa-coins"></i></p>
+      <p>Available coins: <span id="banner-coins-counter"><%= @participation.betcoins.round(1) %></span> <i class="fas fa-coins"></i></p>
     </div>
   </div>
 </div>
 
+<%# COINS ICON %>
+
+<div id="coins-icon">
+  <strong><span id="fixed-coins-counter"><%= @participation.betcoins.round(1) %></span></strong>&nbsp;<i class="fas fa-coins"></i>
+</div>
 
 <div class="container">
 

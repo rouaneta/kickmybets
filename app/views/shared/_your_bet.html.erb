@@ -1,5 +1,5 @@
 <div class="you-bet-info">
   <p>You bet<br>
   <strong><%= bet.amount %> Ƀ</strong><br>
-  on <%= bet.resource.send("choice#{bet.choice}".to_sym) %></p>
+  on <%= bet.resource.send("choice#{bet.choice}".to_sym).capitalize %></p>
 </div>
