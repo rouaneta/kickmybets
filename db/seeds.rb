@@ -260,7 +260,7 @@ puts "Creating Users"
   )
 
 puts "Creating Contests"
-  Contest.create!(
+  boulescarrees = Contest.create!(
     {
     picture_path: 'contests/boulescarrees.jpg',
     title: "Boules carrées",
@@ -367,6 +367,8 @@ puts"Creating participations"
   participation_ouramdane = Participation.create!(user: ouramdane, contest: pingpong, betcoins: pingpong.coins_init)
   participation_pedro = Participation.create!(user: pedro, contest: pingpong, betcoins: pingpong.coins_init)
   participation_dhh = Participation.create!(user: dhh, contest: pingpong, betcoins: pingpong.coins_init)
+  participation_arthur = Participation.create!(user: arthur, contest: boulescarrees, betcoins: boulescarrees.coins_init)
+
 
 puts "Creating Events"
   event = Event.create!(

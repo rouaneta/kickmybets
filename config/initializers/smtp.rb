@@ -1,9 +1,8 @@
-# ActionMailer::Base.smtp_settings = {
-#   user_name: ENV['SENDGRID_USERNAME'],
-#   password: ENV['SENDGRID_APP_PASSWORD'],
-#   domain: 'kickmybets.fun',
-#   address: 'smtp.sendgrid.net',
-#   port: 587,
-#   authentication: :plain,
-#   enable_starttls_auto: true
-# }
+ActionMailer::Base.smtp_settings = {
+  api_token: ENV['POSTMARK_API_KEY'],
+  domain: 'kickmybets.fun',
+  address: 'smtp.postmark.com',
+  port: 587,
+  authentication: :plain,
+  enable_starttls_auto: true
+}
