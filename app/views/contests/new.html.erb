@@ -1,6 +1,10 @@
-<h1>New contests</h1>
-<%= link_to "back to dashboard", dashboard_path %>
+<div class="show-banner" style="background-image: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.6)), url(<%= image_path(@contest.picture_path) %>)">
+  <div class="show-title">
+    New contest
+  </div>
+</div>
 
+<div class="container">
 <%= simple_form_for @contest do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
@@ -14,5 +18,7 @@
 
   <%= f.input :coins_init %>
   <%= f.input :picture_path, class: "form-controlform-text text-muted" %>
-  <%= f.submit %>
+  <%= f.button :submit, "Create contest", class: "create-event-btn" %>
 <% end %>
+
+</div>

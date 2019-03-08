@@ -1,9 +1,15 @@
 function createBetAjax() {
   const card = document.querySelector('#<%= @bet.resource_type %>-<%= @bet.resource_id %>');
   const cardParent = document.querySelector('#parent-<%= @bet.resource_type %>-<%= @bet.resource_id %>');
+  const fixedCoinsCounter = document.querySelector('#fixed-coins-counter');
+  const bannerCoinsCounter = document.querySelector('#banner-coins-counter');
 
   // window.location = '<%= participation_path(@bet.participation) %>'
   cardParent.innerHTML = "<%= j render 'shared/game_display_card', resource: @bet.resource, participation: @participation %>";
+  cardParent.classList.replace('bettable-games', 'unbettable-games');
+
+  fixedCoinsCounter.innerHTML = "<%= @participation.betcoins.round(1) %>";
+  bannerCoinsCounter.innerHTML = "<%= @participation.betcoins.round(1) %>";
 
   card.querySelector('.close').click();
   const event = new CustomEvent('new_content', { 'detail': '#<%= @bet.resource_type %>-<%= @bet.resource_id %>' });
