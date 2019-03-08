@@ -387,13 +387,36 @@ puts"Creating participations"
   participation_pedro = Participation.create!(user: pedro, contest: pingpong, betcoins: pingpong.coins_init)
   participation_dhh = Participation.create!(user: dhh, contest: pingpong, betcoins: pingpong.coins_init)
   participation_arthur = Participation.create!(user: arthur, contest: boulescarrees, betcoins: boulescarrees.coins_init)
-
-
+  participation_eleonore = Participation.create!(user: eleonore, contest: pingpong, betcoins: -1000)
+  participation_matthieu = Participation.create!(user: matthieu, contest: pingpong, betcoins: -1000)
+  participation_francois = Participation.create!(user: francois, contest: pingpong, betcoins: -1000)
+  participation_joseph = Participation.create!(user: joseph, contest: pingpong, betcoins: -1000)
+  participation_tenderlove = Participation.create!(user: tenderlove, contest: pingpong, betcoins: -1000)
+  participation_kevin = Participation.create!(user: kevin, contest: pingpong, betcoins: -1000)
+  participation_toto = Participation.create!(user: toto, contest: pingpong, betcoins: -1000)
+  participation_boris = Participation.create!(user: boris, contest: pingpong, betcoins: -1000)
+  
 puts "Creating Events"
   event = Event.create!(
     participation: participation_nathan,
     title: "Fracture du mental pour François en demi-finale",
     choice_one: "Fracture",
     choice_two: "Pas de fracture, man!"
+  )
+
+puts "Creating comments"
+  Comment.create!(
+    {
+      resource: game_4_1,
+      participation: participation_boris,
+      content: "Come on guys"
+    }
+  )
+  Comment.create!(
+    {
+      resource: game_4_1,
+      participation: participation_boris,
+      content: "Need you to focus"
+    }
   )
 
