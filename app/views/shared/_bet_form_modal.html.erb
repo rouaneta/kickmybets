@@ -20,8 +20,8 @@
     </label>
   </div>
   <%= f.input :amount, label: "Show me what you got", placeholder: "How much?"%>
-  <div id="betcoins-remaining">
-    <%= "(#{participation.betcoins} Ƀ remaining)"%>
+  <div class="betcoins-remaining">
+    (<span class="label-betcoins-remaining"><%= participation.betcoins %></span>Ƀ remaining)
   </div>
   <%= f.hidden_field :resource_id, value: resource.id %>
   <%= f.hidden_field :resource_type, value: resource.class.to_s %>
