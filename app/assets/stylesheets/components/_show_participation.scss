@@ -29,12 +29,29 @@ flex-direction: column;
     padding: 4px;
     border-top: 1px white solid;
     border-bottom: 1px white solid;
-    opacity: 0.8
-    }
-    a:hover {
+    opacity: 0.8;
+    &:hover {
       text-decoration: none;
       opacity: 1;
     }
+  }
+  .simple_form {
+    color: white;
+    padding: 4px;
+    border-top: 1px white solid;
+    border-bottom: 1px white solid;
+    opacity: 0.8;
+    &:hover {
+      text-decoration: none;
+      opacity: 1;
+    }
+    input {
+      color: white;
+      padding: 0px;
+      background: none;
+      font-size: 18px;
+    }
+  }
 }
 
 .available-coins {
