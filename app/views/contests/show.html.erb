@@ -6,13 +6,12 @@
     <%= link_to 'Go to gambler view', participation_path(Participation.where(user_id: @user.id, contest_id: @contest).first) %>
     <div class="code-mail">
       <%= render 'modal_invitation_mail', contest: @contest %>
-      <div class="code">
+      <div class="code" id="invitation-code">
         <%= @contest.code %>
       </div>
     </div>
   </div>
 </div>
-
 
 <!-- Games -->
 <div class="container">
