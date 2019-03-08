@@ -1,4 +1,4 @@
-<%= form_tag(invite_contest_path(contest)) do %>
-  <%= text_field_tag :email %>
-  <%= submit_tag 'send mail' %>
+<%= form_tag(invite_contest_path(contest), class: 'd-flex') do %>
+  <%= text_field_tag :email, "", class: 'form-control', placeholder: 'Enter an email'%>
+  <%= submit_tag 'send mail', class: 'btn btn-primary' %>
 <% end %>
