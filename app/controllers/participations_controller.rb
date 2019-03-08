@@ -1,5 +1,6 @@
 class ParticipationsController < ApplicationController
   def show
+    @user = current_user
     @participation = Participation.find(params[:id])
     @event = Event.new
     @events = Event.joins(:participation).where("participations.contest_id = ?", @participation.contest_id)

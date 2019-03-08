@@ -1,23 +1,24 @@
-.banner-container {
-  position: relative;
-  #gambler-view {
-    position: absolute;
-  }
-}
-
 .code-mail {
   margin: 0 5px;
-  width: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 0 20px;
+  flex-direction: column;
+  padding: 0;
   .code {
     color: white;
     font-family: 'Indie Flower', cursive;;
     font-size: 35px;
     opacity: 0.9;
   }
+}
+#mailModal {
+  color: #0D2C54;
+  font-family: 'Open Sans';
+  font-size: 15px;
+}
+.btn-send-email:hover {
+  border: solid 1px white;
+  font-weight: normal;
 }
 
 .info-player {
