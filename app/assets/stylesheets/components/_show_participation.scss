@@ -46,11 +46,13 @@ flex-direction: column;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   width: 90%;
   color: white;
   opacity: 0.8;
   a {
     color: white;
+    padding: 4px;
     border-top: 1px white solid;
     border-bottom: 1px white solid;
     opacity: 0.8

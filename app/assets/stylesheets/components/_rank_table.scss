@@ -50,14 +50,3 @@ $orangekick: #FC5130;
   font-weight: bold;
   width: 85px;
 }
-
-.ranking-nav-link {
-  display: block;
-  color: $orangekick;
-  padding: 5px;
-  &:hover {
-    text-decoration: none;
-    color: $orangekick;
-    opacity: 0.8;
-  }
-}

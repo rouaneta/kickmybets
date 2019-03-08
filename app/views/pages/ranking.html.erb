@@ -1,19 +1,23 @@
+<div class="show-banner" style="background-image: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.6)), url(<%= image_path(@contest.picture_path) %>)">
+  <div class="show-title">
+    <%= "#{@contest.title} - Podium" %>
+  </div>
+  <%#= LINKS TO GO BACK ON ADMIN/GAMBLER VIEWS %>
+  <div class="bettings-info">
+    <% unless Participation.where(user: current_user, contest: @contest).empty? %>
+      <%= link_to participation_path(Participation.where(user: current_user, contest: @contest).first) do %>
+        <i class="fas fa-chevron-left"></i> Gambler view
+      <% end %>
+    <% end %>
+    <% if @contest.creator_id == current_user.id %>
+      <%= link_to contest_path(@contest) do %>
+        Admin view <i class="fas fa-chevron-right"></i>
+      <% end %>
+    <% end %>
+</div>
+</div>
+
 <div class="container">
-<h1><strong><%= @contest.title %></strong> - Overview</h1>
-
-<%#= LINKS TO GO BACK ON ADMIN/GAMBLER VIEWS %>
-
-<% unless Participation.where(user: current_user, contest: @contest).empty? %>
-  <%= link_to participation_path(Participation.where(user: current_user, contest: @contest).first), class: 'ranking-nav-link' do %>
-    <i class="fas fa-chevron-left"></i> Gambler view
-  <% end %>
-<% end %>
-
-<% if @contest.creator_id == current_user.id %>
-  <%= link_to contest_path(@contest), class: 'ranking-nav-link' do %>
-    <i class="fas fa-chevron-left"></i> Admin view
-  <% end %>
-<% end %>
 
 <%#= PODIUM %>
 
