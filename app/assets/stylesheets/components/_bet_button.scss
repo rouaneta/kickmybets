@@ -30,8 +30,8 @@ $blue: #0D2C54;
 }
 
 
-.bet-button-display:hover {
-
+.bet-button-display:focus {
+    outline: none;
 }
 
 .odds-sum-info {

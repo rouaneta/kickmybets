@@ -50,6 +50,9 @@ $blue: #0D2C54;
   top: 0px;
   right: 5px;
 }
+.btn-event-settings:focus {
+    outline: none;
+}
 
 .event-choice-card {
   border: 1px white solid;
