@@ -462,7 +462,7 @@ puts "Creating comments"
     {
       resource: game_2_1,
       participation: participation_toto,
-      content: "@jpheos je t'ai bien niqué"
+      content: "@jpheos ça t'apprendra petit fifou"
     }
   )
   Comment.create!(
