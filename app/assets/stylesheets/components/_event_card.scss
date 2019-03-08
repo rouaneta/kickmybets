@@ -35,12 +35,6 @@ $blue: #0D2C54;
   //height: 150px;
 }
 
-.flex-event-settings {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-}
-
 .modal-btn-update {
 
 }
@@ -55,6 +49,9 @@ $blue: #0D2C54;
   position: absolute;
   top: 0px;
   right: 5px;
+}
+.btn-event-settings:focus {
+    outline: none;
 }
 
 .event-choice-card {
