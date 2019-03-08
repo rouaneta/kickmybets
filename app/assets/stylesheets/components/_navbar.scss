@@ -1,56 +1,66 @@
 .menu-buttons {
-  z-index: 1000;
+  // z-index: 1000;
   display: flex;
   justify-content: space-between;
   width: 100%;
   align-items: center;
   position: fixed;
   padding: 20px;
-  button {
+}
+button {
+  background-color: transparent !important;
+  &:focus, &:active {
     background-color: transparent;
-    &:focus, &:active {
-      background-color: transparent;
-    }
-    &:focus:active {
-      background-color: transparent;
-    }
   }
-  #dashboard-shortcut {
-    color: #FC5130;
-    font-size: 40px;
-    background-color:transparent;
-    padding: 5px;
-    text-decoration: none;
-    &:hover {
-      transform: scale(1.1);
-    }
+  &:focus:active {
+    background-color: transparent;
   }
+}
+#dashboard-shortcut {
+  z-index: 1000;
+  position: fixed;
+  left: 20px;
+  top: 15px;
+  color: #FC5130;
+  font-size: 40px;
+  background-color:transparent;
+  padding: 5px;
+  text-decoration: none;
+  &:hover {
+    transform: scale(1.1);
+  }
+}
 
-  #home-menu {
+#home-menu {
+  position: fixed;
+  right: 20px;
+  top: 15px;
+  color: #FC5130;
+  z-index: 1000;
+  text-decoration: none;
+  padding: 0px;
+  border:none;
+  margin: 0px;
+  background: none;
+  &:hover {
+    transform: scale(1.1);
+  }
+  #home-button {
+    padding: 5px;
+    border:none;
+    font-size: 40px;
     color: #FC5130;
     text-decoration: none;
-    padding: 0px;
-    border:none;
-    margin: 0px;
-    background: none;
     &:hover {
-      transform: scale(1.1);
+      background-color: transparent;
     }
-    #home-button {
-      padding: 5px;
-      border:none;
-      font-size: 40px;
-      color: #FC5130;
-      text-decoration: none;
-      &:hover {
-        background-color: transparent;
-      }
-    }
-    .dropdown-menu {
-      font-size: 15px !important;
-      font-family: 'Open Sans' !important;
-      background-color: rgba(255,255,255,0.8) !important;
-    }
+  }
+  .dropdown-menu {
+    font-size: 15px !important;
+    font-family: 'Open Sans' !important;
+    background-color: rgba(255,255,255,0.8) !important;
+    position: absolute;
+    left: -106px;
   }
 }
 .open > .btn-default.dropdown-toggle {
