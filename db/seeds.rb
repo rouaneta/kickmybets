@@ -269,7 +269,7 @@ puts "Creating Contests"
     category: "cup",
     code: "eByTvh8ne",
     players_nb: 2,
-    creator: arthur,
+    creator: matthieu,
     players_attributes: [{name: "Toto"}, {name: "Titi"}]
     }
   )
@@ -293,7 +293,7 @@ puts "Creating Contests"
     category: "cup",
     code: "LxYB7TdV",
     players_nb: 2,
-    creator: arthur,
+    creator: matthieu,
     players_attributes: [{name: "Toto"}, {name: "Titi"}]
     }
   )
@@ -305,7 +305,7 @@ puts "Creating Contests"
     category: "cup",
     code: "ihM8nuiy",
     players_nb: 2,
-    creator: arthur,
+    creator: matthieu,
     players_attributes: [{name: "Toto"}, {name: "Titi"}]
     }
   )
@@ -317,7 +317,7 @@ puts "Creating Contests"
     category: "cup",
     code: "rq4HJtur",
     players_nb: 2,
-    creator: arthur,
+    creator: matthieu,
     players_attributes: [{name: "Toto"}, {name: "Titi"}]
     }
   )
@@ -329,7 +329,7 @@ puts "Creating Contests"
     category: "cup",
     code: "TnuTkFz7",
     players_nb: 2,
-    creator: arthur,
+    creator: matthieu,
     players_attributes: [{name: "Toto"}, {name: "Titi"}]
     }
   )
@@ -390,8 +390,7 @@ puts"Creating participations"
   participation_ouramdane = Participation.create!(user: ouramdane, contest: pingpong, betcoins: pingpong.coins_init)
   participation_pedro = Participation.create!(user: pedro, contest: pingpong, betcoins: pingpong.coins_init)
   participation_dhh = Participation.create!(user: dhh, contest: pingpong, betcoins: pingpong.coins_init)
-  participation_arthur = Participation.create!(user: arthur, contest: boulescarrees, betcoins: boulescarrees.coins_init)
-
+  participation_matthieu = Participation.create!(user: matthieu, contest: boulescarrees, betcoins: boulescarrees.coins_init)
 
   participation_eleonore = Participation.create!(user: eleonore, contest: pingpong, betcoins: 0)
   participation_matthieu = Participation.create!(user: matthieu, contest: pingpong, betcoins: 0)
