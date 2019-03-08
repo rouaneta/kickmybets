@@ -1,7 +1,15 @@
 <!-- modal button -->
-    <button type="button" class="btn-send-email" data-toggle="modal" data-target="#mailModal">
-      Send mail invitation
-    </button>
+   <div class="send-email hidden-xs">
+      <button type="button" class="btn-send-email" data-toggle="modal" data-target="#mailModal">
+        Invite Friends
+      </button>
+    </div>
+
+    <div class="send-email-mobile hidden-sm hidden-md hidden-lg">
+      <button type="button" class="fas fa-envelope" data-toggle="modal" data-target="#mailModal">
+      </button>
+    </div>
+
 <!-- modal  -->
 <div class="modal fade" id="mailModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog modal-dialog-custom" role="document">
