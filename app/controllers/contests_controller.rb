@@ -2,7 +2,7 @@ class ContestsController < ApplicationController
   before_action :set_contest, only: %I[show invite update_games]
 
   def show
-    redirect_to dashboard_path if Participation.where(user: current_user, contest: @contest).empty?
+    redirect_to dashboard_path if current_user.id != @contest.creator_id
     @user = current_user
     @participation = Participation.new
   end
