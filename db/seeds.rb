@@ -357,6 +357,9 @@ puts "Overriding game grid"
   game_4_2 = Game.where(contest: pingpong).where(game_code: "101").first
   game_4_3 = Game.where(contest: pingpong).where(game_code: "110").first
   game_4_4 = Game.where(contest: pingpong).where(game_code: "111").first
+  game_2_1 = Game.where(contest: pingpong).where(game_code: "10").first
+  game_2_2 = Game.where(contest: pingpong).where(game_code: "11").first
+  game_1_1 = Game.where(contest: pingpong).where(game_code: "1").first
   game_4_1.update(player_one: player_francois, player_two: player_matthieu)
   game_4_2.update(player_one: player_toto, player_two: player_joseph)
   game_4_3.update(player_one: player_boris, player_two: player_eleonore)
@@ -399,24 +402,156 @@ puts"Creating participations"
 puts "Creating Events"
   event = Event.create!(
     participation: participation_nathan,
-    title: "Fracture du mental pour François en demi-finale",
-    choice_one: "Fracture",
-    choice_two: "Pas de fracture, man!"
+    title: "Matthieu va lâcher une larme à la fin du demoday",
+    choice_one: "0 larme",
+    choice_two: "Grosse larme"
   )
 
 puts "Creating comments"
   Comment.create!(
     {
       resource: game_4_1,
-      participation: participation_boris,
-      content: "Come on guys"
+      participation: participation_matthieu,
+      content: "@all On m'applaudit bien fort !"
     }
   )
   Comment.create!(
     {
       resource: game_4_1,
-      participation: participation_boris,
-      content: "Need you to focus"
+      participation: participation_eleonore,
+      content: "pas trop de déchets @francois où tu vas finir sur #Greenup"
     }
   )
-
+  Comment.create!(
+    {
+      resource: game_4_2,
+      participation: participation_nil_b,
+      content: "@toto si tu cherches du boulot -> Taff'on!!"
+    }
+  )
+  Comment.create!(
+    {
+      resource: game_4_2,
+      participation: participation_toto,
+      content: "@jpheos si je gagne tu me laisses moi et ma famille en paix. Et je te présente mon pote foo."
+    }
+  )
+  Comment.create!(
+    {
+      resource: game_4_2,
+      participation: participation_joseph,
+      content: "c'est cool non ? allez standing ovation de fifous"
+    }
+  )
+  Comment.create!(
+    {
+      resource: game_4_3,
+      participation: participation_francois,
+      content: "Borissss !!!"
+    }
+  )
+  Comment.create!(
+    {
+      resource: game_4_3,
+      participation: participation_eleonore,
+      content: "Sérieux François ?"
+    }
+  )
+  Comment.create!(
+    {
+      resource: game_4_3,
+      participation: participation_david,
+      content: "vous pouvez jouer un peu plus près ?"
+    }
+  )
+  Comment.create!(
+    {
+      resource: game_4_3,
+      participation: participation_julie,
+      content: "chaud pour un jeu de société ? #prelude"
+    }
+  )
+  Comment.create!(
+    {
+      resource: game_4_4,
+      participation: participation_kevin,
+      content: "@tenderlove mollo stp, je suis tombé en trotinette"
+    }
+  )
+  Comment.create!(
+    {
+      resource: game_2_1,
+      participation: participation_toto,
+      content: "@jpheos je t'ai bien niqué"
+    }
+  )
+  Comment.create!(
+    {
+      resource: game_2_1,
+      participation: participation_aymeric,
+      content: "@channel L'auteur de Quatorze (lauréat du prix du Village du Livre de Saint-Pierre-de-Clages... badass) présentera son livre à la librairie Raconte-moi la Terre Bellecour à partir de 18h30."
+    }
+  )
+  Comment.create!(
+    {
+      resource: game_2_1,
+      participation: participation_caroline,
+      content: "@franswé merge lui la tronche"
+    }
+  )
+  Comment.create!(
+    {
+      resource: game_2_2,
+      participation: participation_kevin,
+      content: "allé ley vert lol"
+    }
+  )
+  Comment.create!(
+    {
+      resource: game_2_2,
+      participation: participation_kevin,
+      content: "ptdr tmtc"
+    }
+  )
+  Comment.create!(
+    {
+      resource: game_2_2,
+      participation: participation_dhh,
+      content: "poor style..."
+    }
+  )
+  Comment.create!(
+    {
+      resource: game_2_2,
+      participation: participation_albane,
+      content: "pas dispo, je vais faire une demande de switch #simya"
+    }
+  )
+  Comment.create!(
+    {
+      resource: game_1_1,
+      participation: participation_joseph,
+      content: "astuce de dev : ça c'est super important"
+    }
+  )
+  Comment.create!(
+    {
+      resource: game_1_1,
+      participation: participation_maxime_berger,
+      content: " @françois, évite le fail #thefridge"
+    }
+  )
+  Comment.create!(
+    {
+      resource: game_1_1,
+      participation: participation_boris,
+      content: "come on @francois, I need you to focus"
+    }
+  )
+  Comment.create!(
+    {
+      resource: game_1_1,
+      participation: participation_francois,
+      content: "@boris on rail"
+    }
+  )
