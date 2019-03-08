@@ -1,76 +1,26 @@
-<div class="container">
-  <h1><%= @participation.contest.title %></h1>
-
-  <% if @participation.contest.creator_id == @participation.user_id %>
-    <%= link_to 'Manage contest', contest_path(@participation.contest) %>
-  <% end %>
-
-  <h3>Available coins: <%= @participation.betcoins %> <i class="fas fa-coins"></i></h3>
-
-   <%= render 'shared/tournament', participation: @participation %>
-
-   <hr>
-   <hr>
-
-  <div class="">
-    <% @bets.each do |bet| %>
-      You bet <%= bet.amount %> on <%= bet.resource.send("choice#{bet.choice}".to_sym) %>
-    <% end %>
+<div class="show-banner" style="background-image: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.6)), url(<%= image_path(@participation.contest.picture_path) %>)">
+  <div class="show-title">
+    <%= @participation.contest.title %>
   </div>
+  <div class="bettings-info">
+    <div class="manager">
+      <% if @participation.contest.creator_id == @participation.user_id %>
+        <%= link_to 'Manage contest', contest_path(@participation.contest) %>
+      <% end %>
+    </div>
+    <div class="available-coins">
+      <p>Available coins: <%= @participation.betcoins %> <i class="fas fa-coins"></i></p>
+    </div>
+  </div>
+</div>
 
-  <%# Events %>
 
-  <% @events.each_with_index do |event, index| %>
+<div class="container">
 
-    <h3><%= event.title %></h3>
-
-    <%# Update event status if it's still 'coming' %>
-
-    <% if event.status == 'coming' %>
-      <%= link_to 'Close bets for this one', update_status_participation_event_path(@participation, event), method: :patch, class: 'btn btn-warning', data: {confirm: "Do you really want to close bets for this event? You can't go back on this hard decision"} %>
-    <% end %>
-
-    <%# Update result of event if CurrentUser is the creator AND the Winner is not defined yet %>
-
-    <% if (event.user == @participation.user) && !(event.choice_win) %>
-      <%= render 'update_event_modal', participation: @participation, event: event, index: index %>
-    <% end %>
-
-    <%# Display the 2 bets buttons, disabled if the event is unbetable %>
-
-    <% disabled = event.betable?(current_user) ? '' : 'disabled' %>
-    <% bet1 = Bet.new(resource: event, choice: 1) %>
-    <% bet2 = Bet.new(resource: event, choice: 2) %>
-
-    <%= render 'shared/bet_button', participation: @participation, bet: bet1, disabled: disabled, index: index %>
-    <%= render 'shared/bet_button', participation: @participation, bet: bet2, disabled: disabled, index: index %>
-
-  <% end %>
-
-  <hr><hr>
-
-   <div class="show-button-modal">
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-        Submit a new bet
-      </button>
-   </div>
+    <%= render 'shared/tournament', participation: @participation %>
 
       <!-- Modal -->
 
    <%= render 'events/modal_event' %>
 
-  <br><br><br><br><br><br>
-
-  <% @participation.contest.games.reject{ |game| game.status == 'pending' }.each_with_index do |game, index| %>
-
-    <% disabled = game.betable?(current_user) ? '' : 'disabled' %>
-    <% bet1 = Bet.new(resource: game, choice: 1) %>
-    <% bet2 = Bet.new(resource: game, choice: 2) %>
-
-    <h3><%= game.name %></h3>
-
-    <%= render 'shared/bet_button', participation: @participation, bet: bet1, disabled: disabled, index: index %>
-    <%= render 'shared/bet_button', participation: @participation, bet: bet2, disabled: disabled, index: index %>
-
-  <% end %>
 </div>

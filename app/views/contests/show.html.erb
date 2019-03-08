@@ -1,38 +1,49 @@
-<div class="container">
-  <h1><%= @contest.title %></h1>
-  
-  <p><%= @contest.description %></p>
-  <p><%= @contest.code %></p>
-  
-  <% if Participation.where(user_id: @user.id, contest_id: @contest).empty? %>
-    <%= render 'create_participation', participation: @participation, user_id: @user.id, contest_id: @contest.id %>
-  <% else %>
+<div class="show-banner" style="background-image: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.6)), url(<%= image_path(@contest.picture_path) %>)">
+  <div class="show-title">
+    <%= @contest.title %>
+  </div>
+  <div class="bettings-info">
     <%= link_to 'Go to gambler view', participation_path(Participation.where(user_id: @user.id, contest_id: @contest).first) %>
-  <% end %>
-  
-  <%= render 'modal_invitation_mail', contest: @contest %>
-  
-  <br>
-  
-  <% @contest.games.sort_by { |game| game.id }.each do |game| %>
-    <h3><%= game.name %></h3>
-    <% if game.status != 'pending' %>
-      <p><%= game.player_one.name %> vs <%= game.player_two.name %></p>
-  
-      <% if game.status == 'closed' %>
-        <p><%= game.score_p_one %> - <%= game.score_p_two %></p>
-      <% else %>
-        <%= render 'update_game_score', game: game %>
-        <% if game.status == 'coming' %>
-          <%= link_to 'Close bets for this one', update_status_game_path(game), method: :patch, class: 'btn btn-warning', data: {confirm: "Do you really want to close bets for this game? You can't go back on this hard decision"} %>
-        <% end %>
-      <% end %>
-  
-  
-    <% else %>
-      <p>Still pending...</p>
-    <% end %>
-  
-  
-  <% end %>
+    <div class="code-mail">
+      <%= render 'modal_invitation_mail', contest: @contest %>
+      <div class="code">
+        <%= @contest.code %>
+      </div>
+    </div>
+  </div>
 </div>
+
+
+<!-- Games -->
+<div class="container">
+  <h3>Quarter-Finals</h3>
+
+  <div class="brackets">
+    <% @contest.games.where(phase: 3).order(:id).each do |game| %>
+      <div id="parent-admin-card-<%= game.id %>">
+        <%= render 'shared/admin_card', game: game %>
+      </div>
+    <% end %>
+  </div>
+
+  <h3>Semi-Finals</h3>
+
+  <div class="brackets">
+    <% @contest.games.where(phase: 2).order(:id).each do |game| %>
+      <div id="parent-admin-card-<%= game.id %>">
+        <%= render 'shared/admin_card', game: game %>
+      </div>
+    <% end %>
+  </div>
+
+  <h3>Final</h3>
+
+  <div class="brackets">
+    <% @contest.games.where(phase: 1).order(:id).each do |game| %>
+      <div id="parent-admin-card-<%= game.id %>">
+        <%= render 'shared/admin_card', game: game %>
+      </div>
+    <% end %>
+  </div>
+</div>
+

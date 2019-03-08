@@ -1,0 +1,17 @@
+<%= simple_form_for game, html: {class: "game-form-grid"}, remote: true do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+  <div class="game-form-row">
+      <div class="game-col col-one">
+        <%= f.input :score_p_one, label: "Score #{game.player_one.name.capitalize}" %>
+      </div>
+      <div class="game-col col-two">
+        <%= f.button :submit, value: 'Validate', class: "btn-validate-bet" %>
+      </div>
+      <div class="game-col col-three">
+        <%= f.input :score_p_two, label: "Score #{game.player_two.name.capitalize}" %>
+      </div>
+  </div>
+
+<% end %>
+

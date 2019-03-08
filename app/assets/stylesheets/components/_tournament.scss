@@ -1,7 +1,19 @@
 $white: #EFEFEF;
-$blue: #D1D1D1;
+$grey: #D1D1D1;
 $orange: #FC5130;
+:root {
+  --offset-initial: -10000px;
+  --offset-final: -10000px;
+  --linear-ratio: 0;
+}
 
+.fas.fa-crown {
+  color: $orange;
+  position: absolute;
+  top: -31px;
+  left: 30px;
+  font-size: 32px;
+}
 
 .brackets {
   width: 100%;
@@ -16,8 +28,18 @@ $orange: #FC5130;
   border-radius: 20px;
   padding: 13px;
   padding-bottom: 8px;
-  // background: linear-gradient(90deg, #0D2C54 50%, #F6F6F6 50%);
-  background: linear-gradient(70deg, $blue 50%, $white 50%);
+  background: linear-gradient(70deg, $grey var(--linear-ratio), transparent var(--linear-ratio)), $white;
+  background-repeat-x: no-repeat;
+  animation: glissement 2s ease forwards;
+}
+
+@keyframes glissement {
+  from {
+    background-position-x: var(--offset-initial);
+  }
+  to {
+    background-position-x: var(--offset-final);
+  }
 }
 
 .card-display {
@@ -32,7 +54,8 @@ $orange: #FC5130;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  padding: 5px 60px;
+  padding: 5px 0px;
+  width: 100px;
 }
 
 .player-info {
@@ -45,6 +68,7 @@ $orange: #FC5130;
   font-size: 15px;
   font-weight: 400;
   letter-spacing: 2px;
+  position: relative;
 }
 
 .avatar-player {
@@ -91,14 +115,10 @@ $orange: #FC5130;
   border: solid 1px black;
 }
 
-.unbettable-games {
-  &:last-child {
-    grid-column: span 2;
-    padding: 10px;
-  }
+.game-group-card.game-phase-1 {
+  grid-column: span 2;
+  padding: 10px;
 }
-
-
 
 .bettable-games {
 }
@@ -120,12 +140,10 @@ $orange: #FC5130;
   .brackets {
     grid-template-columns: 1fr;
   }
-  .unbettable-games {
-  &:last-child {
+  .game-group-card.game-phase-1 {
     grid-column: span 1;
     padding: 10px;
   }
-}
 }
 
 .text-score-one {
@@ -138,4 +156,3 @@ $orange: #FC5130;
 .text-player {
   color: black;
 }
-

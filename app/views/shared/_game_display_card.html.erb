@@ -1,0 +1,83 @@
+<div class="card-tournament <%= resource.class.to_s %>-card" data-resource-type="<%= resource.class.to_s %>" data-resource-id="<%= resource.id %>" id="<%= resource.class.to_s %>-<%= resource.id %>">
+
+  <%#= TITLE IF EVENT %>
+
+  <% if resource.class.to_s == 'Event' %>
+    <div class="event-card-title"><%= resource.title %></div>
+  <% end %>
+
+  <%#= FLEX BOX %>
+
+  <div class="card-display <%= resource.class.to_s %>-card-height">
+
+  <%#= CHOICE ONE %>
+
+    <% if resource.class.to_s == 'Game' %>
+      <%= render 'shared/player_card_body', class: 'card-body', game: resource, number: 'one' %>
+    <% elsif resource.class.to_s == 'Event' %>
+      <%= render 'shared/event_choice_card_body', event: resource, number: 'one' %>
+    <% end %>
+
+  <%#= BOX INFO %>
+
+    <div class="whole-info-box text-center">
+
+      <%= render 'shared/odds_sums', resource: resource, class: 'game-info-box' %>
+      <% if resource.betable?(current_user) %>
+
+        <%#= Display BET NOW button (Game is betable) %>
+        <%= render 'shared/bet_function_modal', resource: resource, participation: participation %>
+
+      <% elsif (resource.class.to_s == 'Event') || (resource.player_one && resource.player_two) %>
+
+        <% bet = Bet.where(participation: participation, resource: resource).first %>
+        <% if bet && bet.gains %>
+
+          <%#= Bet is closed %>
+          <%= render 'shared/your_gains', bet: bet %>
+        <% elsif bet %>
+
+          <%#= Bet is pending %>
+          <%= render 'shared/your_bet', bet: bet %>
+        <% end %>
+
+      <% else %>
+        Incoming...
+      <% end %>
+    </div>
+
+  <%#= CHOICE TWO %>
+
+    <% if resource.class.to_s == 'Game' %>
+      <%= render 'shared/player_card_body', class: 'card-body', game: resource, number: 'two' %>
+    <% elsif resource.class.to_s == 'Event' %>
+      <%= render 'shared/event_choice_card_body', event: resource, number: 'two' %>
+    <% end %>
+
+  </div>
+
+  <%# COMMENTS %>
+
+  <div class="footer-icons">
+    <%= render 'shared/comments_collapse', resource: resource, participation: participation %>
+
+    <%# Update event status if it's still 'coming' %>
+
+    <% if resource.class.to_s == 'Event' %>
+      <!-- Button trigger modal -->
+      <% if (resource.user == participation.user) && !(resource.choice_win) %>
+
+        <button type="button" class="btn-event-settings" data-toggle="modal" data-target="#settings-event-<%= resource.id %>">
+          <i class="fas fa-cog"></i>
+        </button>
+
+        <!-- Modal -->
+
+        <%= render 'shared/modal_event_settings', resource: resource, participation: participation %>
+
+      <% end %>
+
+    <% end %>
+
+  </div>
+</div>

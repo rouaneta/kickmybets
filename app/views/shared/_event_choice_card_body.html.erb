@@ -1,0 +1,4 @@
+<div class="card-body text-center" >
+  <span class="event-choice-card"><%= event.send("choice_#{number}") %></span>
+  <%= render 'shared/odds_on_player', number: number, resource: event, class: 'game-info-box' %>
+</div>

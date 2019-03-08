@@ -1,0 +1,14 @@
+<div class="flex-event-settings">
+  <% if event.status == 'coming' %>
+    <%= link_to 'Close bets', update_status_participation_event_path(participation, event), method: :patch, class: 'btn btn-warning btn-xs modal-btn-update' %>
+  <% end %>
+
+  <%# Update result of event if CurrentUser is the creator AND the Winner is not defined yet %>
+
+  <%= simple_form_for [participation, event], remote: true do |f| %>
+    <%= f.error_notification %>
+    <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+    <%= f.input :choice_win, label: "#{event.title}", as: :radio_buttons, collection: [[1, event.choice_one], [2, event.choice_two]], label_method: :last, value_method: :first, required: true %>
+    <%= f.button :submit, class: 'btn btn-info' %>
+  <% end %>
+</div>

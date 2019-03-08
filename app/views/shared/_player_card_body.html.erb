@@ -1,0 +1,28 @@
+<div class="card-body">
+  <div class="player-info">
+    <% if game.status == "pending" %>
+      <%= image_tag "players/default.jpg", class: "avatar-player", alt: "avatar-player" %>
+    <% else %>
+      <% if game.send("player_#{number}".to_sym).id == game.player_winner_id %>
+        <div><i class="fas fa-crown"></i></div>
+      <% end %>
+      <%= image_tag game.send("player_#{number}".to_sym).picture_path, class: "avatar-player", alt: "avatar-player" %>
+    <% end %>
+    <div class="player-name text-player-<%= number %>">
+      <%= game.send("player_#{number}".to_sym).name.capitalize unless game.send("player_#{number}".to_sym).nil?%>
+      <%= render 'shared/odds_on_player', number: number, resource: game, class: 'game-info-box' %>
+    </div>
+  </div>
+
+  <div class="score">
+    <div class="score-title text-score-<%= number %>">
+     <% unless game.send("score_p_#{number}".to_sym).nil? %>
+        <%= game.send("score_p_#{number}".to_sym) %>
+      <% else %>
+        -
+      <% end %>
+    </div>
+  </div>
+</div>
+
+

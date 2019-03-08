@@ -1,1 +1,13 @@
-window.location = '<%= participation_path(@bet.participation) %>'
+function createBetAjax() {
+  const card = document.querySelector('#<%= @bet.resource_type %>-<%= @bet.resource_id %>');
+  const cardParent = document.querySelector('#parent-<%= @bet.resource_type %>-<%= @bet.resource_id %>');
+
+  // window.location = '<%= participation_path(@bet.participation) %>'
+  cardParent.innerHTML = "<%= j render 'shared/game_display_card', resource: @bet.resource, participation: @participation %>";
+
+  card.querySelector('.close').click();
+  const event = new CustomEvent('new_content', { 'detail': '#<%= @bet.resource_type %>-<%= @bet.resource_id %>' });
+  document.dispatchEvent(event);
+}
+
+createBetAjax();

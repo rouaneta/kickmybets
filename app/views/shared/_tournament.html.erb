@@ -1,23 +1,94 @@
+<div class="the-checkbox-menu">
   <div class="checkbox-bet">
-    <input type="checkbox" id="bettable-btn" name="Bettable games" unchecked>
+    <input type="checkbox" id="bettable-btn" name="Bettable games" >
     <label for="scales"> Betable games </label>
   </div>
+  <div class="total-podium">
+    <div class="ranking-path">
+      <div class="ranking-path-icon">
+        <a id="podium-text-display">
+        <%= link_to '', ranking_contest_path(@participation.contest), class: "fas fa-trophy" %>
+      </div>
+      <div class="ranking-path-title">
+        <%= link_to 'Podium', ranking_contest_path(@participation.contest), id: "text-podium" %>
+      </div>
+        </a>
+    </div>
+  </div>
+</div>
 
 <div class="tournament">
+
+  <h3>Quarter-Finals</h3>
+
   <div class="brackets">
-    <% participation.contest.games.order(:id).each do |game| %>
+
+    <% participation.contest.games.where(phase: 3).order(:id).each do |game| %>
 
       <% betable_class = game.betable?(current_user) ? 'bettable-games' : 'unbettable-games' %>
 
-      <div class="<%= betable_class %>">
-        <%= render 'shared/tournament_display_all', game: game, participation: participation %>
+      <div class="<%= betable_class %> game-group-card game-phase-<%= game.phase %>" id="parent-Game-<%= game.id %>">
+        <%= render 'shared/game_display_card', resource: game, participation: participation %>
       </div>
 
     <% end %>
+
+  </div>
+
+  <h3>Semi-Finals</h3>
+
+  <div class="brackets">
+
+    <% participation.contest.games.where(phase: 2).order(:id).each do |game| %>
+
+      <% betable_class = game.betable?(current_user) ? 'bettable-games' : 'unbettable-games' %>
+
+      <div class="<%= betable_class %> game-group-card game-phase-<%= game.phase %>" id="parent-Game-<%= game.id %>">
+        <%= render 'shared/game_display_card', resource: game, participation: participation %>
+      </div>
+
+    <% end %>
+
+  </div>
+
+  <h3>Final</h3>
+
+  <div class="brackets">
+
+    <% participation.contest.games.where(phase: 1).order(:id).each do |game| %>
+
+      <% betable_class = game.betable?(current_user) ? 'bettable-games' : 'unbettable-games' %>
+
+      <div class="<%= betable_class %> game-group-card game-phase-<%= game.phase %>" id="parent-Game-<%= game.id %>">
+        <%= render 'shared/game_display_card', resource: game, participation: participation %>
+      </div>
+
+    <% end %>
+
+  </div>
+
+  <hr>
+
+  <h3>Events</h3>
+
+   <div class="show-button-modal">
+      <button type="button" class="btn-create-event" data-toggle="modal" data-target="#createEventModal">
+        Submit a new bet
+      </button>
+   </div>
+
+  <div class="brackets">
+
+    <% @events.order(:id).each_with_index do |event, index| %>
+
+      <% betable_class = event.betable?(current_user) ? 'bettable-games' : 'unbettable-games' %>
+
+      <div class="<%= betable_class %> event-group-card" id="parent-Event-<%= event.id %>">
+        <%= render 'shared/game_display_card', resource: event, participation: participation %>
+      </div>
+
+    <% end %>
+
   </div>
 
 </div>
-
-
-
-

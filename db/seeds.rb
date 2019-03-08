@@ -150,6 +150,12 @@ users_attributes << {
   picture_path: 'users/ouramdane.jpg'
 }
 users_attributes << {
+  nickname: "arthur",
+  email: "arthur@kickmybets.fun",
+  password: "azertyuiop",
+  picture_path: 'users/arthur.jpg'
+}
+users_attributes << {
   nickname: "pedro",
   email: "pedro@kickmybets.fun",
   password: "azertyuiop",
@@ -224,7 +230,7 @@ Player.where(name: "joseph").first.update(picture_path: "users/joseph.jpg")
 Player.where(name: "benjamin").first.update(picture_path: "users/benjamin.jpg")
 
 puts"Creating participations"
-participation = Participation.create!(user: user, contest: contest, betcoins: 5)
+participation = Participation.create!(user: user, contest: contest, betcoins: contest.coins_init)
 
 puts "Creating Events"
 

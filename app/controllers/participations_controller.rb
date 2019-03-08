@@ -1,5 +1,6 @@
 class ParticipationsController < ApplicationController
   def show
+    @user = current_user
     @participation = Participation.find(params[:id])
     @event = Event.new
     @events = Event.joins(:participation).where("participations.contest_id = ?", @participation.contest_id)
@@ -28,7 +29,7 @@ class ParticipationsController < ApplicationController
   def create_by_code(code)
     @contest = Contest.find_by(code: code)
     if @contest
-      Participation.create!(contest: @contest, user: current_user, betcoins: @contest.coins_init)
+      @participation_new = Participation.create!(contest: @contest, user: current_user, betcoins: @contest.coins_init)
       render :create_success
     else
       render :create_error

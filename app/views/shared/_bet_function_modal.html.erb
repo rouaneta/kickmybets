@@ -1,33 +1,17 @@
-<button type="button" class="bet-button-display" data-toggle="modal" data-target="#GameModal<%= game.id %>">
+<button type="button" class="bet-button-display" data-toggle="modal" data-target="#<%= resource.class.to_s %>Modal<%= resource.id %>">
   Bet now!
 </button>
 
 <!-- Modal -->
-<div class="modal fade" id="GameModal<%= game.id %>" tabindex="-1" role="dialog" aria-labelledby="GameModal<%= game.id %>Label">
+<div class="modal fade" id="<%= resource.class.to_s %>Modal<%= resource.id %>" tabindex="-1" role="dialog" aria-labelledby="<%= resource.class.to_s %>Modal<%= resource.id %>Label">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="bet-title"><%= "#{game.player_one.name.capitalize} VS #{game.player_two.name.capitalize}" %></h4>
+        <h4 class="modal-title" id="bet-title"><%= "#{resource.choice_one.capitalize} VS #{resource.choice_two.capitalize}" %></h4>
       </div>
       <div class="modal-body">
-        <%= simple_form_for [participation, bet], remote: true do |f| %>
-          <%= f.error_notification %>
-          <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-          <div class="select-choice">
-            <input class="choice" type="radio" name="bet[choice]" value=1 id="select-p-one-<%= game.id %>">
-            <label for="select-p-one-<%= game.id %>"><%= image_tag game.player_one.picture_path, class: "avatar-player-bet", alt: "avatar-player" %></label>
-            <input class="choice" type="radio" name="bet[choice]" value=2 id="select-p-two-<%= game.id %>">
-            <label for="select-p-two-<%= game.id %>"><%= image_tag game.player_two.picture_path, class: "avatar-player-bet", alt: "avatar-player" %></label>
-          </div>
-          <%= f.input :amount, label: "Show me what you got", placeholder: "How much?"%>
-          <div id="betcoins-remaining">
-            <%= "(#{participation.betcoins} betcoins remaining)"%>
-          </div>
-          <%= f.hidden_field :resource_id, value: game.id %>
-          <%= f.hidden_field :resource_type, value: 'Game' %>
-          <%= f.button :submit, class: 'btn btn-info', data: {confirm: "Is that all you got? You can't go back on a bet" }, value: "Kick bets!"%>
-        <% end %>
+        <%= render "shared/bet_form_modal", participation: participation, resource: resource, bet: Bet.new %>
       </div>
     </div>
   </div>
