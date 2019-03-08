@@ -3,16 +3,19 @@
     <%= @contest.title %>
   </div>
   <div class="bettings-info">
-    <%= link_to 'Go to gambler view', participation_path(Participation.where(user_id: @user.id, contest_id: @contest).first) %>
+    <% if Participation.where(user_id: @user.id, contest_id: @contest).empty? %>
+      <%= render 'create_participation', participation: @participation, user_id: @user.id, contest_id: @contest.id %>
+    <% else %>
+      <%= link_to 'Go to gambler view', participation_path(Participation.where(user_id: @user.id, contest_id: @contest).first) %>
+    <% end %>
     <div class="code-mail">
       <%= render 'modal_invitation_mail', contest: @contest %>
-      <div class="code">
+      <div class="code" id="invitation-code">
         <%= @contest.code %>
       </div>
     </div>
   </div>
 </div>
-
 
 <!-- Games -->
 <div class="container">

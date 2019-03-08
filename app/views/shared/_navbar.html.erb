@@ -1,15 +1,13 @@
-<div class="menu-buttons">
-  <div class="btn-group" id="home-menu">
-    <button type="button" class="btn btn-default fas fa-power-off dropdown-toggle" id="home-button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    </button>
-    <ul class="dropdown-menu">
-      <li><%= link_to "Homepage", root_path %></li>
-      <li>
-        <%= link_to destroy_user_session_path, method: :delete do %>
-          <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %></a>
-        <% end %>
-      </li>
-    </ul>
-  </div>
-  <%= link_to '', dashboard_path, class: "fas fa-th", id: "dashboard-shortcut" %>
+<%= link_to '', dashboard_path, class: "fas fa-th", id: "dashboard-shortcut" %>
+<div class="btn-group" id="home-menu">
+  <button type="button" class="btn btn-default fas fa-power-off dropdown-toggle" id="home-button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  </button>
+  <ul class="dropdown-menu">
+    <li><%= link_to "Homepage", root_path %></li>
+    <li>
+      <%= link_to destroy_user_session_path, method: :delete do %>
+        <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %></a>
+      <% end %>
+    </li>
+  </ul>
 </div>
