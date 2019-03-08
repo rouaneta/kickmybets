@@ -269,7 +269,7 @@ puts "Creating Contests"
     category: "cup",
     code: "eByTvh8ne",
     players_nb: 2,
-    creator: matthieu,
+    creator: arthur,
     players_attributes: [{name: "Toto"}, {name: "Titi"}]
     }
   )
@@ -329,7 +329,7 @@ puts "Creating Contests"
     category: "cup",
     code: "TnuTkFz7",
     players_nb: 2,
-    creator: matthieu,
+    creator: arthur,
     players_attributes: [{name: "Toto"}, {name: "Titi"}]
     }
   )
@@ -361,10 +361,10 @@ puts "Overriding game grid"
   game_2_1 = Game.where(contest: pingpong).where(game_code: "10").first
   game_2_2 = Game.where(contest: pingpong).where(game_code: "11").first
   game_1_1 = Game.where(contest: pingpong).where(game_code: "1").first
-  game_4_1.update(player_one: player_francois, player_two: player_matthieu)
+  game_4_1.update(player_two: player_francois, player_one: player_matthieu)
   game_4_2.update(player_one: player_toto, player_two: player_joseph)
   game_4_3.update(player_one: player_boris, player_two: player_eleonore)
-  game_4_4.update(player_one: player_kevin, player_two: player_tenderlove)
+  game_4_4.update(player_two: player_kevin, player_one: player_tenderlove)
 
 puts"Creating participations"
   participation_albane = Participation.create!(user: albane, contest: pingpong, betcoins: pingpong.coins_init)
@@ -400,14 +400,6 @@ puts"Creating participations"
   participation_kevin = Participation.create!(user: kevin, contest: pingpong, betcoins: 0)
   participation_toto = Participation.create!(user: toto, contest: pingpong, betcoins: 0)
   participation_boris = Participation.create!(user: boris, contest: pingpong, betcoins: 0)
-
-puts "Creating Events"
-  event = Event.create!(
-    participation: participation_nathan,
-    title: "Matthieu va lâcher une larme à la fin du demoday",
-    choice_one: "0 larme",
-    choice_two: "Grosse larme"
-  )
 
 puts "Creating comments"
   Comment.create!(
@@ -448,20 +440,6 @@ puts "Creating comments"
   Comment.create!(
     {
       resource: game_4_3,
-      participation: participation_francois,
-      content: "Borissss !!!"
-    }
-  )
-  Comment.create!(
-    {
-      resource: game_4_3,
-      participation: participation_eleonore,
-      content: "Sérieux François ?"
-    }
-  )
-  Comment.create!(
-    {
-      resource: game_4_3,
       participation: participation_david,
       content: "vous pouvez jouer un peu plus près ?"
     }
@@ -470,7 +448,7 @@ puts "Creating comments"
     {
       resource: game_4_3,
       participation: participation_julie,
-      content: "chaud pour un jeu de société ? #prelude"
+      content: "Vous voulez pas plutôt faire un jeu de société ? #prelude"
     }
   )
   Comment.create!(
@@ -496,23 +474,9 @@ puts "Creating comments"
   )
   Comment.create!(
     {
-      resource: game_2_1,
-      participation: participation_caroline,
-      content: "@franswé merge lui la tronche"
-    }
-  )
-  Comment.create!(
-    {
       resource: game_2_2,
       participation: participation_kevin,
-      content: "allé ley vert lol"
-    }
-  )
-  Comment.create!(
-    {
-      resource: game_2_2,
-      participation: participation_kevin,
-      content: "ptdr tmtc"
+      content: "allé les vert lol"
     }
   )
   Comment.create!(
