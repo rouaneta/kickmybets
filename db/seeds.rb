@@ -334,14 +334,33 @@ puts "Creating Contests"
   )
 
 puts "Updating players pictures"
-  Player.where(name: "eleonore").first.update(picture_path: "users/eleonore.jpg")
-  Player.where(name: "matthieu").first.update(picture_path: "users/matthieu.jpg")
-  Player.where(name: "francois").first.update(picture_path: "users/francois.jpg")
-  Player.where(name: "joseph").first.update(picture_path: "users/joseph.jpg")
-  Player.where(name: "tenderlove").first.update(picture_path: "users/tenderlove.jpg")
-  Player.where(name: "kevin").first.update(picture_path: "users/kevin.jpg")
-  Player.where(name: "toto").first.update(picture_path: "users/toto.jpg")
-  Player.where(name: "boris").first.update(picture_path: "users/boris.jpg")
+  player_eleonore = Player.where(name: "eleonore").first
+  player_matthieu = Player.where(name: "matthieu").first
+  player_francois = Player.where(name: "francois").first
+  player_joseph = Player.where(name: "joseph").first
+  player_tenderlove = Player.where(name: "tenderlove").first
+  player_kevin = Player.where(name: "kevin").first
+  player_toto = Player.where(name: "toto").first
+  player_boris = Player.where(name: "boris").first
+
+  player_eleonore.update(picture_path: "users/eleonore.jpg")
+  player_matthieu.update(picture_path: "users/matthieu.jpg")
+  player_francois.update(picture_path: "users/francois.jpg")
+  player_joseph.update(picture_path: "users/joseph.jpg")
+  player_tenderlove.update(picture_path: "users/tenderlove.jpg")
+  player_kevin.update(picture_path: "users/kevin.jpg")
+  player_toto.update(picture_path: "users/toto.jpg")
+  player_boris.update(picture_path: "users/boris.jpg")
+
+puts "Overriding game grid"
+  game_4_1 = Game.where(contest: pingpong).where(game_code: "100").first
+  game_4_2 = Game.where(contest: pingpong).where(game_code: "101").first
+  game_4_3 = Game.where(contest: pingpong).where(game_code: "110").first
+  game_4_4 = Game.where(contest: pingpong).where(game_code: "111").first
+  game_4_1.update(player_one: player_francois, player_two: player_matthieu)
+  game_4_2.update(player_one: player_toto, player_two: player_joseph)
+  game_4_3.update(player_one: player_boris, player_two: player_eleonore)
+  game_4_4.update(player_one: player_kevin, player_two: player_tenderlove)
 
 puts"Creating participations"
   participation_albane = Participation.create!(user: albane, contest: pingpong, betcoins: pingpong.coins_init)
