@@ -19,6 +19,7 @@ gem 'uglifier'
 gem 'webpacker'
 gem "letter_opener", group: :development
 gem 'sendgrid-ruby'
+gem 'postmark-rails'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
