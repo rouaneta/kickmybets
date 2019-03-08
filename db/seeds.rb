@@ -564,7 +564,7 @@ puts "Creating bets"
   Game.all.each do |game|
     puts ">> Creating for #{game}..."
     bet_participations.sample(10).each do |participation|
-      Bet.create!(resource: game, amount: rand(1..10), participation: participation, choice: rand(1..2))
+      Bet.create(resource: game, amount: rand(1..20), participation: participation, choice: rand(1..2))
     end
   end
 puts "#{Bet.count} bets randomly created"
