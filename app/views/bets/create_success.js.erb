@@ -3,6 +3,7 @@ function createBetAjax() {
   const cardParent = document.querySelector('#parent-<%= @bet.resource_type %>-<%= @bet.resource_id %>');
   const fixedCoinsCounter = document.querySelector('#fixed-coins-counter');
   const bannerCoinsCounter = document.querySelector('#banner-coins-counter');
+  const labelCoinsCounters = document.querySelectorAll('.label-betcoins-remaining');
 
   // window.location = '<%= participation_path(@bet.participation) %>'
   cardParent.innerHTML = "<%= j render 'shared/game_display_card', resource: @bet.resource, participation: @participation %>";
@@ -10,6 +11,9 @@ function createBetAjax() {
 
   fixedCoinsCounter.innerHTML = "<%= @participation.betcoins.round(1) %>";
   bannerCoinsCounter.innerHTML = "<%= @participation.betcoins.round(1) %>";
+  labelCoinsCounters.forEach((labelCoinsCounter) => {
+    labelCoinsCounter.innerHTML = "<%= @participation.betcoins.round(2) %>";
+  });
 
   card.querySelector('.close').click();
   const event = new CustomEvent('new_content', { 'detail': '#<%= @bet.resource_type %>-<%= @bet.resource_id %>' });
