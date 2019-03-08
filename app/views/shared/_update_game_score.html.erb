@@ -3,13 +3,13 @@
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
   <div class="game-form-row">
       <div class="game-col col-one">
-        <%= f.input :score_p_one, label: "Score #{game.player_one.name.capitalize}" %>
+        <%= f.input :score_p_one, label: false %>
       </div>
       <div class="game-col col-two">
         <%= f.button :submit, value: 'Validate', class: "btn-validate-bet" %>
       </div>
       <div class="game-col col-three">
-        <%= f.input :score_p_two, label: "Score #{game.player_two.name.capitalize}" %>
+        <%= f.input :score_p_two, label: false %>
       </div>
   </div>
 
