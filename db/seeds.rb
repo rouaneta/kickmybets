@@ -262,64 +262,64 @@ puts "Creating Users"
   didier = User.create! (
     {
     nickname: "didier",
-    email: "didier@kickmybets.fun",
-    password: "azertyuiop",
+    email: "didier@a.fun",
+    password: "a",
     picture_path: 'users/didier.jpg'
     }
   )
   jacques = User.create! (
     {
     nickname: "jacques",
-    email: "jacques@kickmybets.fun",
-    password: "azertyuiop",
+    email: "jacques@a.fun",
+    password: "a",
     picture_path: 'users/jacques.jpg'
     }
   )
   kiki = User.create! (
     {
     nickname: "kiki",
-    email: "kiki@kickmybets.fun",
-    password: "azertyuiop",
+    email: "kiki@a.fun",
+    password: "a",
     picture_path: 'users/kiki.jpg'
     }
   )
   lauren = User.create! (
     {
     nickname: "lauren",
-    email: "lauren@kickmybets.fun",
-    password: "azertyuiop",
+    email: "lauren@a.fun",
+    password: "a",
     picture_path: 'users/lauren.jpg'
     }
   )
   matthieu = User.create! (
     {
     nickname: "matthieu",
-    email: "matthieu@kickmybets.fun",
-    password: "azertyuiop",
+    email: "matthieu@a.fun",
+    password: "a",
     picture_path: 'users/matthieu.jpg'
     }
   )
   meryll = User.create! (
     {
     nickname: "meryll",
-    email: "meryll@kickmybets.fun",
-    password: "azertyuiop",
+    email: "meryll@a.fun",
+    password: "a",
     picture_path: 'users/meryll.jpg'
     }
   )
   milou = User.create! (
     {
     nickname: "milou",
-    email: "milou@kickmybets.fun",
-    password: "azertyuiop",
+    email: "milou@a.fun",
+    password: "a",
     picture_path: 'users/milou.jpg'
     }
   )
   victor = User.create! (
     {
     nickname: "victor",
-    email: "victor@kickmybets.fun",
-    password: "azertyuiop",
+    email: "victor@a.fun",
+    password: "a",
     picture_path: 'users/victor.jpg'
     }
   )
