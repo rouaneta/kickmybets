@@ -264,7 +264,7 @@ puts "Creating Users"
     nickname: "didier",
     email: "didier@a.fun",
     password: "azertyuiop",
-    picture_path: 'users/didier.jpg'
+    picture_path: 'users/didier.jpeg'
     }
   )
   jacques = User.create! (
@@ -272,7 +272,7 @@ puts "Creating Users"
     nickname: "jacques",
     email: "jacques@a.fun",
     password: "azertyuiop",
-    picture_path: 'users/jacques.jpg'
+    picture_path: 'users/jacques.jpeg'
     }
   )
   kiki = User.create! (
@@ -280,7 +280,7 @@ puts "Creating Users"
     nickname: "kiki",
     email: "kiki@a.fun",
     password: "azertyuiop",
-    picture_path: 'users/kiki.jpg'
+    picture_path: 'users/kiki.jpeg'
     }
   )
   lauren = User.create! (
@@ -288,15 +288,15 @@ puts "Creating Users"
     nickname: "lauren",
     email: "lauren@a.fun",
     password: "azertyuiop",
-    picture_path: 'users/lauren.jpg'
+    picture_path: 'users/lauren.jpeg'
     }
   )
-  matthieu = User.create! (
+  matthiou = User.create! (
     {
-    nickname: "matthieu",
-    email: "matthieu@a.fun",
+    nickname: "matthiou",
+    email: "matthiou@a.fun",
     password: "azertyuiop",
-    picture_path: 'users/matthieu.jpg'
+    picture_path: 'users/matthiou.jpeg'
     }
   )
   meryll = User.create! (
@@ -304,7 +304,7 @@ puts "Creating Users"
     nickname: "meryll",
     email: "meryll@a.fun",
     password: "azertyuiop",
-    picture_path: 'users/meryll.jpg'
+    picture_path: 'users/meryll.jpeg'
     }
   )
   milou = User.create! (
@@ -312,7 +312,7 @@ puts "Creating Users"
     nickname: "milou",
     email: "milou@a.fun",
     password: "azertyuiop",
-    picture_path: 'users/milou.jpg'
+    picture_path: 'users/milou.jpeg'
     }
   )
   victor = User.create! (
@@ -320,7 +320,7 @@ puts "Creating Users"
     nickname: "victor",
     email: "victor@a.fun",
     password: "azertyuiop",
-    picture_path: 'users/victor.jpg'
+    picture_path: 'users/victor.jpeg'
     }
   )
 
