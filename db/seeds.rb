@@ -259,6 +259,70 @@ puts "Creating Users"
     picture_path: 'users/toto.jpg'
     }
   )
+  didier = User.create! (
+    {
+    nickname: "didier",
+    email: "didier@kickmybets.fun",
+    password: "azertyuiop",
+    picture_path: 'users/didier.jpg'
+    }
+  )
+  jacques = User.create! (
+    {
+    nickname: "jacques",
+    email: "jacques@kickmybets.fun",
+    password: "azertyuiop",
+    picture_path: 'users/jacques.jpg'
+    }
+  )
+  kiki = User.create! (
+    {
+    nickname: "kiki",
+    email: "kiki@kickmybets.fun",
+    password: "azertyuiop",
+    picture_path: 'users/kiki.jpg'
+    }
+  )
+  lauren = User.create! (
+    {
+    nickname: "lauren",
+    email: "lauren@kickmybets.fun",
+    password: "azertyuiop",
+    picture_path: 'users/lauren.jpg'
+    }
+  )
+  matthieu = User.create! (
+    {
+    nickname: "matthieu",
+    email: "matthieu@kickmybets.fun",
+    password: "azertyuiop",
+    picture_path: 'users/matthieu.jpg'
+    }
+  )
+  meryll = User.create! (
+    {
+    nickname: "meryll",
+    email: "meryll@kickmybets.fun",
+    password: "azertyuiop",
+    picture_path: 'users/meryll.jpg'
+    }
+  )
+  milou = User.create! (
+    {
+    nickname: "milou",
+    email: "milou@kickmybets.fun",
+    password: "azertyuiop",
+    picture_path: 'users/milou.jpg'
+    }
+  )
+  victor = User.create! (
+    {
+    nickname: "victor",
+    email: "victor@kickmybets.fun",
+    password: "azertyuiop",
+    picture_path: 'users/victor.jpg'
+    }
+  )
 
 puts "Creating Contests"
   boulescarrees = Contest.create!(
@@ -343,7 +407,6 @@ puts "Updating players pictures"
   player_kevin = Player.where(name: "kevin").first
   player_toto = Player.where(name: "toto").first
   player_boris = Player.where(name: "boris").first
-
   player_eleonore.update(picture_path: "users/eleonore.jpg")
   player_matthieu.update(picture_path: "users/matthieu.jpg")
   player_francois.update(picture_path: "users/francois.jpg")
