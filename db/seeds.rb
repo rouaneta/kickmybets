@@ -263,7 +263,7 @@ puts "Creating Users"
     {
     nickname: "didier",
     email: "didier@a.fun",
-    password: "a",
+    password: "azertyuiop",
     picture_path: 'users/didier.jpg'
     }
   )
@@ -271,7 +271,7 @@ puts "Creating Users"
     {
     nickname: "jacques",
     email: "jacques@a.fun",
-    password: "a",
+    password: "azertyuiop",
     picture_path: 'users/jacques.jpg'
     }
   )
@@ -279,7 +279,7 @@ puts "Creating Users"
     {
     nickname: "kiki",
     email: "kiki@a.fun",
-    password: "a",
+    password: "azertyuiop",
     picture_path: 'users/kiki.jpg'
     }
   )
@@ -287,7 +287,7 @@ puts "Creating Users"
     {
     nickname: "lauren",
     email: "lauren@a.fun",
-    password: "a",
+    password: "azertyuiop",
     picture_path: 'users/lauren.jpg'
     }
   )
@@ -295,7 +295,7 @@ puts "Creating Users"
     {
     nickname: "matthieu",
     email: "matthieu@a.fun",
-    password: "a",
+    password: "azertyuiop",
     picture_path: 'users/matthieu.jpg'
     }
   )
@@ -303,7 +303,7 @@ puts "Creating Users"
     {
     nickname: "meryll",
     email: "meryll@a.fun",
-    password: "a",
+    password: "azertyuiop",
     picture_path: 'users/meryll.jpg'
     }
   )
@@ -311,7 +311,7 @@ puts "Creating Users"
     {
     nickname: "milou",
     email: "milou@a.fun",
-    password: "a",
+    password: "azertyuiop",
     picture_path: 'users/milou.jpg'
     }
   )
@@ -319,7 +319,7 @@ puts "Creating Users"
     {
     nickname: "victor",
     email: "victor@a.fun",
-    password: "a",
+    password: "azertyuiop",
     picture_path: 'users/victor.jpg'
     }
   )
