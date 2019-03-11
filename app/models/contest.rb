@@ -26,7 +26,11 @@ class Contest < ApplicationRecord
   def current_phase
     self.games.where(status: "coming").select(:phase).distinct.map {|e| e.phase}.max
   end
-  
+
+  def contest_finished
+
+  end
+
   private
 
   def generate_grid

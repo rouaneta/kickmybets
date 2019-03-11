@@ -17,6 +17,27 @@
   </div>
 </div>
 
+<!-- TESTS EN COURS -->
+<%= @contest.games.length %>
+<% if @contest.games.last.status = "pending" %>
+  <p>pas finis</p>
+<% else %>
+<p>finis</p>
+<% end %>
+<br><br><br>
+
+<% @contest.games.each do |game| %>
+  <p><%= game.name %> <%= game.score_p_one %> <%= game.score_p_two %> <%= game.status %></p>
+  <% if game.choice_win.nil? %>
+    <p>not finished</p>
+  <% else %>
+    <p>finished</p>
+  <% end %>
+<% end %>
+
+
+
+
 <!-- Games -->
 <div class="container">
   <h3>Quarter-Finals</h3>
