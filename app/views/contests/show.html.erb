@@ -18,11 +18,15 @@
 </div>
 
 <!-- TESTS EN COURS -->
-<%= @contest.games.length %>
-<% if @contest.games.last.status = "pending" %>
-  <p>pas finis</p>
+<h2><%= @contest.status %></h2>
+
+
+<%= @contest.games.select {|e|e[:status] != "closed"}.first.nil? %>
+
+<% if @contest.games.select {|e|e[:status] != "closed"}.first.nil? %>
+  <p>finis</p>
 <% else %>
-<p>finis</p>
+<p>pas finis</p>
 <% end %>
 <br><br><br>
 
@@ -34,6 +38,9 @@
     <p>finished</p>
   <% end %>
 <% end %>
+<!-- FIN TESTS -->
+
+
 
 
 

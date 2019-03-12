@@ -44,6 +44,15 @@ class Game < ApplicationRecord
 
   def update_status
     self.status = "closed" if score_p_one.present? && score_p_two.present?
+    ap self.contest
+    ap self.contest.games
+    if self.contest.games.select { |game| game[:status] != "closed" }.first.nil?
+      raise
+      ap game.status
+      game.contest.status = "finished"
+      raise
+      ap game.contest.status
+    end
   end
 
   def update_winner
